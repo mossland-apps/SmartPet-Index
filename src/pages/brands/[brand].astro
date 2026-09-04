@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { brands, productsByBrand, products } from '../../lib/catalog.js';
+import { getHub } from '../../lib/troubleshooting.js';
+import { overallScore, formatScore } from '../../lib/scoring.js';
+import { productPath, troubleshootingPath, comparePath, listPath, guidePath, GUIDES } from '../../lib/routes.js';
+import { BEST_OF_LISTS, resolveList } from '../../lib/rankings.js';
+
+export function getStaticPaths() {
+  return brands.map((brand) => ({ params: { brand: brand.slug }, props: { brand } }));
+}
+
+const { brand } = Astro.props;
+const models = productsByBrand(brand.slug);
+const rivals = products.filter((p) => p.brand !== brand.slug).slice(0, 3);
+
+const comparisons = models.flatMap((m) =>
+  rivals.slice(0, 2).map((r) => ({ a: m, b: r, href: comparePath(m.slug, r.slug) }))
+).slice(0, 6);
+
+const placements = BEST_OF_LISTS.map((list) => {
+  const ranked = resolveList(list, products);
+  const best = ranked.find((e) => e.product.brand === brand.slug);
+  return best ? { list, entry: best, total: ranked.length } : null;
+}).filter(Boolean);
+
+const hubs = models.filter((m) => getHub(m.slug));
+---
+
+<BaseLayout
+  title={brand.name + ' Litter Boxes'}
+  description={brand.name + ' automatic litter boxes: reviews, comparisons, troubleshooting and current models, all scored on the same six categories.'}
+>
+  <PageHeader
+    eyebrow="Brand"
+    title={brand.name}
+    lede={brand.summary}
+    crumbs={[{ label: 'Brands', href: '/brands/' }, { label: brand.name }]}
+  >
+    <ul class="facts">
+      <li><strong>{models.length}</strong> models tracked</li>
+      {brand.founded && <li><strong>{brand.founded}</strong> founded</li>}
+      {brand.country && <li><strong>{brand.country}</strong> base</li>}
+      {brand.site && <li><strong>{brand.site}</strong> official site</li>}
+    </ul>
+
+    <div class="sw">
+      <div class="sw-card good">
+        <p class="sw-head">Strengths</p>
+        <ul>{brand.strengths.map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <div class="sw-card bad">
+        <p class="sw-head">Weaknesses</p>
+        <ul>{brand.weaknesses.map((x) => <li>{x}</li>)}</ul>
+      </div>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="head">Current models</h2>
+      <div class="models">
+        {models.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  {
+    placements.length > 0 && (
+      <section class="section section-soft">
+        <div class="wrap">
+          <h2 class="head">Where {brand.name} ranks</h2>
+          <div class="table-scroll">
+            <table class="places">
+              <thead>
+                <tr>
+                  <th>Ranking</th>
+                  <th>Best {brand.name} model</th>
+                  <th>Position</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {placements.map((p) => (
+                  <tr>
+                    <td>
+                      <a href={listPath(p.list.slug)}>{p.list.title}</a>
+                    </td>
+                    <td>
+                      <a href={productPath(p.entry.product.slug)}>{p.entry.product.model}</a>
+                    </td>
+                    <td>
+                      #{p.entry.rank} of {p.total}
+                      {p.entry.award && <span class="award"> · {p.entry.award}</span>}
+                    </td>
+                    <td class="strong">{formatScore(p.entry.overall)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <div class="wrap cols">
+      <div>
+        <h2 class="head">Troubleshooting</h2>
+        <ul class="linklist">
+          {
+            hubs.map((m) => (
+              <li>
+                <a href={troubleshootingPath(m.slug)}>{m.model} troubleshooting</a>
+                <span class="soft">{getHub(m.slug).symptoms.length} problems documented</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="head">Comparisons</h2>
+        <ul class="linklist">
+          {
+            comparisons.map((c) => (
+              <li>
+                <a href={c.href}>
+                  {c.a.shortName || c.a.model} vs {c.b.shortName || c.b.model}
+                </a>
+                <span class="soft">
+                  ${c.a.price} vs ${c.b.price}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="head">Guides</h2>
+        <ul class="linklist">
+          {
+            GUIDES.map((g) => (
+              <li>
+                <a href={guidePath(g.slug)}>{g.title}</a>
+              </li>
+            ))
+          }
+          <li><a href="/how-we-test/">How we test and score</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+  }
+
+  .facts strong {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    color: var(--blue-700);
+    display: block;
+    line-height: 1.15;
+  }
+
+  .sw {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 22px;
+    max-width: 780px;
+  }
+
+  .sw-card {
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+
+  .sw-card.good {
+    background: var(--sage-050);
+    border: 1px solid var(--sage-300);
+  }
+
+  .sw-card.bad {
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+
+  .sw-head {
+    font-family: var(--display);
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+
+  .sw-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+  }
+
+  .sw-card li {
+    margin-bottom: 4px;
+  }
+
+  .head {
+    color: var(--blue-700);
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-100);
+  }
+
+  .models {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  table.places {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    min-width: 680px;
+  }
+
+  .places th {
+    background: var(--blue-050);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-700);
+    text-align: left;
+    padding: 11px 12px;
+  }
+
+  .places td {
+    padding: 11px 12px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .award {
+    color: var(--coral);
+  }
+
+  .strong {
+    font-family: var(--display);
+    color: var(--blue-700);
+    font-size: 1.02rem;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+  }
+
+  .linklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .linklist li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.94rem;
+  }
+
+  .soft {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 1000px) {
+    .models {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cols {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .models,
+    .sw {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

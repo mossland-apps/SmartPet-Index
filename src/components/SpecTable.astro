@@ -1,0 +1,86 @@
+---
+import { ALL_SPEC_FIELD_DEFS } from '../lib/schema.js';
+import { formatSpecValue } from '../lib/compare.js';
+
+const { product } = Astro.props;
+const groups = [];
+for (const def of ALL_SPEC_FIELD_DEFS) {
+  let group = groups.find((g) => g.name === def.group);
+  if (!group) {
+    group = { name: def.group, rows: [] };
+    groups.push(group);
+  }
+  group.rows.push({ label: def.label, value: formatSpecValue(product.specs?.[def.key]) });
+}
+
+function money(label, value) {
+  return /cost per year/i.test(label) && value !== '—' ? '$' + value + ' / yr' : value;
+}
+---
+
+<div class="specs">
+  {
+    groups.map((group) => (
+      <section class="group">
+        <h3>{group.name}</h3>
+        <dl>
+          {group.rows.map((row) => (
+            <div class="row">
+              <dt>{row.label}</dt>
+              <dd>{money(row.label, row.value)}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 34px;
+  }
+
+  .group h3 {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+    margin: 0 0 8px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  dl {
+    margin: 0;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.92rem;
+  }
+
+  dt {
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+    max-width: 55%;
+  }
+
+  dd {
+    margin: 0;
+    text-align: right;
+    color: var(--ink);
+  }
+
+  @media (max-width: 760px) {
+    .specs {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

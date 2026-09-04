@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { products, brands, getBrand } from '../../lib/catalog.js';
+import { getHub } from '../../lib/troubleshooting.js';
+import { troubleshootingPath } from '../../lib/routes.js';
+
+const hubs = products
+  .map((p) => ({ product: p, hub: getHub(p.slug) }))
+  .filter((x) => x.hub);
+
+const byBrand = brands
+  .map((b) => ({ brand: b, items: hubs.filter((h) => h.product.brand === b.slug) }))
+  .filter((g) => g.items.length);
+
+const totalSymptoms = hubs.reduce((n, h) => n + h.hub.symptoms.length, 0);
+---
+
+<BaseLayout
+  title="Litter Box Troubleshooting"
+  description="Fix automatic litter box problems by model: flashing lights, failed cycles, wrong weight readings, offline units, drawer errors and persistent odor."
+>
+  <PageHeader
+    eyebrow="Help"
+    title="Litter Box Troubleshooting"
+    lede="Pick your model. Every hub uses the same structure — what the symptom means, what usually causes it, the fixes in the order worth trying, and the point at which you should stop and open a warranty case instead."
+    crumbs={[{ label: 'Troubleshooting' }]}
+  >
+    <ul class="stats">
+      <li><strong>{hubs.length}</strong> models covered</li>
+      <li><strong>{totalSymptoms}</strong> documented problems</li>
+    </ul>
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap">
+      {
+        byBrand.map((group) => (
+          <div class="group">
+            <h2>{group.brand.name}</h2>
+            <div class="cards">
+              {group.items.map(({ product, hub }) => (
+                <a class="card" href={troubleshootingPath(product.slug)}>
+                  <span class="model">{product.model}</span>
+                  <span class="count">{hub.symptoms.length} problems documented</span>
+                  <ul class="preview">
+                    {hub.symptoms.slice(0, 4).map((s) => (
+                      <li>{s.title}</li>
+                    ))}
+                  </ul>
+                  <span class="cta">Open the hub →</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .stats {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .stats strong {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    color: var(--blue-700);
+    display: block;
+    line-height: 1.1;
+  }
+
+  .group + .group {
+    margin-top: 34px;
+  }
+
+  .group h2 {
+    color: var(--blue-700);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-100);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    color: var(--ink);
+  }
+
+  .card:hover {
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+  }
+
+  .model {
+    font-family: var(--display);
+    font-size: 1.14rem;
+  }
+
+  .count {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  .preview {
+    list-style: none;
+    margin: 10px 0 12px;
+    padding: 0;
+    font-size: 0.87rem;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+
+  .preview li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .preview li::before {
+    content: '·';
+    position: absolute;
+    left: 3px;
+    color: var(--sage-600);
+  }
+
+  .cta {
+    font-size: 0.86rem;
+    color: var(--blue-700);
+    margin-top: auto;
+  }
+
+  @media (max-width: 900px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

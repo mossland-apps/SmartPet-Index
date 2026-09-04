@@ -1,0 +1,18 @@
+{
+  "slug": "casa-leo",
+  "name": "Casa Leo",
+  "country": "United States",
+  "founded": 2020,
+  "site": "casaleo.com",
+  "summary": "Casa Leo's Leo's Loo Too is the most direct challenger to the Litter-Robot at a lower price, with a comparable globe design and a much more aggressive odor package.",
+  "strengths": [
+    "UV sterilisation and deodoriser included",
+    "Competitive against Litter-Robot on price",
+    "Standard bags"
+  ],
+  "weaknesses": [
+    "Smaller company, thinner parts supply",
+    "App is functional but plain",
+    "Fewer safety redundancies"
+  ]
+}

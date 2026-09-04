@@ -1,0 +1,78 @@
+---
+import { SCORE_CATEGORIES } from '../lib/schema.js';
+import { formatScore } from '../lib/scoring.js';
+const { scores, showBlurbs = false } = Astro.props;
+---
+
+<ul class="bars">
+  {
+    SCORE_CATEGORIES.map((cat) => {
+      const value = scores?.[cat.key];
+      const pct = typeof value === 'number' ? Math.max(2, (value / 10) * 100) : 0;
+      return (
+        <li>
+          <div class="row">
+            <span class="label">{cat.label}</span>
+            <span class="value">{formatScore(value)}</span>
+          </div>
+          <div class="track">
+            <span class="fill" style={`width:${pct}%`} />
+          </div>
+          {showBlurbs && <p class="blurb">{cat.blurb}</p>}
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .bars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bars li + li {
+    margin-top: 14px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 5px;
+  }
+
+  .label {
+    font-family: var(--display);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  .value {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--blue-700);
+  }
+
+  .track {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--line-soft);
+    overflow: hidden;
+  }
+
+  .fill {
+    display: block;
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--blue-500), var(--sage-500));
+  }
+
+  .blurb {
+    margin: 6px 0 0;
+    font-size: 0.83rem;
+    color: var(--ink-faint);
+  }
+</style>

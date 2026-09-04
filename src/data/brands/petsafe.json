@@ -1,0 +1,18 @@
+{
+  "slug": "petsafe",
+  "name": "PetSafe",
+  "country": "United States",
+  "founded": 1991,
+  "site": "petsafe.com",
+  "summary": "PetSafe is the mass-retail incumbent. ScoopFree predates most of this category and uses a rake-and-tray design rather than a rotating globe. Cheap to buy, expensive to feed.",
+  "strengths": [
+    "Widely stocked and easy to return",
+    "Low entry price",
+    "Simple mechanism, little to break"
+  ],
+  "weaknesses": [
+    "Crystal tray refills are costly and mandatory",
+    "No clumping litter support",
+    "Basic app"
+  ]
+}

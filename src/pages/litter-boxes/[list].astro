@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import RankEntry from '../../components/RankEntry.astro';
+import { products } from '../../lib/catalog.js';
+import { BEST_OF_LISTS, resolveList } from '../../lib/rankings.js';
+import { listPath, productPath } from '../../lib/routes.js';
+import { formatScore } from '../../lib/scoring.js';
+
+export function getStaticPaths() {
+  return BEST_OF_LISTS.map((list) => ({ params: { list: list.slug }, props: { list } }));
+}
+
+const { list } = Astro.props;
+const ranked = resolveList(list, products);
+const topSlug = ranked[0]?.product.slug;
+const others = BEST_OF_LISTS.filter((l) => l.slug !== list.slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: list.title,
+  description: list.intro,
+  itemListElement: ranked.map((e) => ({
+    '@type': 'ListItem',
+    position: e.rank,
+    name: e.product.model,
+    url: new URL(productPath(e.product.slug), Astro.site).href,
+  })),
+};
+---
+
+<BaseLayout title={list.title} description={list.intro} jsonLd={jsonLd}>
+  <PageHeader
+    eyebrow="Ranking"
+    title={list.title}
+    lede={list.intro}
+    crumbs={[{ label: 'Litter Boxes', href: '/litter-boxes/' }, { label: list.shortTitle }]}
+  >
+    <p class="meta-line">
+      {ranked.length} models ranked · Updated 2 September 2026 ·
+      <a href="/how-we-test/">How we score</a>
+    </p>
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="summary">
+        <h2>At a glance</h2>
+        <div class="table-scroll">
+          <table class="glance">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Model</th>
+                <th>Award</th>
+                <th>Price</th>
+                <th>Overall</th>
+                <th>Odor</th>
+                <th>Safety</th>
+                <th>Bags</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                ranked.map((e) => (
+                  <tr>
+                    <td class="num">{e.rank}</td>
+                    <td>
+                      <a href={productPath(e.product.slug)}>{e.product.model}</a>
+                    </td>
+                    <td class="award-cell">{e.award || '—'}</td>
+                    <td>${e.product.price}</td>
+                    <td class="strong">{formatScore(e.overall)}</td>
+                    <td>{formatScore(e.product.scores.odorControl)}</td>
+                    <td>{formatScore(e.product.scores.safety)}</td>
+                    <td class="tiny-cell">{e.product.specs.bagType}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="entries">
+        {ranked.map((entry) => <RankEntry entry={entry} compareWith={topSlug} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>Other rankings</h2>
+      <div class="other-grid">
+        {
+          others.map((l) => (
+            <a class="other-card" href={listPath(l.slug)}>
+              <span class="other-kicker">Best</span>
+              <span class="other-title">{l.cardLabel}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .meta-line {
+    margin: 14px 0 0;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+  }
+
+  .summary {
+    margin-bottom: 10px;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  table.glance {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 720px;
+  }
+
+  .glance th {
+    background: var(--blue-050);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-700);
+    text-align: left;
+    padding: 11px 12px;
+    white-space: nowrap;
+  }
+
+  .glance td {
+    padding: 11px 12px;
+    border-top: 1px solid var(--line-soft);
+    vertical-align: middle;
+  }
+
+  .glance tbody tr:nth-child(even) {
+    background: var(--bg-soft);
+  }
+
+  .num {
+    font-family: var(--display);
+    color: var(--ink-faint);
+  }
+
+  .strong {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--blue-700);
+  }
+
+  .award-cell {
+    font-size: 0.82rem;
+    color: var(--coral);
+  }
+
+  .tiny-cell {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .other-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .other-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+    border: 2px solid var(--sage-300);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    color: var(--ink);
+  }
+
+  .other-card:hover {
+    border-color: var(--sage-600);
+    text-decoration: none;
+  }
+
+  .other-kicker {
+    font-family: var(--display);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  .other-title {
+    font-family: var(--display);
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 800px) {
+    .other-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

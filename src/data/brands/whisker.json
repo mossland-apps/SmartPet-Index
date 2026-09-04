@@ -1,0 +1,19 @@
+{
+  "slug": "whisker",
+  "name": "Whisker",
+  "aka": "Litter-Robot",
+  "country": "United States",
+  "founded": 1999,
+  "site": "litter-robot.com",
+  "summary": "The company that invented this category and still sets the benchmark. Whisker builds the Litter-Robot line in Michigan, sells direct, and charges accordingly. Support and parts availability are the best in the market; the prices are the worst.",
+  "strengths": [
+    "Best-in-class support and spare parts",
+    "Genuinely quiet mechanisms",
+    "No proprietary consumables"
+  ],
+  "weaknesses": [
+    "Highest prices in the category",
+    "Large footprint",
+    "Subscription upsells at checkout"
+  ]
+}

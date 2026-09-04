@@ -1,0 +1,439 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products, CATEGORIES } from '../lib/catalog.js';
+import { BEST_OF_LISTS, getList, resolveList } from '../lib/rankings.js';
+import { SITE } from '../config/site.js';
+import { guides } from '../lib/guides.js';
+import { guidePath } from '../lib/routes.js';
+
+const overallList = resolveList(getList('best-automatic-litter-boxes'), products);
+const budgetList = resolveList(getList('best-budget-automatic-litter-boxes'), products);
+const multiCatList = resolveList(getList('best-litter-boxes-for-multiple-cats'), products);
+const odorList = resolveList(getList('best-litter-boxes-for-odor-control'), products);
+
+// Four picks, four different products — never award the same box twice.
+const used = new Set();
+function pick(list, award) {
+  const entry = list.find((e) => !used.has(e.product.slug));
+  if (!entry) return null;
+  used.add(entry.product.slug);
+  return { product: entry.product, award };
+}
+const picks = [
+  pick(overallList, 'Best Overall'),
+  pick(budgetList, 'Best Value'),
+  pick(multiCatList, 'Best for Multiple Cats'),
+  pick(odorList, 'Best Odor Control'),
+].filter(Boolean);
+
+const liveCategory = CATEGORIES.find((c) => c.live);
+const comingCategories = CATEGORIES.filter((c) => !c.live);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+};
+---
+
+<BaseLayout
+  title={null}
+  description="Independent rankings, structured specs and troubleshooting for automatic litter boxes and smart pet tech. Compare any two boxes side by side."
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>SmartPet Index — Smart Pet Tech Tested and Ranked</h1>
+      <p class="hero-lede">
+        We build a full spec sheet for every product, score it on six things that actually matter, and
+        publish the method. Right now we are deep in automatic litter boxes.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/litter-boxes/best-automatic-litter-boxes/">See the Rankings</a>
+        <a class="btn btn-outline" href="/compare/">Compare Two Boxes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section picks-section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Our Picks for the Best of the Best</h2>
+        <p class="section-note">Based on <strong>current SmartPet Index rankings</strong></p>
+      </div>
+
+      <div class="picks-grid">
+        {picks.map((p) => <ProductCard product={p.product} award={p.award} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Rankings by Use Case</h2>
+        <p class="section-note">Every list is generated from the same scored database</p>
+      </div>
+
+      <div class="best-grid">
+        {
+          BEST_OF_LISTS.map((list) => (
+            <a class="best-card" href={'/litter-boxes/' + list.slug + '/'}>
+              <span class="best-kicker">Best</span>
+              <span class="best-title">{list.cardLabel}</span>
+              <span class="best-count">{resolveList(list, products).length} boxes ranked</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap browse">
+      <div class="browse-live">
+        <p class="eyebrow">Now covering</p>
+        <h2 class="browse-title">{liveCategory.name}</h2>
+        <p class="muted">
+          {products.length} models in the database, each with a full standardized spec sheet, six category
+          scores, a structured review and its own troubleshooting hub.
+        </p>
+        <div class="browse-actions">
+          <a class="btn btn-primary" href="/litter-boxes/">Litter Box Hub</a>
+          <a class="btn btn-outline" href="/reviews/">All Reviews</a>
+          <a class="btn btn-outline" href="/troubleshooting/">Troubleshooting</a>
+        </div>
+      </div>
+
+      <div class="browse-next">
+        <p class="eyebrow">Coming next</p>
+        <ul class="soon-list">
+          {
+            comingCategories.map((c) => (
+              <li>
+                <span class="soon-name">{c.name}</span>
+                <span class="soon-blurb">{c.blurb}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Latest Guides</h2>
+        <p class="section-note">The questions that come before a product choice</p>
+      </div>
+      <div class="guide-grid">
+        {
+          guides.map((g) => (
+            <a class="guide-card" href={guidePath(g.slug)}>
+              <span class="guide-kicker">Guide</span>
+              <span class="guide-title">{g.title}</span>
+              <span class="guide-sum">{g.summary}</span>
+              <span class="guide-cta">Read it →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap trust">
+      <div class="trust-card">
+        <p class="eyebrow">Method</p>
+        <h3>How We Test Smart Litter Boxes</h3>
+        <p class="muted">
+          Six scored categories, a fixed 30-day protocol, and the same measurements on every unit — cycle
+          completeness, odor at day seven, sound at three feet, teardown time, and true cost per year.
+        </p>
+        <a class="btn btn-sage" href="/how-we-test/">Read the Method</a>
+      </div>
+
+      <div class="trust-card">
+        <p class="eyebrow">Tool</p>
+        <h3>Compare Any Two Boxes</h3>
+        <p class="muted">
+          Pick two models and get every standardized field lined up side by side — entry height, cat weight
+          limits, bag type, running costs and all six scores.
+        </p>
+        <a class="btn btn-sage" href="/compare/">Open the Comparison Tool</a>
+      </div>
+
+      <div class="trust-card">
+        <p class="eyebrow">Status</p>
+        <h3>Scores Are Research-Based Today</h3>
+        <p class="muted">
+          Nothing here is scored from a lab bench yet. Every score is compiled from published specs and
+          long-run owner reports, labelled as such, and replaced the moment a unit hits our test queue.
+        </p>
+        <a class="btn btn-outline" href="/how-we-test/#research-scores">What That Means</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 52px 0 40px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--blue-050) 0%, #fff 100%);
+  }
+
+  .hero h1 {
+    max-width: 20ch;
+    margin: 0 auto 16px;
+    color: var(--ink);
+  }
+
+  .hero-lede {
+    max-width: 60ch;
+    margin: 0 auto 24px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--blue-100);
+  }
+
+  .section-title {
+    margin: 0;
+    color: var(--blue-700);
+  }
+
+  .section-note {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+  }
+
+  .picks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .best-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .best-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #fff;
+    border: 2px solid var(--sage-300);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    padding: 16px 16px 15px;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .best-card:hover {
+    border-color: var(--sage-600);
+    box-shadow: var(--shadow-raised);
+    text-decoration: none;
+  }
+
+  .best-kicker {
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  .best-title {
+    font-family: var(--display);
+    font-size: 1.24rem;
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  .best-count {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    margin-top: auto;
+    padding-top: 6px;
+  }
+
+  .browse {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .browse-title {
+    margin: 0 0 10px;
+  }
+
+  .browse-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .soon-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .soon-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .soon-name {
+    font-family: var(--display);
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+  }
+
+  .soon-blurb {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    color: var(--ink);
+  }
+
+  .guide-card:hover {
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+  }
+
+  .guide-kicker {
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  .guide-title {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .guide-sum {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+
+  .guide-cta {
+    font-size: 0.86rem;
+    color: var(--blue-700);
+    padding-top: 6px;
+  }
+
+  .trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .trust-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-card h3 {
+    margin-bottom: 10px;
+  }
+
+  .trust-card p {
+    font-size: 0.94rem;
+    flex: 1;
+  }
+
+  .trust-card .btn {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 1000px) {
+    .picks-grid,
+    .best-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .browse,
+    .trust,
+    .guide-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .picks-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .best-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .best-title {
+      font-size: 1.05rem;
+    }
+
+    .hero {
+      padding: 34px 0 28px;
+    }
+  }
+</style>

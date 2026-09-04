@@ -1,0 +1,92 @@
+{
+  "slug": "catlink-luxury-pro",
+  "brand": "catlink",
+  "model": "CATLINK Luxury Pro",
+  "shortName": "CATLINK Luxury Pro",
+  "category": "litter-boxes",
+  "price": 429,
+  "releaseYear": 2022,
+  "accent": "#7d9a86",
+  "specs": {
+    "dimensions": "21.6 x 24.4 x 25.2 in",
+    "footprint": "21.6 x 24.4 in",
+    "entryHeight": "8.3 in",
+    "weight": "25 lb",
+    "minimumCatWeight": "3.3 lb",
+    "maximumCatWeight": "18 lb",
+    "wasteCapacity": "9 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu"
+    ],
+    "wifi": true,
+    "app": "CATLINK (iOS, Android)",
+    "odorSystem": "Carbon filter + sealed drawer",
+    "noiseLevel": "~50 dB at 3 ft",
+    "safetySensors": [
+      "Infrared entry",
+      "Weight sensor"
+    ],
+    "bagType": "Standard kitchen bags",
+    "replacementCost": 30,
+    "filterCost": 45,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 3",
+    "cycleTime": "~3 min",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.3,
+    "odorControl": 8,
+    "safety": 8,
+    "app": 8.1,
+    "maintenance": 7.9,
+    "value": 8.8
+  },
+  "verdict": "The Luxury Pro is the previous-generation Scooper with a smaller drawer and one fewer safety layer, and it sells for around $70 less. It is a sensible pick for a one- or two-cat household that wants a full-size globe box without paying premium prices, and it is often the cheapest way into a genuinely capable smart box.",
+  "pros": [
+    "Full-size globe mechanism under $450",
+    "Accepts tofu litter",
+    "Standard kitchen bags",
+    "Same app as the more expensive CATLINK models"
+  ],
+  "cons": [
+    "Only two safety systems",
+    "Smaller drawer than the Pro X",
+    "Noisier than the premium tier"
+  ],
+  "bestFor": [
+    "One or two cats",
+    "First-time automatic box buyers",
+    "Budget-conscious tofu litter users"
+  ],
+  "notIdealFor": [
+    "Three or more cats",
+    "Cats over 18 lb"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "CATLINK Luxury Pro"
+    },
+    {
+      "name": "Chewy",
+      "query": "CATLINK Luxury Pro"
+    }
+  ],
+  "sections": {
+    "setup": "Identical process to the Scooper Pro X and about the same twenty-five minutes. The drum is slightly lighter, which makes the initial fit easier for one person.",
+    "app": "The same CATLINK app as the more expensive models, with no meaningful features removed. That is unusual — most brands cut app features on the cheaper tier.",
+    "odorControl": "A sealed drawer and carbon filter without the active deodoriser module. Adequate for one cat, borderline for two by the end of a week. This is the clearest place where the $70 saving shows.",
+    "noise": "Around 50 dB at three feet. Comparable to the Litter-Robot 3 and clearly louder than the premium tier.",
+    "cleaning": "The same drum mechanism as the Pro X with a 9 L drawer instead of 11 L. Clay and tofu both work well. Expect to empty roughly a third more often than the Pro X in a two-cat home.",
+    "safety": "Infrared entry and a weight sensor, without the anti-pinch reverse. That is the one specification we would want improved, and it is the reason the safety score sits at 8.0 rather than 8.5.",
+    "consumables": "Standard kitchen bags and filters, around $75 a year. No proprietary anything.",
+    "longTermCost": "The cheapest full-size globe box with a mature app. Over five years it is several hundred dollars below the Litter-Robot 4 and still ahead of the budget tier on capability."
+  }
+}

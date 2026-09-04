@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { products } from '../../lib/catalog.js';
+import { overallScore, formatScore } from '../../lib/scoring.js';
+import { comparePath } from '../../lib/routes.js';
+
+const options = products.map((p) => ({
+  slug: p.slug,
+  label: p.model,
+  price: p.price,
+  overall: formatScore(overallScore(p.scores)),
+}));
+
+// A handful of pairings people actually search for.
+const popular = [
+  ['litter-robot-4', 'catlink-scooper-pro-x'],
+  ['litter-robot-4', 'casa-leo-leos-loo-too'],
+  ['litter-robot-4', 'litter-robot-3-connect'],
+  ['petkit-purobot-ultra', 'litter-robot-4'],
+  ['neakasa-m1', 'litter-robot-4'],
+  ['petsafe-scoopfree-smart', 'meowant-sc-m01'],
+].map(([x, y]) => ({
+  a: products.find((p) => p.slug === x),
+  b: products.find((p) => p.slug === y),
+  href: comparePath(x, y),
+}));
+---
+
+<BaseLayout
+  title="Compare Automatic Litter Boxes"
+  description="Pick any two automatic litter boxes and see every standardized specification, all six category scores and five-year running costs side by side."
+>
+  <PageHeader
+    eyebrow="Tool"
+    title="Compare Any Two Litter Boxes"
+    lede="Choose two models. You get every standardized field lined up — entry height, cat weight limits, drawer capacity, bag type, running costs and all six scores — read straight from the same database as the reviews."
+    crumbs={[{ label: 'Compare' }]}
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <form class="picker" id="picker">
+        <div class="field">
+          <label for="left">First box</label>
+          <select id="left">
+            {options.map((o) => <option value={o.slug}>{o.label} — ${o.price}</option>)}
+          </select>
+        </div>
+
+        <p class="vs" aria-hidden="true">vs</p>
+
+        <div class="field">
+          <label for="right">Second box</label>
+          <select id="right">
+            {options.map((o, i) => (
+              <option value={o.slug} selected={i === 1}>
+                {o.label} — ${o.price}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="go">Compare</button>
+      </form>
+
+      <p class="warn" id="warn" hidden>Pick two different boxes.</p>
+
+      <h2 class="block-head">Comparisons people look for</h2>
+      <div class="pop-grid">
+        {
+          popular.map(({ a, b, href }) => (
+            <a class="pop" href={href}>
+              <span class="pop-title">
+                {a.shortName || a.model} <em>vs</em> {b.shortName || b.model}
+              </span>
+              <span class="pop-meta">
+                ${a.price} vs ${b.price} · {formatScore(overallScore(a.scores))} vs{' '}
+                {formatScore(overallScore(b.scores))}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+
+      <h2 class="block-head">Everything in the database</h2>
+      <div class="table-scroll">
+        <table class="all">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Price</th>
+              <th>Overall</th>
+              <th>Entry</th>
+              <th>Max cat</th>
+              <th>Drawer</th>
+              <th>Wi-Fi</th>
+              <th>Bags</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              products.map((p) => (
+                <tr>
+                  <td>{p.model}</td>
+                  <td>${p.price}</td>
+                  <td class="strong">{formatScore(overallScore(p.scores))}</td>
+                  <td>{p.specs.entryHeight}</td>
+                  <td>{p.specs.maximumCatWeight}</td>
+                  <td>{p.specs.wasteCapacity}</td>
+                  <td>{p.specs.wifi ? 'Yes' : 'No'}</td>
+                  <td class="soft">{p.specs.bagType}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .picker {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: #fff;
+    border: 2px solid var(--blue-100);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 240px;
+  }
+
+  label {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  select {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+    width: 100%;
+  }
+
+  select:focus {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 1px;
+  }
+
+  .vs {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    color: var(--ink-faint);
+    margin: 0 0 12px;
+  }
+
+  .warn {
+    margin-top: 12px;
+    color: var(--coral);
+    font-size: 0.9rem;
+  }
+
+  .block-head {
+    color: var(--blue-700);
+    margin: 38px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-100);
+  }
+
+  .pop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .pop {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 15px 17px;
+    color: var(--ink);
+  }
+
+  .pop:hover {
+    border-color: var(--blue-500);
+    text-decoration: none;
+  }
+
+  .pop-title {
+    font-family: var(--display);
+    font-size: 1.06rem;
+    line-height: 1.2;
+  }
+
+  .pop-title em {
+    font-style: normal;
+    color: var(--sage-600);
+  }
+
+  .pop-meta {
+    font-size: 0.83rem;
+    color: var(--ink-faint);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  table.all {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 820px;
+  }
+
+  .all th {
+    background: var(--blue-050);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-700);
+    text-align: left;
+    padding: 11px 12px;
+    white-space: nowrap;
+  }
+
+  .all td {
+    padding: 11px 12px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .all tbody tr:nth-child(even) {
+    background: var(--bg-soft);
+  }
+
+  .strong {
+    font-family: var(--display);
+    color: var(--blue-700);
+    font-size: 1.02rem;
+  }
+
+  .soft {
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .pop-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .pop-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vs {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('picker');
+  const warn = document.getElementById('warn');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const left = document.getElementById('left').value;
+    const right = document.getElementById('right').value;
+    if (left === right) {
+      warn.hidden = false;
+      return;
+    }
+    warn.hidden = true;
+    const pair = [left, right].sort().join('-vs-');
+    window.location.href = '/compare/' + pair + '/';
+  });
+</script>

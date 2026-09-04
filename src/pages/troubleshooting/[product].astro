@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { products, getBrand } from '../../lib/catalog.js';
+import { getHub } from '../../lib/troubleshooting.js';
+import { productPath, troubleshootingPath } from '../../lib/routes.js';
+
+export function getStaticPaths() {
+  return products
+    .filter((p) => getHub(p.slug))
+    .map((product) => ({ params: { product: product.slug }, props: { product, hub: getHub(product.slug) } }));
+}
+
+const { product, hub } = Astro.props;
+const brand = getBrand(product.brand);
+const siblings = products.filter((p) => p.brand === product.brand && p.slug !== product.slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: hub.symptoms.map((s) => ({
+    '@type': 'Question',
+    name: product.model + ': ' + s.title,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: s.summary + ' ' + s.fixes.map((f) => f.step + ': ' + f.detail).join(' '),
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title={product.model + ' Troubleshooting'}
+  description={'Fix ' + product.model + ' problems: ' + hub.symptoms.slice(0, 5).map((s) => s.title.toLowerCase()).join(', ') + '.'}
+  jsonLd={jsonLd}
+>
+  <PageHeader
+    eyebrow="Troubleshooting"
+    title={product.model + ' Troubleshooting'}
+    lede={hub.intro}
+    crumbs={[
+      { label: 'Troubleshooting', href: '/troubleshooting/' },
+      { label: product.model },
+    ]}
+  >
+    <div class="jump">
+      {
+        hub.symptoms.map((s) => (
+          <a class={'chip ' + (s.severity === 'serious' ? 'chip-serious' : '')} href={'#' + s.slug}>
+            {s.title}
+          </a>
+        ))
+      }
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap layout">
+      <div class="symptoms">
+        {
+          hub.symptoms.map((s) => (
+            <article class="symptom" id={s.slug}>
+              <div class="sym-head">
+                <h2>{s.title}</h2>
+                <span class={'badge ' + (s.severity === 'serious' ? 'badge-serious' : 'badge-sage')}>
+                  {s.severity === 'serious' ? 'Stop and check' : 'Common'}
+                </span>
+              </div>
+              <p class="summary">{s.summary}</p>
+
+              <div class="cols">
+                <div>
+                  <p class="mini-head">Likely causes</p>
+                  <ul class="causes">
+                    {s.causes.map((c) => (
+                      <li>{c}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p class="mini-head">Fix it, in this order</p>
+                  <ol class="fixes">
+                    {s.fixes.map((f) => (
+                      <li>
+                        <strong>{f.step}.</strong> {f.detail}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+
+              <p class="escalate">
+                <strong>When to stop and get help:</strong> {s.escalate}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <aside class="sidebar">
+        <div class="side-card">
+          <p class="side-head">Jump to a problem</p>
+          <ul class="toc">
+            {hub.symptoms.map((s) => <li><a href={'#' + s.slug}>{s.title}</a></li>)}
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <p class="side-head">About this box</p>
+          <p class="small muted">{product.verdict.split('. ')[0]}.</p>
+          <a class="btn btn-outline btn-block small-btn" href={productPath(product.slug)}>
+            Read the full review
+          </a>
+        </div>
+
+        {
+          siblings.length > 0 && (
+            <div class="side-card">
+              <p class="side-head">Other {brand?.name} models</p>
+              <ul class="toc">
+                {siblings.map((p) => (
+                  <li>
+                    <a href={troubleshootingPath(p.slug)}>{p.model} troubleshooting</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .chip {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid var(--blue-100);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.86rem;
+    color: var(--blue-700);
+  }
+
+  .chip:hover {
+    border-color: var(--blue-500);
+    text-decoration: none;
+  }
+
+  .chip-serious {
+    border-color: #f0cfc2;
+    color: var(--coral);
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+    gap: 46px;
+    align-items: start;
+  }
+
+  .symptom {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 20px;
+  }
+
+  .symptom:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .sym-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .sym-head h2 {
+    margin: 0;
+    color: var(--blue-700);
+    font-size: 1.45rem;
+  }
+
+  .badge-serious {
+    background: var(--coral-soft);
+    color: var(--coral);
+    border: 1px solid #f0cfc2;
+  }
+
+  .summary {
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 28px;
+    margin-bottom: 18px;
+  }
+
+  .mini-head {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+    margin: 0 0 9px;
+  }
+
+  ul.causes {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+  }
+
+  ul.causes li {
+    margin-bottom: 7px;
+  }
+
+  ol.fixes {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+  }
+
+  ol.fixes li {
+    margin-bottom: 9px;
+  }
+
+  ol.fixes strong {
+    color: var(--ink);
+  }
+
+  .escalate {
+    margin: 0;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--sage-500);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 16px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .side-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+
+  .side-head {
+    font-family: var(--display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .toc {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+  }
+
+  .toc li + li {
+    margin-top: 8px;
+  }
+
+  .small-btn {
+    padding: 9px 14px;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 1000px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .sidebar {
+      position: static;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .cols {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .sidebar {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { guides } from '../../lib/guides.js';
+import { guidePath } from '../../lib/routes.js';
+---
+
+<BaseLayout
+  title="Litter Box Buying Guides"
+  description="Plain-English guides to buying and living with an automatic litter box: what to buy, what it really costs, and whether they are safe."
+>
+  <PageHeader
+    eyebrow="Guides"
+    title="Buying Guides"
+    lede="The questions that come before a product choice. No affiliate links in the argument — those live on the rankings, where they belong."
+    crumbs={[{ label: 'Guides' }]}
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        {
+          guides.map((g) => (
+            <a class="card" href={guidePath(g.slug)}>
+              <span class="kicker">Guide</span>
+              <h2>{g.title}</h2>
+              <p class="summary">{g.summary}</p>
+              <p class="take">{g.takeaway}</p>
+              <span class="cta">Read the guide →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 2px solid var(--blue-100);
+    border-radius: var(--radius);
+    padding: 22px;
+    color: var(--ink);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card:hover {
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-raised);
+    text-decoration: none;
+  }
+
+  .kicker {
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+    margin: 6px 0 10px;
+  }
+
+  .summary {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+
+  .take {
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line-soft);
+    padding-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .cta {
+    font-size: 0.88rem;
+    color: var(--blue-700);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

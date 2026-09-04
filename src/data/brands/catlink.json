@@ -1,0 +1,18 @@
+{
+  "slug": "catlink",
+  "name": "CATLINK",
+  "country": "China",
+  "founded": 2018,
+  "site": "catlink.com",
+  "summary": "CATLINK undercuts Whisker by a few hundred dollars and matches most of the hardware. The build is solid, the app is competent, and the odor systems are among the more aggressive on the market. Support is slower and firmware updates are less predictable.",
+  "strengths": [
+    "Strong odor hardware for the money",
+    "Deep app feature set",
+    "Frequent hardware revisions"
+  ],
+  "weaknesses": [
+    "Support response times",
+    "Model naming is confusing",
+    "Some models need proprietary bags"
+  ]
+}

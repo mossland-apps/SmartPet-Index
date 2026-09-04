@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { SITE } from '../../config/site.js';
+---
+
+<BaseLayout
+  title="Affiliate Disclosure"
+  description="How SmartPet Index makes money, and the structural reason commissions cannot move a ranking."
+>
+  <PageHeader
+    eyebrow="Disclosure"
+    title="Affiliate Disclosure"
+    lede={SITE.disclosure}
+    crumbs={[{ label: 'About', href: '/about/' }, { label: 'Disclosure' }]}
+  />
+
+  <section class="section">
+    <div class="wrap narrow">
+      <h2>The short version</h2>
+      <p>
+        Some links on this site are affiliate links. If you buy through one, the retailer may pay us a
+        commission. You pay the same price either way. That is how the site is funded.
+      </p>
+
+      <h2>What commissions cannot do</h2>
+      <p>
+        Rankings on this site are generated from the scored product database. The ranking code filters and
+        sorts on scores and specifications — it has no access to commission rates, and there is no manual
+        override that lets an editor move a product up a list. If a product ranks first, it is because its
+        weighted score is highest under the published method.
+      </p>
+      <p>
+        We also do not accept payment for a review, a placement, or a score. We do not send scores to brands
+        before publication, and we do not give a brand the chance to respond to a score before it goes live.
+      </p>
+
+      <h2>Free samples</h2>
+      <p>
+        Where a brand supplies a unit for testing, we say so on that review page. A supplied unit is tested
+        identically to a bought one. As of today, no unit in this index was supplied by a brand, because
+        nothing has been tested hands-on yet.
+      </p>
+
+      <h2>Prices</h2>
+      <p>
+        Prices shown are the list price at the time we last updated the record, and they move constantly.
+        Always check the current price at the retailer before buying. Consumable prices used in our
+        long-term cost tables are the cheapest genuine source we could find at the time of writing.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        If anything here is unclear, or something on the site reads to you like an advertisement rather
+        than an assessment, <a href="/about/contact/">tell us</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+
+  h2 {
+    color: var(--blue-700);
+    margin-top: 34px;
+  }
+</style>

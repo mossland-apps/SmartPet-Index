@@ -1,0 +1,95 @@
+{
+  "slug": "meowant-sc-m01",
+  "brand": "meowant",
+  "model": "Meowant SC-M01",
+  "shortName": "Meowant SC-M01",
+  "category": "litter-boxes",
+  "price": 299,
+  "releaseYear": 2023,
+  "accent": "#93a88f",
+  "specs": {
+    "dimensions": "21.3 x 23.6 x 24.0 in",
+    "footprint": "21.3 x 23.6 in",
+    "entryHeight": "8.3 in",
+    "weight": "23 lb",
+    "minimumCatWeight": "3.3 lb",
+    "maximumCatWeight": "16.5 lb",
+    "wasteCapacity": "8 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu"
+    ],
+    "wifi": true,
+    "app": "Meowant (iOS, Android)",
+    "odorSystem": "Carbon filter + sealed drawer",
+    "noiseLevel": "~52 dB at 3 ft",
+    "safetySensors": [
+      "Infrared entry",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Standard kitchen bags",
+    "replacementCost": 30,
+    "filterCost": 35,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 2",
+    "cycleTime": "~3 min 10 s",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 7.9,
+    "odorControl": 7.5,
+    "safety": 8,
+    "app": 7,
+    "maintenance": 7.6,
+    "value": 9.1
+  },
+  "verdict": "The SC-M01 is the cheapest rotating-globe box worth taking seriously. It has the three safety systems that matter, it takes ordinary kitchen bags, and it costs a third of a Litter-Robot. The plastics feel it, the motor is the loudest here, and the app does the minimum. For a first automatic box in a one- or two-cat home, that is a defensible set of compromises.",
+  "pros": [
+    "Full globe mechanism for under $300",
+    "Standard kitchen bags — no consumable lock-in",
+    "Three safety systems despite the price",
+    "Lowest running cost of any powered box here"
+  ],
+  "cons": [
+    "Loudest cycle in this index",
+    "Materials feel budget",
+    "App is bare-bones",
+    "Short company track record"
+  ],
+  "bestFor": [
+    "First-time buyers",
+    "One or two average-sized cats",
+    "The lowest possible cost per year"
+  ],
+  "notIdealFor": [
+    "Noise-sensitive rooms",
+    "Large cats",
+    "Buyers who want a mature app"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "Meowant SC-M01"
+    },
+    {
+      "name": "Chewy",
+      "query": "Meowant SC-M01"
+    }
+  ],
+  "sections": {
+    "setup": "About twenty minutes. The instructions are thin and the drum seats with more force than feels comfortable the first time, but nothing is genuinely difficult. Wi-Fi pairing is 2.4 GHz only.",
+    "app": "Bare-bones. Cycle control, a fill indicator and a visit counter. No health trends, no per-cat separation. It works, and the connection holds, which at this price is the bar.",
+    "odorControl": "A sealed drawer and carbon filter with no active deodoriser. Fine for one cat, marginal for two. The drawer gasket is the cheapest-feeling component on the unit.",
+    "noise": "Around 52 dB at three feet — the loudest box in this index. The motor is audible through a closed door. Do not put this near a bedroom.",
+    "cleaning": "Better than the price suggests. The globe clears clumps properly with clay and tofu, and the 8 L drawer is respectable. The sifting screen needs more frequent attention than the premium boxes.",
+    "safety": "Infrared entry, weight sensing and anti-pinch reverse — the same three layers as boxes costing twice as much. Meowant cut costs in materials and software, not in sensors, which is the right order.",
+    "consumables": "Standard kitchen bags and a filter, around $65 a year. The lowest running cost of any powered box here.",
+    "longTermCost": "Cheap to buy and cheap to run, which is a rare combination. Over five years it is roughly a third of the Purobot Ultra and comfortably the lowest total cost of any smart box in this index."
+  }
+}

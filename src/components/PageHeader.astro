@@ -1,0 +1,65 @@
+---
+const { eyebrow, title, lede, crumbs = [] } = Astro.props;
+---
+
+<header class="page-header">
+  <div class="wrap">
+    {
+      crumbs.length > 0 && (
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            {crumbs.map((c) => (
+              <li>{c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}</li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {lede && <p class="lede">{lede}</p>}
+    <slot />
+  </div>
+</header>
+
+<style>
+  .page-header {
+    background: linear-gradient(180deg, var(--blue-050) 0%, #fff 100%);
+    padding: 26px 0 34px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    font-size: 0.83rem;
+    color: var(--ink-faint);
+  }
+
+  .crumbs li + li::before {
+    content: '›';
+    margin-right: 6px;
+    color: var(--ink-faint);
+  }
+
+  .crumbs a {
+    color: var(--ink-soft);
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    max-width: 22ch;
+  }
+
+  .lede {
+    margin: 0;
+    max-width: 68ch;
+  }
+</style>

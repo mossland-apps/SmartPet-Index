@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { brands, productsByBrand } from '../../lib/catalog.js';
+import { overallScore, formatScore } from '../../lib/scoring.js';
+import { brandPath, productPath } from '../../lib/routes.js';
+
+const rows = brands.map((b) => {
+  const models = productsByBrand(b.slug);
+  const best = [...models].sort((x, y) => (overallScore(y.scores) ?? 0) - (overallScore(x.scores) ?? 0))[0];
+  const prices = models.map((m) => m.price);
+  return {
+    brand: b,
+    models,
+    best,
+    low: Math.min(...prices),
+    high: Math.max(...prices),
+  };
+});
+---
+
+<BaseLayout
+  title="Litter Box Brands"
+  description="Brand hubs for every automatic litter box maker we track: what they are good at, what they are not, current models, comparisons and troubleshooting."
+>
+  <PageHeader
+    eyebrow="Brands"
+    title="Litter Box Brands"
+    lede="Each brand hub collects the current models, where they place in our rankings, the comparisons people search for, and the troubleshooting for every unit."
+    crumbs={[{ label: 'Brands' }]}
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        {
+          rows.map(({ brand, models, best, low, high }) => (
+            <a class="card" href={brandPath(brand.slug)}>
+              <span class="name">{brand.name}</span>
+              {brand.aka && <span class="aka">Maker of {brand.aka}</span>}
+              <p class="summary">{brand.summary.split('. ')[0]}.</p>
+              <ul class="meta">
+                <li>
+                  <strong>{models.length}</strong> models
+                </li>
+                <li>
+                  <strong>
+                    ${low}
+                    {low !== high && <>–${high}</>}
+                  </strong>{' '}
+                  range
+                </li>
+                <li>
+                  <strong>{formatScore(overallScore(best.scores))}</strong> best score
+                </li>
+              </ul>
+              <span class="cta">Open the {brand.name} hub →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: #fff;
+    border: 2px solid var(--blue-100);
+    border-radius: var(--radius);
+    padding: 20px;
+    color: var(--ink);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card:hover {
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-raised);
+    text-decoration: none;
+  }
+
+  .name {
+    font-family: var(--display);
+    font-size: 1.35rem;
+  }
+
+  .aka {
+    font-size: 0.8rem;
+    color: var(--sage-600);
+    letter-spacing: 0.04em;
+  }
+
+  .summary {
+    margin: 10px 0 12px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+
+  .meta {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--line-soft);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  .meta strong {
+    font-family: var(--display);
+    font-size: 1.02rem;
+    color: var(--blue-700);
+    display: block;
+    line-height: 1.15;
+  }
+
+  .cta {
+    font-size: 0.87rem;
+    color: var(--blue-700);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

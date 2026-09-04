@@ -1,0 +1,95 @@
+{
+  "slug": "catlink-scooper-pro-x",
+  "brand": "catlink",
+  "model": "CATLINK Scooper Pro X",
+  "shortName": "CATLINK Pro X",
+  "category": "litter-boxes",
+  "price": 499,
+  "releaseYear": 2023,
+  "accent": "#6b8f7a",
+  "specs": {
+    "dimensions": "21.6 x 25.6 x 25.6 in",
+    "footprint": "21.6 x 25.6 in",
+    "entryHeight": "7.9 in",
+    "weight": "27 lb",
+    "minimumCatWeight": "3.3 lb",
+    "maximumCatWeight": "22 lb",
+    "wasteCapacity": "11 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu",
+      "Mixed"
+    ],
+    "wifi": true,
+    "app": "CATLINK (iOS, Android)",
+    "odorSystem": "Ozone-free deodoriser + carbon filter + sealed drawer",
+    "noiseLevel": "~48 dB at 3 ft",
+    "safetySensors": [
+      "Infrared entry",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Standard kitchen bags",
+    "replacementCost": 30,
+    "filterCost": 50,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 4",
+    "cycleTime": "~3 min",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.7,
+    "odorControl": 8.8,
+    "safety": 8.5,
+    "app": 8.3,
+    "maintenance": 8.2,
+    "value": 8.6
+  },
+  "verdict": "The Pro X is the strongest all-round argument against paying Litter-Robot money. The drawer is bigger, the litter compatibility is wider, the entry is lower, and it takes ordinary bags. What you trade away is Whisker-grade support and the sense that firmware will still be updated in three years. For most multi-cat homes that is a trade worth making.",
+  "pros": [
+    "Largest waste drawer in this price bracket",
+    "Accepts tofu and mixed litter, not just clay",
+    "7.9 in entry suits kittens and older cats",
+    "Standard kitchen bags",
+    "Roughly $200 less than the LR4"
+  ],
+  "cons": [
+    "Support is slower than Whisker",
+    "Louder cycle",
+    "Firmware update cadence is unpredictable"
+  ],
+  "bestFor": [
+    "Multi-cat homes",
+    "Tofu litter users",
+    "Value-focused buyers who still want a full-size globe"
+  ],
+  "notIdealFor": [
+    "Buyers who want US-based phone support",
+    "Very noise-sensitive rooms"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "CATLINK Scooper Pro X"
+    },
+    {
+      "name": "Chewy",
+      "query": "CATLINK Scooper Pro X"
+    }
+  ],
+  "sections": {
+    "setup": "Assembly is more involved than the Litter-Robot — the drum, base and drawer ship separately and the app pairing wants a 2.4 GHz network specifically. Allow twenty-five minutes, and expect the manual to be lightly translated.",
+    "app": "Competent rather than delightful. Weight logs, visit counts and cycle scheduling all work, and the connection holds. Notifications are chattier than they need to be by default, and the settings screens are dense.",
+    "odorControl": "Strong. The ozone-free deodoriser module plus a sealed drawer and carbon filter handles a two-cat load through a week. It sits just behind Casa Leo and PetSnowy, and ahead of the Litter-Robot 4 on paper.",
+    "noise": "Around 48 dB at three feet, with a more pronounced motor whine than the Litter-Robot. Not a bedroom box, but unobtrusive in a bathroom or utility room.",
+    "cleaning": "Handles tofu, mixed and clay litter, which no Litter-Robot will, and the 11 L drawer is the largest here. Cycle completeness is good but slightly behind the LR4 on very wet clumps.",
+    "safety": "Infrared entry detection, a weight sensor and an anti-pinch reverse. Three layers, which is the practical standard. It lacks the fourth-layer redundancy of the LR4 but we found no pattern of concern in owner reports.",
+    "consumables": "Standard kitchen bags and a carbon filter — around $80 a year and no lock-in. This is a large part of why it scores 8.6 on value.",
+    "longTermCost": "Roughly $200 less than the LR4 at purchase and $10 a year cheaper to run. Over five years it stays the cheaper box by a consistent margin, which is the strongest argument in its favour."
+  }
+}

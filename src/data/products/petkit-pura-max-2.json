@@ -1,0 +1,94 @@
+{
+  "slug": "petkit-pura-max-2",
+  "brand": "petkit",
+  "model": "PETKIT Pura Max 2",
+  "shortName": "Pura Max 2",
+  "category": "litter-boxes",
+  "price": 429,
+  "releaseYear": 2024,
+  "accent": "#6892b5",
+  "specs": {
+    "dimensions": "21.7 x 25.2 x 24.4 in",
+    "footprint": "21.7 x 25.2 in",
+    "entryHeight": "8.7 in",
+    "weight": "26 lb",
+    "minimumCatWeight": "3.3 lb",
+    "maximumCatWeight": "17.6 lb",
+    "wasteCapacity": "9 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu",
+      "Mixed"
+    ],
+    "wifi": true,
+    "app": "PETKIT (iOS, Android)",
+    "odorSystem": "Deodoriser module + carbon filter + sealed bag roll",
+    "noiseLevel": "~48 dB at 3 ft",
+    "safetySensors": [
+      "Infrared",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Proprietary bag roll",
+    "replacementCost": 90,
+    "filterCost": 50,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 3",
+    "cycleTime": "~2 min 45 s",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.4,
+    "odorControl": 8.6,
+    "safety": 8.2,
+    "app": 9,
+    "maintenance": 7.5,
+    "value": 7.8
+  },
+  "verdict": "The Pura Max 2 is the Purobot with the camera removed and $470 knocked off, and for most households that is the smarter purchase. You keep the excellent app, the strong deodoriser and the wide litter compatibility. You still pay for PETKIT bag rolls, which over three years quietly erases the price advantage over boxes that take kitchen bags.",
+  "pros": [
+    "Same excellent PETKIT app at half the Purobot price",
+    "Strong active deodoriser",
+    "Accepts tofu and mixed litter",
+    "Compact for a full-capacity box"
+  ],
+  "cons": [
+    "Proprietary bag rolls at roughly $90 a year",
+    "No camera or per-cat identification",
+    "17.6 lb weight ceiling"
+  ],
+  "bestFor": [
+    "App-focused buyers on a mid budget",
+    "Two-cat homes",
+    "Tofu litter users"
+  ],
+  "notIdealFor": [
+    "Large cats",
+    "Anyone who refuses consumable subscriptions"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "PETKIT Pura Max 2"
+    },
+    {
+      "name": "Chewy",
+      "query": "PETKIT Pura Max 2"
+    }
+  ],
+  "sections": {
+    "setup": "About twenty minutes. Same PETKIT account requirement and firmware update, without the camera alignment step.",
+    "app": "The same excellent PETKIT app, minus per-cat visual identification. Weight-based tracking still separates cats reasonably well if their weights differ by more than a pound.",
+    "odorControl": "The deodoriser module plus sealed bag roll works well and is a step ahead of the CATLINK Luxury Pro at a similar price. Good with two cats through a week.",
+    "noise": "Around 48 dB at three feet. Mid-pack, and slightly louder than the Purobot because of a faster drum.",
+    "cleaning": "Good, with the same wide litter compatibility as the Purobot. The 9 L drawer suits two cats comfortably and three at a push.",
+    "safety": "Infrared, weight sensing and anti-pinch reverse — the standard three layers, without the camera backstop.",
+    "consumables": "Proprietary bag rolls again, around $90 a year plus filters. Over four years this quietly cancels most of the price advantage over a box that takes kitchen bags.",
+    "longTermCost": "Cheap to buy, expensive to feed. Compare it against the CATLINK Scooper Pro X over five years rather than at the checkout, and the CATLINK wins."
+  }
+}

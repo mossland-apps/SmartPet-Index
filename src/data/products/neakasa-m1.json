@@ -1,0 +1,96 @@
+{
+  "slug": "neakasa-m1",
+  "brand": "neakasa",
+  "model": "Neakasa M1",
+  "shortName": "Neakasa M1",
+  "category": "litter-boxes",
+  "price": 599,
+  "releaseYear": 2023,
+  "accent": "#7fa38c",
+  "specs": {
+    "dimensions": "23.6 x 20.5 x 20.9 in",
+    "footprint": "23.6 x 20.5 in",
+    "entryHeight": "5.9 in",
+    "weight": "22 lb",
+    "minimumCatWeight": "2.2 lb",
+    "maximumCatWeight": "22 lb",
+    "wasteCapacity": "8 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu",
+      "Mixed",
+      "Crystal"
+    ],
+    "wifi": true,
+    "app": "Neakasa (iOS, Android)",
+    "odorSystem": "Sealed drawer + carbon filter (open top)",
+    "noiseLevel": "~42 dB at 3 ft",
+    "safetySensors": [
+      "Infrared entry",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Standard kitchen bags",
+    "replacementCost": 30,
+    "filterCost": 40,
+    "warranty": "2 years",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 4",
+    "cycleTime": "~2 min",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.5,
+    "odorControl": 7.6,
+    "safety": 9,
+    "app": 7.9,
+    "maintenance": 9.1,
+    "value": 8.4
+  },
+  "verdict": "The M1 solves the single biggest failure mode of automatic litter boxes: cats that refuse to enter an enclosed globe. The open top means most cats accept it in days rather than weeks, the 5.9 in entry is the lowest here, and it comes apart for cleaning faster than anything else in this index. The cost is odor — an open box cannot contain smell between cycles the way a sealed globe can.",
+  "pros": [
+    "Open top — the highest cat acceptance rate of any design here",
+    "Lowest entry height in this index at 5.9 in",
+    "Easiest full teardown for deep cleaning",
+    "Two-year warranty",
+    "Accepts almost any litter, including crystal"
+  ],
+  "cons": [
+    "Open design limits odor containment between cycles",
+    "App is the plainest of the smart boxes",
+    "Wide footprint"
+  ],
+  "bestFor": [
+    "Cats that refuse enclosed boxes",
+    "Kittens and senior cats",
+    "People who deep-clean often"
+  ],
+  "notIdealFor": [
+    "Rooms where odor containment is the top priority",
+    "Homes wanting a small footprint"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "Neakasa M1"
+    },
+    {
+      "name": "Chewy",
+      "query": "Neakasa M1"
+    }
+  ],
+  "sections": {
+    "setup": "The easiest setup here at around ten minutes, because there is no bonnet to align and no drum to seat. Wi-Fi pairing is straightforward. It needs more floor width than a globe box, so measure first.",
+    "app": "Plain but reliable. Cycle scheduling, a fill indicator and basic weight logging. No health trends, no per-cat identification. It does what it says and nothing more.",
+    "odorControl": "The weak point, and the honest cost of the open-top design. The drawer itself seals well, but nothing contains smell from the litter bed between cycles. In a ventilated room this is a non-issue; in a studio apartment it is the reason to buy something else.",
+    "noise": "Around 42 dB at three feet, the quietest powered box in this index. The open design means no resonating bonnet.",
+    "cleaning": "Very good, and it accepts almost any litter including crystal, which nothing else here does. The rotating base clears clumps cleanly and the shallow drawer is easy to check at a glance.",
+    "safety": "Infrared entry, a weight sensor and anti-pinch reverse, and the open top means a cat is never enclosed. That combination is why it scores 9.0 despite having one fewer sensor than the Litter-Robot 4.",
+    "consumables": "Standard kitchen bags and a filter, around $70 a year — the lowest running cost of any smart box here.",
+    "longTermCost": "Mid-priced to buy and the cheapest smart box to run. Over five years it lands well below the Litter-Robot 4 and close to the CATLINK Scooper Pro X."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "meowant",
+  "name": "Meowant",
+  "country": "China",
+  "founded": 2022,
+  "site": "meowant.com",
+  "summary": "Meowant is the value entry in the rotating-globe format — most of the mechanism of a $500 box for around $300, with the corners cut in materials and app polish rather than in safety.",
+  "strengths": [
+    "Rotating-globe design at a budget price",
+    "Standard bags",
+    "Reasonable safety sensor coverage"
+  ],
+  "weaknesses": [
+    "Plastics feel cheaper",
+    "App is basic",
+    "Very short market history"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "slug": "petsafe-scoopfree-smart",
+  "brand": "petsafe",
+  "model": "PetSafe ScoopFree Smart",
+  "shortName": "ScoopFree Smart",
+  "category": "litter-boxes",
+  "price": 229,
+  "releaseYear": 2022,
+  "accent": "#8f9bab",
+  "specs": {
+    "dimensions": "27.4 x 19.1 x 6.9 in",
+    "footprint": "27.4 x 19.1 in",
+    "entryHeight": "5.5 in",
+    "weight": "12 lb",
+    "minimumCatWeight": "No minimum",
+    "maximumCatWeight": "15 lb",
+    "wasteCapacity": "1 disposable tray",
+    "litterTypes": [
+      "Crystal (proprietary trays)"
+    ],
+    "wifi": true,
+    "app": "PetSafe (iOS, Android)",
+    "odorSystem": "Crystal litter absorption + covered tray",
+    "noiseLevel": "~40 dB at 3 ft",
+    "safetySensors": [
+      "Infrared entry",
+      "Rake obstruction reverse"
+    ],
+    "bagType": "Proprietary disposable crystal tray",
+    "replacementCost": 220,
+    "filterCost": 0,
+    "warranty": "1 year",
+    "multiCatCapable": false,
+    "catsSupported": "1",
+    "cycleTime": "~30 s rake",
+    "power": "Mains adapter"
+  },
+  "scores": {
+    "cleaning": 7.2,
+    "odorControl": 7.4,
+    "safety": 7.6,
+    "app": 6.9,
+    "maintenance": 7.8,
+    "value": 6.6
+  },
+  "verdict": "The ScoopFree is the cheapest way to stop scooping, and the most expensive way to own a litter box. The rake mechanism is simple and hard to break, the low profile fits where a globe never will, and the app is adequate. But the disposable crystal trays run roughly $220 a year, which means it costs more than a Litter-Robot over four years while doing less.",
+  "pros": [
+    "Lowest purchase price of any powered box here",
+    "Very low 5.5 in entry and flat profile",
+    "Simple rake mechanism with little to fail",
+    "Sold in mainstream retail with easy returns"
+  ],
+  "cons": [
+    "Proprietary crystal trays at roughly $220 a year",
+    "No clumping litter support at all",
+    "Single-cat only in practice",
+    "Costs more than a premium box over four years"
+  ],
+  "bestFor": [
+    "One small cat",
+    "Low-ceiling or narrow spaces",
+    "Buyers who want the lowest sticker price"
+  ],
+  "notIdealFor": [
+    "Multi-cat homes",
+    "Anyone calculating cost per year",
+    "Clumping litter users"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "PetSafe ScoopFree Smart"
+    },
+    {
+      "name": "Chewy",
+      "query": "PetSafe ScoopFree Smart"
+    }
+  ],
+  "sections": {
+    "setup": "The fastest here at under ten minutes — slide in a crystal tray, plug it in, pair the app. There is nothing to assemble.",
+    "app": "Basic. Cycle history, a rake-now button and low-tray alerts. No weight data at all, which means no health signal, and that is a real gap in 2026.",
+    "odorControl": "Crystal litter absorbs urine well for the first week and then noticeably less well. The covered tray helps. It is acceptable for one cat and falls apart with two.",
+    "noise": "Around 40 dB — the rake is brief and quiet, and there is no drum to rotate. On paper the quietest powered option here.",
+    "cleaning": "The rake pushes solids into a covered compartment rather than sifting. It works, but it smears more than a globe does, and it cannot handle clumping litter at all.",
+    "safety": "Infrared entry detection and a rake obstruction reverse. Two layers, no weight sensing. The rake is slow and low-force, which limits the risk, but this is the thinnest safety specification of any powered box here.",
+    "consumables": "Proprietary disposable crystal trays at roughly $220 a year. This is the single most expensive consumable in this index and it is mandatory.",
+    "longTermCost": "The cheapest box to buy and the most expensive to own. It passes the Litter-Robot 4 on total cost somewhere in year four while doing considerably less. If you intend to keep it more than two years, buy something else."
+  }
+}

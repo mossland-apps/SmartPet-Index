@@ -1,0 +1,706 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductArt from '../../components/ProductArt.astro';
+import BuyButtons from '../../components/BuyButtons.astro';
+import ScoreBars from '../../components/ScoreBars.astro';
+import SpecTable from '../../components/SpecTable.astro';
+import { products, getBrand } from '../../lib/catalog.js';
+import { overallScore, formatScore, scoreLabel, scoreBand } from '../../lib/scoring.js';
+import { annualRunningCost, costOverYears, relatedProducts } from '../../lib/ownership.js';
+import { BEST_OF_LISTS, resolveList } from '../../lib/rankings.js';
+import { productPath, brandPath, troubleshootingPath, comparePath, listPath } from '../../lib/routes.js';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { product: product.slug }, props: { product } }));
+}
+
+const { product } = Astro.props;
+const brand = getBrand(product.brand);
+const overall = overallScore(product.scores);
+const related = relatedProducts(product, products);
+const running = annualRunningCost(product);
+
+// The header carries the punchline; the Verdict block carries the argument.
+const hook = product.verdict.split('. ')[0] + '.';
+
+const appearsIn = BEST_OF_LISTS.map((list) => {
+  const ranked = resolveList(list, products);
+  const entry = ranked.find((e) => e.product.slug === product.slug);
+  return entry ? { list, rank: entry.rank, total: ranked.length, award: entry.award } : null;
+}).filter(Boolean);
+
+const SECTIONS = [
+  { key: 'cleaning', title: 'Cleaning' },
+  { key: 'odorControl', title: 'Odor control' },
+  { key: 'safety', title: 'Safety' },
+  { key: 'noise', title: 'Noise' },
+  { key: 'setup', title: 'Setup' },
+  { key: 'app', title: 'App' },
+  { key: 'consumables', title: 'Consumables' },
+  { key: 'longTermCost', title: 'Long-term cost' },
+];
+
+const years = [1, 2, 3, 4, 5];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.model,
+  brand: { '@type': 'Brand', name: brand?.name || product.brand },
+  offers: { '@type': 'Offer', price: product.price, priceCurrency: 'USD' },
+  review: {
+    '@type': 'Review',
+    reviewRating: { '@type': 'Rating', ratingValue: overall, bestRating: 10 },
+    author: { '@type': 'Organization', name: 'SmartPet Index' },
+    reviewBody: product.verdict,
+  },
+};
+---
+
+<BaseLayout
+  title={product.model + ' Review'}
+  description={product.verdict.slice(0, 155)}
+  jsonLd={jsonLd}
+>
+  <article>
+    <header class="review-head">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/litter-boxes/">Litter Boxes</a></li>
+            <li><a href="/reviews/">Reviews</a></li>
+            <li><span>{product.model}</span></li>
+          </ol>
+        </nav>
+
+        <div class="head-grid">
+          <div class="head-art">
+            <ProductArt product={product} size={230} />
+          </div>
+
+          <div class="head-main">
+            <p class="brand"><a href={brandPath(product.brand)}>{brand?.name || product.brand}</a></p>
+            <h1>{product.model} Review</h1>
+            <p class="lede">{hook}</p>
+
+            <div class="head-meta">
+              <span class="badge badge-research">Research-based score · not yet lab tested</span>
+              <span class="meta-sep">·</span>
+              <span class="tiny muted">Updated {product.lastUpdated}</span>
+            </div>
+          </div>
+
+          <aside class="head-side">
+            <div class={'score score-lg ' + 'is-' + scoreBand(overall)}>
+              <span class="score-value">{formatScore(overall)}</span>
+              <span class="score-caption">Overall</span>
+            </div>
+            <p class="band">{scoreLabel(overall)}</p>
+            <p class="rrp">${product.price}</p>
+            <BuyButtons product={product} compact={true} />
+            <a class="btn btn-outline btn-block small-btn" href={troubleshootingPath(product.slug)}>
+              Troubleshooting
+            </a>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap body-grid">
+      <div class="body">
+        <section class="block">
+          <h2>Verdict</h2>
+          <p>{product.verdict}</p>
+
+          <div class="proscons">
+            <div>
+              <p class="mini-head good">Pros</p>
+              <ul class="ticks">{product.pros.map((x) => <li>{x}</li>)}</ul>
+            </div>
+            <div>
+              <p class="mini-head bad">Cons</p>
+              <ul class="crosses">{product.cons.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          </div>
+
+          <div class="fit-grid">
+            <div class="fit good-fit">
+              <p class="fit-head">Best for</p>
+              <ul>{product.bestFor.map((x) => <li>{x}</li>)}</ul>
+            </div>
+            <div class="fit bad-fit">
+              <p class="fit-head">Not ideal for</p>
+              <ul>{product.notIdealFor.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" id="scores">
+          <h2>Scores</h2>
+          <p class="muted small">
+            Six categories, weighted toward the two that people actually buy these for.
+            <a href="/how-we-test/">See the method</a>.
+          </p>
+          <ScoreBars scores={product.scores} showBlurbs={true} />
+          <p class="note">{product.scoreNote}</p>
+        </section>
+
+        {
+          SECTIONS.map((s) => (
+            <section class="block" id={s.key}>
+              <h2>{s.title}</h2>
+              <p>{product.sections[s.key]}</p>
+            </section>
+          ))
+        }
+
+        <section class="block" id="specs">
+          <h2>Specifications</h2>
+          <SpecTable product={product} />
+        </section>
+
+        <section class="block" id="cost">
+          <h2>What it costs to own</h2>
+          <p class="muted small">
+            Purchase price plus ${running} a year in bags and filters. Consumables are where cheap boxes
+            get expensive.
+          </p>
+          <div class="table-scroll">
+            <table class="cost">
+              <thead>
+                <tr>
+                  <th>After</th>
+                  {years.map((y) => <th>{y} yr</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="row-label">{product.shortName || product.model}</td>
+                  {years.map((y) => <td>${costOverYears(product, y)}</td>)}
+                </tr>
+                {
+                  related.map((r) => (
+                    <tr class="alt-row">
+                      <td class="row-label">
+                        <a href={productPath(r.slug)}>{r.shortName || r.model}</a>
+                      </td>
+                      {years.map((y) => <td>${costOverYears(r, y)}</td>)}
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="block" id="alternatives">
+          <h2>Alternatives</h2>
+          <div class="alts">
+            {
+              related.map((r) => (
+                <a class="alt" href={productPath(r.slug)}>
+                  <ProductArt product={r} size={110} />
+                  <span class="alt-name">{r.model}</span>
+                  <span class="alt-meta">
+                    ${r.price} · {formatScore(overallScore(r.scores))} overall
+                  </span>
+                  <span class="alt-cta">Read review →</span>
+                </a>
+              ))
+            }
+          </div>
+          <p class="compare-line">
+            Or line them up field by field:
+            {
+              related.map((r, i) => (
+                <>
+                  {i > 0 && ' · '}
+                  <a href={comparePath(product.slug, r.slug)}>
+                    {product.shortName || product.model} vs {r.shortName || r.model}
+                  </a>
+                </>
+              ))
+            }
+          </p>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <div class="side-card">
+          <p class="side-head">On this page</p>
+          <ul class="toc">
+            <li><a href="#scores">Scores</a></li>
+            {SECTIONS.map((s) => <li><a href={'#' + s.key}>{s.title}</a></li>)}
+            <li><a href="#specs">Specifications</a></li>
+            <li><a href="#cost">Cost to own</a></li>
+            <li><a href="#alternatives">Alternatives</a></li>
+          </ul>
+        </div>
+
+        {
+          appearsIn.length > 0 && (
+            <div class="side-card">
+              <p class="side-head">Where it ranks</p>
+              <ul class="ranks">
+                {appearsIn.map((a) => (
+                  <li>
+                    <a href={listPath(a.list.slug)}>{a.list.title}</a>
+                    <span class="rank-pos">
+                      #{a.rank} of {a.total}
+                      {a.award && <em> · {a.award}</em>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        <div class="side-card">
+          <p class="side-head">More {brand?.name || product.brand}</p>
+          <p class="small muted">{brand?.summary}</p>
+          <a class="btn btn-outline btn-block small-btn" href={brandPath(product.brand)}>
+            {brand?.name || product.brand} hub
+          </a>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .review-head {
+    background: linear-gradient(180deg, var(--blue-050) 0%, #fff 100%);
+    padding: 22px 0 32px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    font-size: 0.83rem;
+    color: var(--ink-faint);
+  }
+
+  .crumbs li + li::before {
+    content: '›';
+    margin-right: 6px;
+  }
+
+  .crumbs a {
+    color: var(--ink-soft);
+  }
+
+  .head-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr 240px;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .head-art {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+
+  .brand {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .brand a {
+    color: var(--sage-600);
+  }
+
+  .head-main h1 {
+    margin: 0 0 12px;
+    font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  }
+
+  .head-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  .meta-sep {
+    color: var(--ink-faint);
+  }
+
+  .head-side {
+    background: #fff;
+    border: 2px solid var(--blue-100);
+    border-radius: var(--radius);
+    padding: 18px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+
+  .head-side .score {
+    margin: 0 auto;
+  }
+
+  .band {
+    font-family: var(--display);
+    margin: 10px 0 2px;
+  }
+
+  .rrp {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+
+  .small-btn {
+    padding: 9px 14px;
+    font-size: 0.88rem;
+    margin-top: 8px;
+  }
+
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+    gap: 46px;
+    padding-top: 38px;
+    padding-bottom: 20px;
+    align-items: start;
+  }
+
+  .block {
+    padding-bottom: 26px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .block:last-child {
+    border-bottom: 0;
+  }
+
+  .block h2 {
+    color: var(--blue-700);
+    margin-bottom: 12px;
+  }
+
+  .proscons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 20px 0;
+  }
+
+  .mini-head {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+
+  .good {
+    color: var(--sage-600);
+  }
+
+  .bad {
+    color: var(--coral);
+  }
+
+  ul.ticks,
+  ul.crosses {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.94rem;
+  }
+
+  ul.ticks li,
+  ul.crosses li {
+    position: relative;
+    padding-left: 21px;
+    margin-bottom: 7px;
+    color: var(--ink-soft);
+  }
+
+  ul.ticks li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--sage-600);
+    font-weight: 700;
+  }
+
+  ul.crosses li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+    font-weight: 700;
+  }
+
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .fit {
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+
+  .good-fit {
+    background: var(--sage-050);
+    border: 1px solid var(--sage-300);
+  }
+
+  .bad-fit {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+  }
+
+  .fit-head {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+
+  .fit ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+  }
+
+  .fit li {
+    margin-bottom: 4px;
+  }
+
+  .note {
+    margin-top: 18px;
+    background: #fff6e6;
+    border: 1px solid #f0dcae;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 0.86rem;
+    color: #6f5210;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  table.cost {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    min-width: 520px;
+  }
+
+  .cost th {
+    background: var(--blue-050);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-700);
+    text-align: left;
+    padding: 10px 12px;
+  }
+
+  .cost td {
+    padding: 10px 12px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .row-label {
+    font-family: var(--display);
+    letter-spacing: 0.02em;
+  }
+
+  .alt-row {
+    color: var(--ink-soft);
+    background: var(--bg-soft);
+  }
+
+  .alts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .alt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+    color: var(--ink);
+  }
+
+  .alt:hover {
+    border-color: var(--blue-500);
+    text-decoration: none;
+  }
+
+  .alt-name {
+    font-family: var(--display);
+    font-size: 1.02rem;
+    margin-top: 6px;
+  }
+
+  .alt-meta {
+    font-size: 0.83rem;
+    color: var(--ink-faint);
+  }
+
+  .alt-cta {
+    font-size: 0.84rem;
+    color: var(--blue-700);
+    margin-top: 6px;
+  }
+
+  .compare-line {
+    margin-top: 18px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 16px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .side-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+
+  .side-head {
+    font-family: var(--display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .toc,
+  .ranks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+  }
+
+  .toc li + li,
+  .ranks li + li {
+    margin-top: 8px;
+  }
+
+  .ranks li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .rank-pos {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  .rank-pos em {
+    font-style: normal;
+    color: var(--coral);
+  }
+
+  @media (max-width: 1040px) {
+    .head-grid {
+      grid-template-columns: 180px 1fr;
+    }
+
+    .head-side {
+      grid-column: 1 / -1;
+      text-align: left;
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .head-side .score {
+      margin: 0;
+    }
+
+    .band {
+      margin: 0;
+    }
+
+    .rrp {
+      margin: 0;
+    }
+
+    .body-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .sidebar {
+      position: static;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .head-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* The separator dangles once the meta line wraps. */
+    .meta-sep {
+      display: none;
+    }
+
+    .head-side {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .proscons,
+    .fit-grid,
+    .alts {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

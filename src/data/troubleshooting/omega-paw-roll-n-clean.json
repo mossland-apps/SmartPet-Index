@@ -1,0 +1,58 @@
+{
+  "product": "omega-paw-roll-n-clean",
+  "intro": "There is no motor, no sensor and no app, so there is very little to break. Every problem with this box is a litter problem or a technique problem.",
+  "symptoms": [
+    {
+      "slug": "clumps-not-falling",
+      "title": "Clumps do not fall into the tray",
+      "severity": "common",
+      "summary": "You roll the box but clumps stay in the litter bed instead of dropping through the grate.",
+      "causes": [
+        "Litter is not clumping hard enough — cheap clay breaks up on the roll.",
+        "The bed is too shallow, so urine reaches the plastic and smears.",
+        "The box was not rolled fully onto its side."
+      ],
+      "fixes": [
+        {
+          "step": "Use a firm-clumping clay",
+          "detail": "This design depends entirely on clumps holding together. Budget litter is a false economy here."
+        },
+        {
+          "step": "Deepen the bed",
+          "detail": "Three inches minimum. Shallow beds are the usual cause."
+        },
+        {
+          "step": "Roll it all the way",
+          "detail": "Roll until the box is fully on its side and hold for two seconds before rolling back."
+        }
+      ],
+      "escalate": "There is no mechanism to fail here — if clumps still will not drop, the litter is the variable to change."
+    },
+    {
+      "slug": "litter-in-seams",
+      "title": "Litter and waste stuck in the seams",
+      "severity": "common",
+      "summary": "Material collects where the two halves join and does not clear on rolling.",
+      "causes": [
+        "This is inherent to the two-piece design.",
+        "The halves are not clipped fully together, widening the seam.",
+        "Litter is too fine and packs into the joint."
+      ],
+      "fixes": [
+        {
+          "step": "Split and wash monthly",
+          "detail": "Unclip the halves and wash both with warm water and unscented soap."
+        },
+        {
+          "step": "Check the clips",
+          "detail": "Press all clips home. A partly open seam collects far more material."
+        },
+        {
+          "step": "Try a coarser litter",
+          "detail": "Fine-grain litter packs into the joint; a coarser clay does not."
+        }
+      ],
+      "escalate": "Not a fault. It is the maintenance cost of a $45 box with no motor."
+    }
+  ]
+}

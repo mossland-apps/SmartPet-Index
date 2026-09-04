@@ -1,0 +1,171 @@
+---
+import { SITE } from '../config/site.js';
+import { CATEGORIES } from '../lib/catalog.js';
+import { BEST_OF_LISTS } from '../lib/rankings.js';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div>
+      <p class="wordmark">
+        <span>{SITE.wordmark.first}</span><span class="second">{SITE.wordmark.second}</span>
+      </p>
+      <p class="blurb">
+        Independent testing, structured specs and plain-English rankings for smart pet tech. We buy what
+        we test and we publish the method.
+      </p>
+    </div>
+
+    <div>
+      <p class="heading">Rankings</p>
+      <ul>
+        {
+          BEST_OF_LISTS.slice(0, 5).map((l) => (
+            <li>
+              <a href={'/litter-boxes/' + l.slug + '/'}>{l.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p class="heading">Categories</p>
+      <ul>
+        {
+          CATEGORIES.map((c) => (
+            <li>
+              {c.live ? (
+                <a href={'/' + c.slug + '/'}>{c.name}</a>
+              ) : (
+                <span class="soon">
+                  {c.name} <em>coming soon</em>
+                </span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p class="heading">The Site</p>
+      <ul>
+        <li><a href="/how-we-test/">How We Test</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/compare/">Compare Tool</a></li>
+        <li><a href="/guides/">Buying Guides</a></li>
+        <li><a href="/brands/">Brand Hubs</a></li>
+        <li><a href="/troubleshooting/">Troubleshooting</a></li>
+        <li><a href="/about/disclosure/">Affiliate Disclosure</a></li>
+        <li><a href="/about/contact/">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap legal">
+    <p>&copy; {year} {SITE.name}. {SITE.disclosure}</p>
+    <p class="tiny">
+      Scores marked “research-based” are compiled from published specifications and owner reports, and are
+      replaced by measured results once a unit is tested in-house.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--blue-800);
+    color: rgba(255, 255, 255, 0.82);
+    margin-top: 60px;
+    padding: 46px 0 26px;
+    font-size: 0.93rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 34px;
+  }
+
+  .wordmark {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    letter-spacing: 0.045em;
+    color: #fff;
+    margin: 0 0 10px;
+  }
+
+  .second {
+    color: var(--sage-300);
+    margin-left: 0.32em;
+  }
+
+  .blurb {
+    max-width: 40ch;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+  }
+
+  .heading {
+    font-family: var(--display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-300);
+    margin: 0 0 12px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li + li {
+    margin-top: 8px;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  .soon {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .soon em {
+    font-style: normal;
+    font-size: 0.76rem;
+    opacity: 0.75;
+  }
+
+  .legal {
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.83rem;
+  }
+
+  .legal p {
+    margin: 0 0 6px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

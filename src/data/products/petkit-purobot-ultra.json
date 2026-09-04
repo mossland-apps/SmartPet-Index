@@ -1,0 +1,97 @@
+{
+  "slug": "petkit-purobot-ultra",
+  "brand": "petkit",
+  "model": "PETKIT Purobot Ultra",
+  "shortName": "Purobot Ultra",
+  "category": "litter-boxes",
+  "price": 899,
+  "releaseYear": 2024,
+  "accent": "#4f7fa8",
+  "specs": {
+    "dimensions": "22.4 x 25.2 x 24.8 in",
+    "footprint": "22.4 x 25.2 in",
+    "entryHeight": "8.7 in",
+    "weight": "30 lb",
+    "minimumCatWeight": "3.3 lb",
+    "maximumCatWeight": "17.6 lb",
+    "wasteCapacity": "10 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu",
+      "Mixed"
+    ],
+    "wifi": true,
+    "app": "PETKIT (iOS, Android)",
+    "odorSystem": "Dual deodoriser + carbon filter + sealed bag roll",
+    "noiseLevel": "~46 dB at 3 ft",
+    "safetySensors": [
+      "AI camera",
+      "Infrared",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Proprietary bag roll",
+    "replacementCost": 90,
+    "filterCost": 55,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 4",
+    "cycleTime": "~2 min 40 s",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.8,
+    "odorControl": 9,
+    "safety": 8.9,
+    "app": 9.2,
+    "maintenance": 7.4,
+    "value": 6.4
+  },
+  "verdict": "The Purobot Ultra is the most technically ambitious box on the market — an AI camera that identifies which cat is using it, health tracking that is genuinely useful in a multi-cat home, and the best app in the category by some distance. It is also $899 and locked to PETKIT bag rolls, which is roughly $90 a year you cannot opt out of. Buy it for the health data, not for the scooping.",
+  "pros": [
+    "Camera identifies individual cats without collars",
+    "Best app in the category — the health data is actually actionable",
+    "Very strong odor performance",
+    "Broad litter compatibility"
+  ],
+  "cons": [
+    "Most expensive box in this index",
+    "Proprietary bag rolls at roughly $90 a year",
+    "Camera means a privacy decision most boxes do not ask you to make",
+    "Fiddly to fully disassemble for deep cleaning"
+  ],
+  "bestFor": [
+    "Multi-cat homes needing per-cat health data",
+    "Cats with a monitored medical condition",
+    "App-first buyers"
+  ],
+  "notIdealFor": [
+    "Anyone avoiding consumable lock-in",
+    "Privacy-sensitive households",
+    "Budget buyers"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "PETKIT Purobot Ultra"
+    },
+    {
+      "name": "Chewy",
+      "query": "PETKIT Purobot Ultra"
+    }
+  ],
+  "sections": {
+    "setup": "The longest setup here at close to thirty minutes, mostly because the camera wants positioning and the app wants an account, permissions and a firmware update before it will finish. Once done, it stays done.",
+    "app": "The best app in this index by a clear margin. It identifies individual cats by sight, without collars or tags, and turns visit frequency and duration into per-cat health trends that are actually worth reading. If you have a cat with a monitored urinary or kidney condition, this is the reason to buy it.",
+    "odorControl": "Dual deodorisers, a carbon filter and a sealed bag roll. It is among the best that does not heat-seal, and it holds up with three cats. The bag roll seals the waste more tightly than a loose kitchen bag ever will.",
+    "noise": "Around 46 dB at three feet — quiet for its size, helped by a slower, smoother drum. Quieter than both CATLINK models.",
+    "cleaning": "Very good, with wide litter compatibility and a 10 L drawer. The camera also lets the app show you what it cleared, which sounds gimmicky and turns out to be the fastest way to spot a jam.",
+    "safety": "The AI camera adds a genuine safety layer on top of infrared, weight sensing and anti-pinch reverse — it can see a cat the sensors might miss. Set against that, a camera in a litter box is a household privacy decision, and PETKIT processes footage in its cloud.",
+    "consumables": "Proprietary bag rolls at roughly $90 a year, plus filters. There is no way to opt out, and that is the single biggest mark against the product.",
+    "longTermCost": "The most expensive box here to buy and near the top to run. Over five years it is roughly double the Meowant. You are paying for the health data, and the data is the only thing that justifies it."
+  }
+}

@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Corrections, spec errors, product suggestions and press enquiries for SmartPet Index."
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="Get in Touch"
+    lede="Corrections get priority. If a specification on this site is wrong, we want to know before your readers do."
+    crumbs={[{ label: 'About', href: '/about/' }, { label: 'Contact' }]}
+  />
+
+  <section class="section">
+    <div class="wrap narrow">
+      <div class="cards">
+        <div class="card">
+          <h2>Corrections</h2>
+          <p>
+            A wrong spec, a broken link, a price that has been stale for months, a claim you think we
+            cannot support. Include the page and what is wrong with it.
+          </p>
+          <p class="addr">corrections@smartpetindex.com</p>
+        </div>
+
+        <div class="card">
+          <h2>Product suggestions</h2>
+          <p>
+            A box we should be tracking, or a fault that deserves a troubleshooting entry. Detailed owner
+            reports of a specific failure are the most useful thing you can send us.
+          </p>
+          <p class="addr">tips@smartpetindex.com</p>
+        </div>
+
+        <div class="card">
+          <h2>Brands and press</h2>
+          <p>
+            Review units, specification sheets and press materials. Note that we do not offer
+            pre-publication review of scores and we do not accept payment for coverage.
+          </p>
+          <p class="addr">press@smartpetindex.com</p>
+        </div>
+      </div>
+
+      <p class="note">
+        These addresses go live with the domain. Until then, reach us through the account that registered
+        smartpetindex.com.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 860px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 1.15rem;
+    color: var(--blue-700);
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .addr {
+    font-family: var(--display);
+    color: var(--sage-600);
+    letter-spacing: 0.02em;
+    margin-bottom: 0;
+  }
+
+  .note {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 800px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

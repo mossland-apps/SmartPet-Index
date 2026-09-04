@@ -1,0 +1,35 @@
+---
+import { retailerUrl } from '../config/site.js';
+const { product, compact = false } = Astro.props;
+const retailers = product.retailers || [];
+---
+
+<div class={compact ? 'buy compact' : 'buy'}>
+  {
+    retailers.map((r, i) => {
+      const href = retailerUrl(r.name, r.query);
+      return (
+        <a
+          class={'btn btn-block ' + (i === 0 ? 'btn-primary' : 'btn-outline')}
+          href={href}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+        >
+          Check Price at {r.name}
+        </a>
+      );
+    })
+  }
+</div>
+
+<style>
+  .buy {
+    display: grid;
+    gap: 8px;
+  }
+
+  .compact :global(.btn) {
+    padding: 9px 14px;
+    font-size: 0.88rem;
+  }
+</style>

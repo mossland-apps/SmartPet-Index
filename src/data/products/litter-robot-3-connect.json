@@ -1,0 +1,92 @@
+{
+  "slug": "litter-robot-3-connect",
+  "brand": "whisker",
+  "model": "Litter-Robot 3 Connect",
+  "shortName": "Litter-Robot 3",
+  "category": "litter-boxes",
+  "price": 549,
+  "releaseYear": 2015,
+  "accent": "#5b7f9e",
+  "specs": {
+    "dimensions": "24.25 x 27 x 29.5 in",
+    "footprint": "24.25 x 27 in",
+    "entryHeight": "10 in",
+    "weight": "24 lb",
+    "minimumCatWeight": "5 lb",
+    "maximumCatWeight": "15 lb",
+    "wasteCapacity": "7.5 L",
+    "litterTypes": [
+      "Clumping clay"
+    ],
+    "wifi": true,
+    "app": "Whisker (iOS, Android)",
+    "odorSystem": "Carbon filter + sealed drawer",
+    "noiseLevel": "~50 dB at 3 ft",
+    "safetySensors": [
+      "Weight sensor",
+      "Cat sensor pause"
+    ],
+    "bagType": "Standard kitchen bags",
+    "replacementCost": 30,
+    "filterCost": 45,
+    "warranty": "18 months",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 4",
+    "cycleTime": "~2 min 45 s",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.6,
+    "odorControl": 8,
+    "safety": 8.4,
+    "app": 8.2,
+    "maintenance": 8,
+    "value": 7.6
+  },
+  "verdict": "The older Litter-Robot is still on sale because it still works. The mechanism is proven over a decade, parts are everywhere, and it regularly discounts below $500. You give up the newer laser sensor, the higher weight limit and a noticeable amount of quiet, but for a single average-sized cat the practical difference is smaller than the price gap suggests.",
+  "pros": [
+    "A decade of proven reliability and parts supply",
+    "Frequently discounted well below the LR4",
+    "No proprietary consumables",
+    "Simple to repair — most parts are user-replaceable"
+  ],
+  "cons": [
+    "Noticeably louder than the LR4",
+    "15 lb cat weight ceiling",
+    "10 in entry is high for kittens and seniors"
+  ],
+  "bestFor": [
+    "Single-cat homes",
+    "Buyers who want Whisker support at a lower price",
+    "People who like repairable hardware"
+  ],
+  "notIdealFor": [
+    "Large cats",
+    "Kittens or arthritic seniors",
+    "Anyone sensitive to motor noise"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "Litter-Robot 3 Connect"
+    },
+    {
+      "name": "Chewy",
+      "query": "Litter-Robot 3 Connect"
+    }
+  ],
+  "sections": {
+    "setup": "Same globe-on-a-base assembly as the LR4 and roughly the same fifteen minutes. The bonnet clips are stiffer and the levelling matters more, since the older weight sensor is less forgiving of an uneven floor.",
+    "app": "Runs on the same Whisker app as the LR4 with a reduced feature set — cycle history and a fill indicator, but coarser weight data. Connection stability is good. Feature updates now go to the LR4 first.",
+    "odorControl": "A sealed drawer and a carbon filter, without the OdorTrap layer. Fine for one cat in a ventilated room, noticeably behind the LR4 by day five with two. The drawer seal is the weak point as the gasket ages.",
+    "noise": "Around 50 dB at three feet — a clear step up from the LR4 and audible through a closed door in a quiet house. If the box will live near a bedroom, this is the reason to pay for the newer model.",
+    "cleaning": "A decade-proven mechanism that clears clumps consistently. The smaller drawer means more frequent emptying with two cats, and the sifting screen needs a scrape more often than the LR4.",
+    "safety": "A weight sensor and a cat-sensor pause, without the laser entry detection or pinch detect of the LR4. Still competent, and the mechanism is slow enough to be forgiving, but it is one layer of redundancy short of the current standard.",
+    "consumables": "Standard kitchen bags plus filters. No lock-in, and because these have been sold for a decade, every replaceable part is easy to buy — including from third parties.",
+    "longTermCost": "The cheapest route into the Whisker ecosystem, especially on discount. Running costs are near-identical to the LR4, so the saving at purchase is a permanent saving."
+  }
+}

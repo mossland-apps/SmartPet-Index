@@ -1,0 +1,94 @@
+{
+  "slug": "petsnowy-snow-plus",
+  "brand": "petsnowy",
+  "model": "PetSnowy SNOW+",
+  "shortName": "PetSnowy SNOW+",
+  "category": "litter-boxes",
+  "price": 649,
+  "releaseYear": 2023,
+  "accent": "#8aa9c4",
+  "specs": {
+    "dimensions": "23.6 x 21.7 x 24.8 in",
+    "footprint": "23.6 x 21.7 in",
+    "entryHeight": "7.5 in",
+    "weight": "28 lb",
+    "minimumCatWeight": "2.2 lb",
+    "maximumCatWeight": "19.8 lb",
+    "wasteCapacity": "7 L (heat-sealed)",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu",
+      "Mixed"
+    ],
+    "wifi": true,
+    "app": "PetSnowy (iOS, Android)",
+    "odorSystem": "Heat-sealed waste bag + deodoriser + carbon filter",
+    "noiseLevel": "~45 dB at 3 ft",
+    "safetySensors": [
+      "Infrared",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Proprietary sealing film cartridge",
+    "replacementCost": 120,
+    "filterCost": 45,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 3",
+    "cycleTime": "~2 min 20 s",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.5,
+    "odorControl": 9.4,
+    "safety": 8.4,
+    "app": 8,
+    "maintenance": 8,
+    "value": 6.8
+  },
+  "verdict": "The SNOW+ heat-seals the waste bag after every cycle, and on the evidence available it is the most effective odor solution in this category — nothing else physically closes the bag. The catch is unavoidable: the sealing film is proprietary, it costs roughly $120 a year, and if PetSnowy stops making it the box becomes an ordinary one. That is the whole trade.",
+  "pros": [
+    "Heat-sealed bags — the strongest odor containment available",
+    "Very quiet",
+    "Low 7.5 in entry",
+    "Handles tofu and mixed litter"
+  ],
+  "cons": [
+    "Sealing film is proprietary and mandatory at around $120 a year",
+    "Smaller effective waste capacity because of the sealing mechanism",
+    "Long-term dependence on one supplier"
+  ],
+  "bestFor": [
+    "Studio apartments",
+    "Households where odor is a dealbreaker",
+    "People who do not mind consumables"
+  ],
+  "notIdealFor": [
+    "Anyone avoiding proprietary refills",
+    "Cost-per-year optimisers"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "PetSnowy SNOW+"
+    },
+    {
+      "name": "Chewy",
+      "query": "PetSnowy SNOW+"
+    }
+  ],
+  "sections": {
+    "setup": "Around twenty minutes, with an extra step: loading the sealing film cartridge and running a test seal. Get that wrong and the first few cycles will not seal properly.",
+    "app": "Adequate. Cycle control, scheduling, a film-remaining indicator and basic logging. The film counter is the most useful thing in it, because running out mid-week is a real problem.",
+    "odorControl": "The best in this index, and not by a small margin. Heat-sealing the bag after every cycle removes the mechanism by which every other box eventually smells. Nothing else here physically closes the waste.",
+    "noise": "Around 45 dB at three feet including the sealing step, which adds a brief low hum rather than a bang. Quieter than both CATLINK models.",
+    "cleaning": "Good, with wide litter compatibility. The trade is capacity: the sealing mechanism eats space, so the usable drawer is 7 L against 9–11 L elsewhere, and you will empty it more often.",
+    "safety": "Infrared, weight sensing and anti-pinch reverse. Standard coverage. The sealing element is isolated from the cat-accessible area.",
+    "consumables": "Proprietary sealing film at roughly $120 a year, plus filters — the highest running cost of any box here and completely non-optional. If PetSnowy stops making the film, the box becomes an ordinary one.",
+    "longTermCost": "Expensive to buy and the most expensive to run. Over five years it is the second-costliest box in this index after the Purobot Ultra. You are buying the odor result and paying rent on it."
+  }
+}

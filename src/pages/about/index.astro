@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { products, brands } from '../../lib/catalog.js';
+import { SITE } from '../../config/site.js';
+---
+
+<BaseLayout
+  title="About SmartPet Index"
+  description="Who we are, what we cover, how we make money and how to reach us."
+>
+  <PageHeader
+    eyebrow="About"
+    title="About SmartPet Index"
+    lede="We test smart pet hardware and publish the numbers. Right now that means automatic litter boxes, because it is the category where the marketing sits furthest from the experience of living with the thing."
+    crumbs={[{ label: 'About' }]}
+  />
+
+  <section class="section">
+    <div class="wrap narrow">
+      <h2>What we do</h2>
+      <p>
+        Every product we cover becomes a structured record before it becomes an article: {products.length}
+        models across {brands.length} brands, each with the same standardized spec sheet and the same six
+        scores. The rankings, the comparison tool and the spec tables all read from that one record, which
+        is why a number on a ranking page always matches the number on the review.
+      </p>
+      <p>
+        That structure is the point. Most litter box coverage is a list of features copied from a product
+        page. Ours starts from measurements that can be repeated, and states plainly when we have not made
+        them yet.
+      </p>
+
+      <h2>Where we are today</h2>
+      <p>
+        Honestly: early. Every score on this site is currently <strong>research-based</strong> — compiled
+        from manufacturer documentation, retail listings, teardown coverage and long-run owner reports.
+        None of it comes from a unit on our bench yet. We label that on every review and we publish the
+        method on the <a href="/how-we-test/">How We Test</a> page.
+      </p>
+      <p>
+        Hands-on testing starts with four boxes. As each one is measured, its research score is replaced by
+        a tested score with the date attached.
+      </p>
+
+      <h2>What is coming</h2>
+      <p>
+        Litter boxes first, properly, before anything else. After that: feeders, fountains, cameras,
+        trackers and pet doors, in that order. The database is already built for all six categories, which
+        is why adding one is a content problem rather than a rebuild.
+      </p>
+
+      <h2>How we make money</h2>
+      <p>
+        {SITE.disclosure} Rankings are generated from scores, and the ranking code has no access to
+        commission data. Read the <a href="/about/disclosure/">full disclosure</a>.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Corrections, spec errors, product suggestions and press: <a href="/about/contact/">get in touch</a>.
+        We would rather be told we are wrong than stay wrong.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+
+  h2 {
+    color: var(--blue-700);
+    margin-top: 34px;
+  }
+</style>

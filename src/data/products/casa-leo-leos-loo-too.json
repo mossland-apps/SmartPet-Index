@@ -1,0 +1,93 @@
+{
+  "slug": "casa-leo-leos-loo-too",
+  "brand": "casa-leo",
+  "model": "Casa Leo Leo's Loo Too",
+  "shortName": "Leo's Loo Too",
+  "category": "litter-boxes",
+  "price": 649,
+  "releaseYear": 2022,
+  "accent": "#5f88a8",
+  "specs": {
+    "dimensions": "22 x 23.6 x 24.4 in",
+    "footprint": "22 x 23.6 in",
+    "entryHeight": "8.3 in",
+    "weight": "26 lb",
+    "minimumCatWeight": "3 lb",
+    "maximumCatWeight": "20 lb",
+    "wasteCapacity": "9 L",
+    "litterTypes": [
+      "Clumping clay",
+      "Tofu"
+    ],
+    "wifi": true,
+    "app": "Leo's Loo (iOS, Android)",
+    "odorSystem": "UV sterilisation + active deodoriser + carbon filter",
+    "noiseLevel": "~47 dB at 3 ft",
+    "safetySensors": [
+      "Infrared",
+      "Weight sensor",
+      "Anti-pinch reverse"
+    ],
+    "bagType": "Standard kitchen bags",
+    "replacementCost": 30,
+    "filterCost": 50,
+    "warranty": "1 year",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 3",
+    "cycleTime": "~2 min 30 s",
+    "power": "Mains, 24 V adapter"
+  },
+  "scores": {
+    "cleaning": 8.4,
+    "odorControl": 9.1,
+    "safety": 8.6,
+    "app": 7.8,
+    "maintenance": 8.3,
+    "value": 8
+  },
+  "verdict": "Leo's Loo Too throws more hardware at odor than anything else that still takes ordinary bags — UV sterilisation, an active deodoriser and carbon filtration in one drawer. If smell is the problem you are actually trying to solve and you do not want to be locked into film cartridges, this is the most direct answer. The app is the weak link and feels a generation behind.",
+  "pros": [
+    "The most complete odor package that still uses standard bags",
+    "UV sterilisation is genuinely unusual at this price",
+    "Compact footprint for a globe box",
+    "Handles cats up to 20 lb"
+  ],
+  "cons": [
+    "App is basic compared with PETKIT or Whisker",
+    "Smaller company means thinner parts supply",
+    "Only two litter types supported"
+  ],
+  "bestFor": [
+    "Small apartments where odor is the whole problem",
+    "Buyers avoiding proprietary consumables",
+    "Multi-cat homes up to three cats"
+  ],
+  "notIdealFor": [
+    "App-first buyers",
+    "People who want long-term parts certainty"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "Casa Leo Leo's Loo Too"
+    },
+    {
+      "name": "Chewy",
+      "query": "Casa Leo Leo's Loo Too"
+    }
+  ],
+  "sections": {
+    "setup": "Around fifteen minutes and genuinely simple — the globe seats without fuss and the app pairing is one of the more reliable here. The UV module needs no user setup.",
+    "app": "Functional and a generation behind. Cycle control, a fill indicator, basic weight logging and scheduling all work, but the interface is dated and the notification handling is coarse. It is the weakest part of an otherwise strong product.",
+    "odorControl": "The best odor result of any box here that still takes ordinary bags. UV sterilisation, an active deodoriser and carbon filtration together keep a two-cat room acceptable well past a week. Only the heat-sealing PetSnowy beats it.",
+    "noise": "Around 47 dB at three feet. Middle of the pack, with a slightly higher-pitched motor than the Litter-Robot.",
+    "cleaning": "Good and consistent, with a 9 L drawer. It takes clay and tofu but not crystal or mixed, which is narrower than the CATLINK and PETKIT boxes.",
+    "safety": "Infrared, weight sensing and anti-pinch reverse. The standard three layers, competently implemented, with a slower cycle than most that adds a margin of forgiveness.",
+    "consumables": "Standard kitchen bags plus a carbon filter, around $80 a year. Combined with the UV module this is the cheapest strong odor solution to run.",
+    "longTermCost": "Fifty dollars less than the Litter-Robot 4 to buy and similar to run. If odor is your actual problem rather than app polish, it is the better spend."
+  }
+}

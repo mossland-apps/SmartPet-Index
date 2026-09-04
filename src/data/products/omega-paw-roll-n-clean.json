@@ -1,0 +1,92 @@
+{
+  "slug": "omega-paw-roll-n-clean",
+  "brand": "omega-paw",
+  "model": "Omega Paw Roll'n Clean",
+  "shortName": "Omega Paw Roll'n Clean",
+  "category": "litter-boxes",
+  "price": 45,
+  "releaseYear": 2004,
+  "accent": "#a2a297",
+  "specs": {
+    "dimensions": "21.5 x 19.5 x 20.5 in",
+    "footprint": "21.5 x 19.5 in",
+    "entryHeight": "7.0 in",
+    "weight": "6 lb",
+    "minimumCatWeight": "No minimum",
+    "maximumCatWeight": "18 lb",
+    "wasteCapacity": "Pull-out tray",
+    "litterTypes": [
+      "Clumping clay"
+    ],
+    "wifi": false,
+    "app": "None",
+    "odorSystem": "Hood only",
+    "noiseLevel": "Silent",
+    "safetySensors": [
+      "None — manual operation"
+    ],
+    "bagType": "None required",
+    "replacementCost": 0,
+    "filterCost": 0,
+    "warranty": "1 year",
+    "multiCatCapable": false,
+    "catsSupported": "1",
+    "cycleTime": "Manual, ~10 s",
+    "power": "None"
+  },
+  "scores": {
+    "cleaning": 6.8,
+    "odorControl": 6.2,
+    "safety": 9.6,
+    "app": 0,
+    "maintenance": 8.4,
+    "value": 9.4
+  },
+  "verdict": "This is in the index as a reality check. You roll it on its side, the clumps fall into a tray, you pull the tray. It costs $45, uses no power, has nothing to break and no consumables. It is not automatic and it has no odor system beyond a hood — but for a single cat on a tight budget, it removes the daily scooping for about the price of two months of ScoopFree trays.",
+  "pros": [
+    "Around $45 with zero running costs",
+    "No motor, no firmware, nothing to fail",
+    "Nothing can pinch or trap a cat",
+    "Works in a power cut"
+  ],
+  "cons": [
+    "Entirely manual — you still handle it daily",
+    "No odor control beyond the hood",
+    "No app, alerts or weight data",
+    "Single cat only"
+  ],
+  "bestFor": [
+    "Tight budgets",
+    "One cat",
+    "People who distrust motorised boxes"
+  ],
+  "notIdealFor": [
+    "Anyone wanting hands-off operation",
+    "Multi-cat homes",
+    "Odor-sensitive rooms"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "scoreNote": "Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.",
+  "lastUpdated": "2026-09-02",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "Omega Paw Roll'n Clean"
+    },
+    {
+      "name": "Chewy",
+      "query": "Omega Paw Roll'n Clean"
+    }
+  ],
+  "sections": {
+    "setup": "Five minutes. Clip the two halves together, add clumping litter, done. No power, no app, no pairing.",
+    "app": "There is no app, and no electronics of any kind. That is the point.",
+    "odorControl": "A hood and nothing else. It is the worst odor result here by a wide margin, and it depends entirely on you emptying the tray daily and on the room having ventilation.",
+    "noise": "Silent. There is no motor.",
+    "cleaning": "You roll the box onto its side and back; clumps fall through a grate into a pull-out tray. It works, but it misses material against the seams and needs a full wash more often than any powered box.",
+    "safety": "Nothing can pinch, trap or start unexpectedly, because nothing moves without you. On pure risk it is the safest object in this index, which is why it scores 9.6 — a fair score that should not be read as a recommendation over a good powered box.",
+    "consumables": "None. No bags, no filters, no trays, no subscription.",
+    "longTermCost": "Around $45 once and nothing thereafter. Over five years it costs less than a single year of ScoopFree trays. What you spend instead is your own time, every day."
+  }
+}

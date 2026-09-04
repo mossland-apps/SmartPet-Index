@@ -1,0 +1,50 @@
+{
+  "slug": "are-automatic-litter-boxes-safe",
+  "title": "Are Automatic Litter Boxes Safe for Cats?",
+  "summary": "How the sensors work, where they fail, which cats are most at risk, and the settings to change on day one.",
+  "intro": "The short answer is yes, for most cats, on a modern box with three or more independent safety systems. The longer answer involves kittens, very small adults, and the specific circumstances in which sensors miss a cat. This page covers both, without either the marketing gloss or the horror stories.",
+  "sections": [
+    {
+      "heading": "How the safety systems actually work",
+      "body": [
+        "Weight sensing. The unit knows a cat has entered because the load on the base changed, and it will not start a cycle while that load is present. This is the primary system on nearly every box and it is why a level floor matters so much.",
+        "Infrared or laser entry detection. A beam across the entrance detects a body crossing it. This catches cats the weight sensor might miss — a very light cat, or one perched at the entrance without committing weight to the base.",
+        "Anti-pinch reverse. If the mechanism meets resistance mid-cycle, it stops and backs off. This is the last line of defence, and it is the one specification we would not buy a box without."
+      ]
+    },
+    {
+      "heading": "Where they fail",
+      "body": [
+        "Cats under about 3 lb. Most weight sensors have a minimum threshold, typically 3 to 5 lb, below which a cat may not register. Kittens are genuinely at risk on boxes without independent entry detection, and no manufacturer recommends these boxes for kittens under four months.",
+        "Uneven floors. A tilted base gives unreliable weight readings, and unreliable weight readings are the most common root cause of a safety system behaving unexpectedly. Level the unit and re-tare it after every litter change.",
+        "A cat that enters at the wrong moment. Some cats will step in during the delay countdown. On a good box the cycle stops or reverses. On a box with two systems instead of three, it stops."
+      ]
+    },
+    {
+      "heading": "Which cats need more caution",
+      "body": [
+        "Kittens under four months, or any cat under 3 lb. Use a conventional tray until they are over the weight threshold with margin.",
+        "Very large cats. Not a safety risk so much as a fit risk — a cat that cannot turn around comfortably will stop using the box, and a cat over the stated maximum may trigger error states.",
+        "Cats that sleep in the box. Uncommon but not rare, and it is the scenario the delay timer exists for. Lengthen it if your cat does this."
+      ]
+    },
+    {
+      "heading": "What to change on day one",
+      "body": [
+        "Level the unit properly. Use a phone level on the base, not your eye on the floor.",
+        "Lengthen the cycle delay. The default on most boxes is seven minutes; fifteen costs you nothing and removes most of the scenarios in which a cat returns mid-cycle.",
+        "Run one cycle with the unit empty and watch it. Understanding what a normal cycle looks and sounds like is how you notice an abnormal one.",
+        "Leave the old box in place for two weeks. Cats need an alternative while they decide, and a cat that is forced into an unfamiliar box is a cat that will find somewhere else to go."
+      ]
+    },
+    {
+      "heading": "How we test this",
+      "body": [
+        "We introduce a weighted, cat-sized test object at five points in the rotation, at 3 lb, 8 lb and 18 lb, and record whether the unit stops, reverses or continues, and how long it takes.",
+        "We never test safety systems on a live cat. Every safety number on this site comes from a test object.",
+        "A box that continues at any weight at any point in the cycle cannot score above 5 on safety, regardless of what else it does well."
+      ]
+    }
+  ],
+  "takeaway": "Three independent safety systems, a level floor and a longer delay timer covers almost every real-world risk. Kittens under 3 lb should not use one at all."
+}

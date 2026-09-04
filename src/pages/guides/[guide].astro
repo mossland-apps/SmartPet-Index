@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { guides } from '../../lib/guides.js';
+import { guidePath, listPath } from '../../lib/routes.js';
+import { BEST_OF_LISTS } from '../../lib/rankings.js';
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({ params: { guide: guide.slug }, props: { guide } }));
+}
+
+const { guide } = Astro.props;
+const others = guides.filter((g) => g.slug !== guide.slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: guide.title,
+  description: guide.summary,
+  author: { '@type': 'Organization', name: 'SmartPet Index' },
+};
+---
+
+<BaseLayout title={guide.title} description={guide.summary} jsonLd={jsonLd}>
+  <PageHeader
+    eyebrow="Guide"
+    title={guide.title}
+    lede={guide.summary}
+    crumbs={[{ label: 'Guides', href: '/guides/' }, { label: guide.title }]}
+  />
+
+  <section class="section">
+    <div class="wrap layout">
+      <article class="body">
+        <p class="intro">{guide.intro}</p>
+
+        {
+          guide.sections.map((s, i) => (
+            <section class="chunk" id={'s' + i}>
+              <h2>{s.heading}</h2>
+              {s.body.map((para) => (
+                <p>{para}</p>
+              ))}
+            </section>
+          ))
+        }
+
+        <div class="takeaway">
+          <p class="takeaway-head">The short version</p>
+          <p>{guide.takeaway}</p>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <div class="side-card">
+          <p class="side-head">On this page</p>
+          <ul class="toc">
+            {guide.sections.map((s, i) => <li><a href={'#s' + i}>{s.heading}</a></li>)}
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <p class="side-head">Jump to the rankings</p>
+          <ul class="toc">
+            {BEST_OF_LISTS.slice(0, 4).map((l) => <li><a href={listPath(l.slug)}>{l.title}</a></li>)}
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <p class="side-head">Other guides</p>
+          <ul class="toc">
+            {others.map((g) => <li><a href={guidePath(g.slug)}>{g.title}</a></li>)}
+          </ul>
+          <a class="btn btn-outline btn-block small-btn" href="/how-we-test/">How we test</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+    gap: 46px;
+    align-items: start;
+  }
+
+  .body {
+    max-width: 68ch;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    color: var(--ink);
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .chunk {
+    padding-top: 22px;
+    scroll-margin-top: 20px;
+  }
+
+  .chunk h2 {
+    color: var(--blue-700);
+    margin-bottom: 12px;
+  }
+
+  .chunk p {
+    color: var(--ink-soft);
+  }
+
+  .takeaway {
+    margin-top: 30px;
+    background: var(--sage-050);
+    border: 1px solid var(--sage-300);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+  }
+
+  .takeaway-head {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+    margin: 0 0 8px;
+  }
+
+  .takeaway p:last-child {
+    margin: 0;
+    font-size: 1.02rem;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 16px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .side-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+
+  .side-head {
+    font-family: var(--display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .toc {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+  }
+
+  .toc li + li {
+    margin-top: 8px;
+  }
+
+  .small-btn {
+    padding: 9px 14px;
+    font-size: 0.88rem;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 1000px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .sidebar {
+      position: static;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .sidebar {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

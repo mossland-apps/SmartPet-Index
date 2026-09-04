@@ -1,0 +1,277 @@
+---
+import ProductArt from './ProductArt.astro';
+import BuyButtons from './BuyButtons.astro';
+import ScoreBars from './ScoreBars.astro';
+import { formatScore, scoreLabel, scoreBand } from '../lib/scoring.js';
+import { getBrand } from '../lib/catalog.js';
+import { productPath, comparePath } from '../lib/routes.js';
+
+const { entry, compareWith = null } = Astro.props;
+const { product, rank, award, overall } = entry;
+const brand = getBrand(product.brand);
+const href = productPath(product.slug);
+---
+
+<article class="rank">
+  <div class="left">
+    <div class="rank-num">#{rank}</div>
+    <ProductArt product={product} size={170} />
+    <div class={'score score-lg ' + 'is-' + scoreBand(overall)}>
+      <span class="score-value">{formatScore(overall)}</span>
+      <span class="score-caption">Overall</span>
+    </div>
+    <p class="band">{scoreLabel(overall)}</p>
+  </div>
+
+  <div class="body">
+    {award && <p class="award">{award}</p>}
+    <p class="brand">{brand ? brand.name : product.brand}</p>
+    <h2 class="name"><a href={href}>{product.model}</a></h2>
+
+    <p class="price">
+      <span class="amount">${product.price}</span>
+      <span class="badge badge-research">Research-based score</span>
+    </p>
+
+    <p class="verdict">{product.verdict}</p>
+
+    <div class="two-col">
+      <div>
+        <p class="mini-head good">What we like</p>
+        <ul class="ticks">
+          {product.pros.slice(0, 4).map((x) => <li>{x}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="mini-head bad">What we don't</p>
+        <ul class="crosses">
+          {product.cons.slice(0, 3).map((x) => <li>{x}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="fit">
+      <p><strong>Best for:</strong> {product.bestFor.join(' · ')}</p>
+      <p><strong>Not ideal for:</strong> {product.notIdealFor.join(' · ')}</p>
+    </div>
+  </div>
+
+  <aside class="side">
+    <ScoreBars scores={product.scores} />
+    <div class="side-actions">
+      <BuyButtons product={product} compact={true} />
+      <a class="btn btn-outline btn-block small-btn" href={href}>Full Review</a>
+      {
+        compareWith && compareWith !== product.slug && (
+          <a class="btn btn-outline btn-block small-btn" href={comparePath(product.slug, compareWith)}>
+            Compare with our top pick
+          </a>
+        )
+      }
+    </div>
+  </aside>
+</article>
+
+<style>
+  .rank {
+    display: grid;
+    grid-template-columns: 200px 1fr 260px;
+    gap: 28px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .rank-num {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--blue-700);
+    margin-bottom: 4px;
+  }
+
+  .band {
+    font-family: var(--display);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 8px 0 0;
+  }
+
+  .award {
+    display: inline-block;
+    margin: 0 0 8px;
+    background: var(--coral);
+    color: #fff;
+    font-family: var(--display);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 4px;
+  }
+
+  .brand {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.75rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  .name {
+    margin: 2px 0 8px;
+    font-size: 1.6rem;
+  }
+
+  .name a {
+    color: var(--ink);
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 12px;
+  }
+
+  .amount {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+
+  .verdict {
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 16px;
+  }
+
+  .mini-head {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 7px;
+  }
+
+  .good {
+    color: var(--sage-600);
+  }
+
+  .bad {
+    color: var(--coral);
+  }
+
+  ul.ticks,
+  ul.crosses {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+  }
+
+  ul.ticks li,
+  ul.crosses li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    color: var(--ink-soft);
+  }
+
+  ul.ticks li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--sage-600);
+    font-weight: 700;
+  }
+
+  ul.crosses li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+    font-weight: 700;
+  }
+
+  .fit {
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .fit p {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .fit p + p {
+    margin-top: 5px;
+  }
+
+  .side {
+    border-left: 1px solid var(--line-soft);
+    padding-left: 24px;
+  }
+
+  .side-actions {
+    display: grid;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .small-btn {
+    padding: 9px 14px;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 1040px) {
+    .rank {
+      grid-template-columns: 150px 1fr;
+    }
+
+    .side {
+      grid-column: 1 / -1;
+      border-left: 0;
+      padding-left: 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .side-actions {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .rank {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .side-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .name {
+      font-size: 1.35rem;
+    }
+  }
+</style>

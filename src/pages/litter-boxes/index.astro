@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products, brands, productsByBrand } from '../../lib/catalog.js';
+import { BEST_OF_LISTS, resolveList, getList } from '../../lib/rankings.js';
+import { listPath, brandPath, productPath, troubleshootingPath, GUIDES, guidePath } from '../../lib/routes.js';
+import { formatScore, overallScore } from '../../lib/scoring.js';
+
+const topThree = resolveList(getList('best-automatic-litter-boxes'), products).slice(0, 3);
+const cheapest = [...products].sort((a, b) => a.price - b.price)[0];
+const priciest = [...products].sort((a, b) => b.price - a.price)[0];
+---
+
+<BaseLayout
+  title="Smart & Automatic Litter Boxes"
+  description="Every automatic litter box we track, with full spec sheets, six category scores, rankings by use case, brand hubs and troubleshooting."
+>
+  <PageHeader
+    eyebrow="Category"
+    title="Smart & Automatic Litter Boxes"
+    lede={products.length + " models in the database, each with the same standardized spec sheet and the same six scores. Start with a ranking, a brand, or a specific problem you are trying to fix."}
+    crumbs={[{ label: 'Litter Boxes' }]}
+  >
+    <ul class="stats">
+      <li><strong>{products.length}</strong> models tracked</li>
+      <li><strong>{brands.length}</strong> brands covered</li>
+      <li><strong>{BEST_OF_LISTS.length}</strong> rankings</li>
+      <li>
+        <strong>${cheapest.price}–${priciest.price}</strong> price range
+      </li>
+    </ul>
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <h2>Top three right now</h2>
+        <a class="more" href={listPath('best-automatic-litter-boxes')}>See the full ranking →</a>
+      </div>
+      <div class="three">
+        {topThree.map((e) => <ProductCard product={e.product} award={e.award} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <div class="head">
+        <h2>Rankings by use case</h2>
+      </div>
+      <div class="list-grid">
+        {
+          BEST_OF_LISTS.map((l) => (
+            <a class="list-card" href={listPath(l.slug)}>
+              <span class="kicker">Best</span>
+              <span class="title">{l.cardLabel}</span>
+              <span class="blurb">{l.intro.split('.')[0]}.</span>
+              <span class="count">{resolveList(l, products).length} ranked</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <h2>Every model we track</h2>
+        <a class="more" href="/reviews/">All reviews →</a>
+      </div>
+      <div class="table-scroll">
+        <table class="all">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Overall</th>
+              <th>Entry height</th>
+              <th>Max cat</th>
+              <th>Bags</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              products.map((p) => (
+                <tr>
+                  <td>
+                    <a href={productPath(p.slug)}>{p.model}</a>
+                  </td>
+                  <td class="soft">{p.brand.replace('-', ' ')}</td>
+                  <td>${p.price}</td>
+                  <td class="strong">{formatScore(overallScore(p.scores))}</td>
+                  <td>{p.specs.entryHeight}</td>
+                  <td>{p.specs.maximumCatWeight}</td>
+                  <td class="soft">{p.specs.bagType}</td>
+                  <td>
+                    <a class="fix" href={troubleshootingPath(p.slug)}>Fix issues</a>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap two-up">
+      <div>
+        <h2>Brand hubs</h2>
+        <ul class="brand-list">
+          {
+            brands.map((b) => (
+              <li>
+                <a href={brandPath(b.slug)}>{b.name}</a>
+                <span class="soft">{productsByBrand(b.slug).length} models</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>Buying guides</h2>
+        <ul class="guide-list">
+          {
+            GUIDES.map((g) => (
+              <li>
+                <a href={guidePath(g.slug)}>{g.title}</a>
+                <p class="soft small">{g.summary}</p>
+              </li>
+            ))
+          }
+        </ul>
+        <p><a class="btn btn-outline" href="/troubleshooting/">Troubleshooting hub</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .stats strong {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    color: var(--blue-700);
+    display: block;
+    line-height: 1.1;
+  }
+
+  .head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--blue-100);
+  }
+
+  .head h2 {
+    margin: 0;
+    color: var(--blue-700);
+  }
+
+  .more {
+    font-family: var(--display);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  .three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .list-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #fff;
+    border: 2px solid var(--sage-300);
+    border-radius: var(--radius);
+    padding: 15px 16px;
+    color: var(--ink);
+  }
+
+  .list-card:hover {
+    border-color: var(--sage-600);
+    text-decoration: none;
+  }
+
+  .kicker {
+    font-family: var(--display);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage-600);
+  }
+
+  .title {
+    font-family: var(--display);
+    font-size: 1.14rem;
+    line-height: 1.15;
+  }
+
+  .blurb {
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+  }
+
+  .count {
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    margin-top: auto;
+    padding-top: 6px;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  table.all {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 820px;
+  }
+
+  .all th {
+    background: var(--blue-050);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-700);
+    text-align: left;
+    padding: 11px 12px;
+    white-space: nowrap;
+  }
+
+  .all td {
+    padding: 11px 12px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .all tbody tr:nth-child(even) {
+    background: var(--bg-soft);
+  }
+
+  .soft {
+    color: var(--ink-soft);
+    text-transform: capitalize;
+  }
+
+  .strong {
+    font-family: var(--display);
+    color: var(--blue-700);
+    font-size: 1.02rem;
+  }
+
+  .fix {
+    font-size: 0.83rem;
+    white-space: nowrap;
+  }
+
+  .two-up {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 44px;
+  }
+
+  .brand-list,
+  .guide-list {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+  }
+
+  .brand-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .guide-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .guide-list p {
+    margin: 4px 0 0;
+  }
+
+  @media (max-width: 1000px) {
+    .three,
+    .list-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .two-up {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .three {
+      grid-template-columns: 1fr;
+    }
+
+    .list-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

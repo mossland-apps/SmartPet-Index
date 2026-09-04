@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { SCORE_CATEGORIES } from '../lib/schema.js';
+import { SCORE_WEIGHTS } from '../lib/scoring.js';
+import { products } from '../lib/catalog.js';
+
+const TESTS = [
+  {
+    title: 'Cycle completeness',
+    what: 'How much waste the box actually clears, cycle after cycle.',
+    how: 'Twenty measured deposits of standardised synthetic waste across a 30-day run, weighed before and after. We record the percentage cleared, the number of cycles that leave residue, and every jam.',
+    feeds: 'Cleaning',
+  },
+  {
+    title: 'Odor at day seven',
+    what: 'Whether the room still smells acceptable a week in.',
+    how: 'A sealed 12 m³ test room, ammonia and hydrogen sulphide measured at 1 m and 3 m on days 1, 3, 5 and 7, with the drawer left unemptied throughout. Filters are fitted new at the start of each run.',
+    feeds: 'Odor control',
+  },
+  {
+    title: 'Sound at three feet',
+    what: 'How loud a cycle is where you would actually hear it.',
+    how: 'A-weighted peak and average measured at 3 ft and 10 ft in a room with a 32 dB noise floor, across ten cycles. We publish the average; the peak matters for bedrooms and we note it in the review.',
+    feeds: 'Cleaning, Maintenance',
+  },
+  {
+    title: 'Safety sensor response',
+    what: 'What happens when a cat enters mid-cycle.',
+    how: 'A weighted, cat-sized test object is introduced at five points in the rotation. We record whether the unit stops, reverses or continues, and the time to stop. We test at 3 lb, 8 lb and 18 lb. No live cat is ever used for this.',
+    feeds: 'Safety',
+  },
+  {
+    title: 'Setup and teardown',
+    what: 'How long it takes to get running, and to fully clean.',
+    how: 'Timed from sealed box to first successful cycle, then a timed full disassembly, wash and reassembly. We count tools required and parts that cannot be removed.',
+    feeds: 'Maintenance',
+  },
+  {
+    title: 'App reliability',
+    what: 'Whether the connection and the data hold up.',
+    how: 'Thirty days of continuous monitoring: dropouts logged, notification latency measured, and reported weights checked against a calibrated scale.',
+    feeds: 'App',
+  },
+  {
+    title: 'True cost per year',
+    what: 'What it costs once you own it.',
+    how: 'Bags, filters, trays and cartridges at manufacturer-recommended replacement intervals, priced at the cheapest genuine source. Published as a five-year total on every review.',
+    feeds: 'Value',
+  },
+];
+---
+
+<BaseLayout
+  title="How We Test Smart Litter Boxes"
+  description="Our testing method for automatic litter boxes: seven repeatable measurements, six weighted scores, and exactly what our research-based scores mean before a unit reaches the bench."
+>
+  <PageHeader
+    eyebrow="Method"
+    title="How We Test Smart Litter Boxes"
+    lede="Every box is measured the same way so the numbers mean the same thing across models. This page is the contract: what we measure, how it is weighted, and what our scores do and do not currently represent."
+    crumbs={[{ label: 'How We Test' }]}
+  />
+
+  <section class="section">
+    <div class="wrap narrow">
+      <div class="callout" id="research-scores">
+        <p class="callout-head">Read this first: what our scores mean today</p>
+        <p>
+          Every one of the {products.length} boxes in this index currently carries a <strong>research-based
+          score</strong>. That means the number is compiled from manufacturer specifications, retail
+          listings, teardown coverage and a structured read of long-run owner reports — not from a unit on
+          our bench.
+        </p>
+        <p>
+          We label it on every review, and we publish the method below so you can judge it. As units enter
+          the test queue, research scores are replaced by measured ones and the label changes to
+          <strong>tested</strong>, with the test date on the page. We will never quietly upgrade a
+          research score without measuring it.
+        </p>
+      </div>
+
+      <h2>The six scores</h2>
+      <p>
+        Every box gets the same six category scores out of 10, and an overall that weights them. The
+        weighting is deliberate: odor and cleaning are why people buy these things, and a beautiful app
+        does not rescue a box that leaks smell.
+      </p>
+
+      <div class="weights">
+        {
+          SCORE_CATEGORIES.map((cat) => (
+            <div class="weight">
+              <div class="weight-top">
+                <span class="weight-name">{cat.label}</span>
+                <span class="weight-pct">{Math.round(SCORE_WEIGHTS[cat.key] * 100)}%</span>
+              </div>
+              <div class="weight-track">
+                <span style={`width:${SCORE_WEIGHTS[cat.key] * 100 * 4}%`} />
+              </div>
+              <p>{cat.blurb}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <h2>The seven measurements</h2>
+      <p>
+        These are the tests. They are deliberately dull and deliberately repeatable — the point is that a
+        score from one box means the same as a score from another.
+      </p>
+
+      <ol class="tests">
+        {
+          TESTS.map((t) => (
+            <li>
+              <h3>{t.title}</h3>
+              <p class="what">{t.what}</p>
+              <p class="how">{t.how}</p>
+              <p class="feeds">
+                Feeds: <strong>{t.feeds}</strong>
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <h2>What we will not do</h2>
+      <ul class="nos">
+        <li>We do not test safety systems on live cats. Ever. Weighted test objects only.</li>
+        <li>We do not accept a free unit in exchange for a review, a score, or a placement.</li>
+        <li>We do not let a brand see a score before it publishes.</li>
+        <li>We do not change a ranking because a retailer's commission rate changed.</li>
+        <li>We do not publish a measured score without stating the date it was measured.</li>
+      </ul>
+
+      <h2>How we make money</h2>
+      <p>
+        Affiliate links. When you buy through a Check Price button we may earn a commission from the
+        retailer at no extra cost to you. Rankings are generated from the scored database — the code that
+        orders a ranking has no access to commission data, which is the structural reason it cannot be
+        influenced by it. Full detail on the <a href="/about/disclosure/">disclosure page</a>.
+      </p>
+
+      <h2>Corrections</h2>
+      <p>
+        Specifications change without notice and we get things wrong. If something on this site is
+        inaccurate, <a href="/about/contact/">tell us</a> and we will fix it and say that we did.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 780px;
+  }
+
+  h2 {
+    color: var(--blue-700);
+    margin-top: 38px;
+  }
+
+  .callout {
+    background: #fff6e6;
+    border: 1px solid #f0dcae;
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 10px;
+    scroll-margin-top: 20px;
+  }
+
+  .callout-head {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: #6f5210;
+    margin: 0 0 10px;
+  }
+
+  .callout p {
+    font-size: 0.95rem;
+    color: #55420f;
+  }
+
+  .callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .weights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 26px;
+    margin: 22px 0 10px;
+  }
+
+  .weight-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+  }
+
+  .weight-name {
+    font-family: var(--display);
+    font-size: 1rem;
+  }
+
+  .weight-pct {
+    font-family: var(--display);
+    color: var(--blue-700);
+  }
+
+  .weight-track {
+    height: 7px;
+    background: var(--line-soft);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .weight-track span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue-500), var(--sage-500));
+  }
+
+  .weight p {
+    margin: 7px 0 0;
+    font-size: 0.86rem;
+    color: var(--ink-faint);
+  }
+
+  ol.tests {
+    list-style: none;
+    counter-reset: t;
+    margin: 22px 0 0;
+    padding: 0;
+  }
+
+  ol.tests li {
+    counter-increment: t;
+    position: relative;
+    padding: 18px 0 18px 52px;
+    border-top: 1px solid var(--line);
+  }
+
+  ol.tests li::before {
+    content: counter(t);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--blue-050);
+    color: var(--blue-700);
+    font-family: var(--display);
+    font-size: 1.05rem;
+  }
+
+  ol.tests h3 {
+    margin: 0 0 6px;
+  }
+
+  .what {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .how {
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .feeds {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+
+  .feeds strong {
+    color: var(--sage-600);
+  }
+
+  ul.nos {
+    margin: 14px 0 0;
+    padding-left: 20px;
+    color: var(--ink-soft);
+  }
+
+  ul.nos li {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .weights {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

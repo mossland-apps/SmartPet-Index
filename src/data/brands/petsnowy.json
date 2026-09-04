@@ -1,0 +1,18 @@
+{
+  "slug": "petsnowy",
+  "name": "PetSnowy",
+  "country": "China",
+  "founded": 2021,
+  "site": "petsnowy.com",
+  "summary": "PetSnowy built its pitch entirely around odor: a heat-sealed waste system that closes the bag after every cycle. It works, and it locks you into their film cartridges forever.",
+  "strengths": [
+    "Best-sealed waste system in the category",
+    "Distinctive design",
+    "Quiet operation"
+  ],
+  "weaknesses": [
+    "Proprietary sealing film is mandatory",
+    "Highest consumable cost here",
+    "Small support footprint"
+  ]
+}

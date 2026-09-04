@@ -1,0 +1,119 @@
+{
+  "product": "petsafe-scoopfree-smart",
+  "intro": "The ScoopFree has a rake rather than a drum, so its failure modes are different from every other box in this index. Jams are mechanical and almost always visible.",
+  "symptoms": [
+    {
+      "slug": "rake-stuck",
+      "title": "Rake is stuck or does not return",
+      "severity": "serious",
+      "summary": "The rake stops partway across the tray or fails to return to its parked position.",
+      "causes": [
+        "A large clump or a foreign object is blocking the rake path.",
+        "Crystal litter has been pushed into a ridge that the rake cannot climb.",
+        "The tray is not seated square in the bay."
+      ],
+      "fixes": [
+        {
+          "step": "Unplug and clear the path",
+          "detail": "Remove the obstruction by hand. Never force the rake while powered."
+        },
+        {
+          "step": "Level the crystals",
+          "detail": "Rake the crystal bed flat by hand every week or two — this prevents most jams."
+        },
+        {
+          "step": "Reseat the tray",
+          "detail": "The tray must sit flat and square, with no lip catching the rake."
+        }
+      ],
+      "escalate": "A rake that stalls on an empty, clean tray has a drive fault and is a warranty item."
+    },
+    {
+      "slug": "tray-sensor-error",
+      "title": "Tray sensor error",
+      "severity": "common",
+      "summary": "The unit reports no tray fitted, or reports the tray as spent immediately.",
+      "causes": [
+        "The tray is a third-party refill without the expected sensor profile.",
+        "The tray contacts are dusty.",
+        "The tray counter was not reset after the last change."
+      ],
+      "fixes": [
+        {
+          "step": "Reset the counter",
+          "detail": "Use the reset in the app or on the unit after fitting a new tray."
+        },
+        {
+          "step": "Wipe the contacts",
+          "detail": "Clean the tray bay contacts with a dry cloth."
+        },
+        {
+          "step": "Use genuine trays",
+          "detail": "Third-party crystal trays are the most common cause of persistent sensor errors on ScoopFree units."
+        }
+      ],
+      "escalate": "Persistent errors with a genuine tray and clean contacts are a warranty item."
+    },
+    {
+      "slug": "offline-or-wont-connect",
+      "title": "Shows offline in the app",
+      "severity": "common",
+      "summary": "The unit works but the PetSafe app shows it as offline, or commands from the app do nothing.",
+      "causes": [
+        "The box is on a 5 GHz network segment. Almost every litter box on the market is 2.4 GHz only.",
+        "The router moved the unit to a different band after a firmware update or a mesh node reshuffle.",
+        "The box sits behind an appliance or in a metal-lined cabinet that kills the signal."
+      ],
+      "fixes": [
+        {
+          "step": "Check the band",
+          "detail": "Confirm your phone is on the 2.4 GHz network when you pair. On a combined-band router, temporarily split the bands or use the guest 2.4 GHz network."
+        },
+        {
+          "step": "Power cycle in order",
+          "detail": "Unplug the box for 30 seconds, then reboot the router, then plug the box back in. Order matters — the box looks for the network on boot."
+        },
+        {
+          "step": "Move it 3 feet",
+          "detail": "Signal strength at floor level behind a washing machine is far worse than it looks. Try the unit in the open before concluding the radio is faulty."
+        },
+        {
+          "step": "Re-pair from scratch",
+          "detail": "Remove the device from the app entirely, then run setup again rather than retrying the existing entry."
+        }
+      ],
+      "escalate": "If it pairs and drops within minutes repeatedly, that is a hardware or firmware fault — contact PetSafe rather than continuing to re-pair."
+    },
+    {
+      "slug": "odor-problems",
+      "title": "It still smells",
+      "severity": "common",
+      "summary": "The box cycles normally but the room smells worse than expected — often starting a few weeks in.",
+      "causes": [
+        "The carbon filter is past its life. Filters degrade quietly; there is no warning.",
+        "The drawer gasket has litter dust on the seal face, so the drawer no longer closes airtight.",
+        "Litter depth is too shallow, so urine reaches the drum wall instead of clumping.",
+        "The unit needs a full wash. Waste film builds on the drum wall and no amount of cycling removes it."
+      ],
+      "fixes": [
+        {
+          "step": "Replace the filter",
+          "detail": "Set a recurring reminder rather than waiting to notice. PetSafe filters are a running cost, not an optional accessory."
+        },
+        {
+          "step": "Clean the gasket",
+          "detail": "Wipe the drawer seal and the mating face with a damp cloth, then dry. A gritty seal leaks."
+        },
+        {
+          "step": "Deepen the litter",
+          "detail": "Run to the fill line, not below it. Shallow litter is the most common cause of odor in an otherwise healthy unit."
+        },
+        {
+          "step": "Full wash every 4-6 weeks",
+          "detail": "Strip the unit, wash the drum and drawer with unscented soap and warm water, dry completely before reassembly."
+        }
+      ],
+      "escalate": "Persistent ammonia smell despite all of the above can indicate a cat health issue. It is worth a vet conversation, not just a cleaning routine."
+    }
+  ]
+}

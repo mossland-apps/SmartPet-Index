@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products } from '../../lib/catalog.js';
+---
+
+<BaseLayout
+  title="All Litter Box Reviews"
+  description="Every automatic and smart litter box review on SmartPet Index, each built on the same standardized spec sheet and the same six scores."
+>
+  <PageHeader
+    eyebrow="Reviews"
+    title="All Litter Box Reviews"
+    lede="Every model in the database, sorted by overall score. Each review uses the same structure — verdict, pros and cons, six scores, full specs, running costs and alternatives — so you can read two of them against each other without doing the translation yourself."
+    crumbs={[{ label: 'Litter Boxes', href: '/litter-boxes/' }, { label: 'Reviews' }]}
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        {products.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 1000px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

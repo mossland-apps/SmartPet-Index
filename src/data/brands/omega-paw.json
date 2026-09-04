@@ -1,0 +1,18 @@
+{
+  "slug": "omega-paw",
+  "name": "Omega Paw",
+  "country": "Canada",
+  "founded": 1998,
+  "site": "omegapaw.com",
+  "summary": "Not automatic and not smart — you roll it by hand. It is in this index because it solves the same problem for under $50, with no motor, no app and no consumables.",
+  "strengths": [
+    "Costs less than a month of some refill plans",
+    "Nothing to break",
+    "No power required"
+  ],
+  "weaknesses": [
+    "Entirely manual",
+    "No odor system beyond the hood",
+    "No data, no alerts"
+  ]
+}

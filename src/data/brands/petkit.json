@@ -1,0 +1,18 @@
+{
+  "slug": "petkit",
+  "name": "PETKIT",
+  "country": "China",
+  "founded": 2013,
+  "site": "petkit.com",
+  "summary": "PETKIT is the widest smart-pet range of any brand here, and the litter boxes reflect that — lots of features, heavy app integration, and a consumables business attached to almost every product.",
+  "strengths": [
+    "Feature density per dollar",
+    "Mature app with real health tracking",
+    "Wide accessory ecosystem"
+  ],
+  "weaknesses": [
+    "Proprietary bag rolls on most models",
+    "App wants an account for everything",
+    "Uneven translation in docs"
+  ]
+}
