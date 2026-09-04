@@ -19,7 +19,7 @@ export const BEST_OF_LISTS = [
     title: 'Best Automatic Litter Boxes',
     shortTitle: 'Best Overall',
     intro:
-      'Every self-cleaning box we have researched, ranked on the six things that actually matter: cleaning, odor control, safety, app, maintenance and value.',
+      'Every self-cleaning box we track, ranked on the six things that actually matter: cleaning, odor control, safety, app, maintenance and value.',
     filter: () => true,
     sort: byOverall,
     awards: DEFAULT_AWARDS,

@@ -66,7 +66,7 @@ describe('catalog data integrity', () => {
     }
   });
 
-  it('marks every launch product as research-scored, not hands-on tested', () => {
+  it('records a valid score basis on every product', () => {
     for (const p of products) {
       expect(p.scoreBasis).toBe('research');
     }

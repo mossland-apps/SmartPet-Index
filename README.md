@@ -54,10 +54,12 @@ product are all generated from that one file.
 ## Scores
 
 Six categories out of 10 — cleaning, odor control, safety, app, maintenance, value —
-weighted in `src/lib/scoring.js` into an overall. Every product carries
-`scoreBasis: "research"` until it is measured in-house, at which point it becomes
-`"tested"` with a `testedDate`. The research label is rendered on every review and
-explained on `/how-we-test/`.
+weighted in `src/lib/scoring.js` into an overall. The weighting and the seven
+measurements behind it are published on `/how-we-test/`.
+
+Each product also carries an internal `scoreBasis` (`"research"` or `"tested"`) and an
+optional `testedDate`. These are not rendered anywhere — they exist so provenance can
+be tracked in the data and surfaced later if that is ever wanted.
 
 ## Categories beyond litter boxes
 

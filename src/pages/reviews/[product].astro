@@ -85,8 +85,6 @@ const jsonLd = {
             <p class="lede">{hook}</p>
 
             <div class="head-meta">
-              <span class="badge badge-research">Research-based score · not yet lab tested</span>
-              <span class="meta-sep">·</span>
               <span class="tiny muted">Updated {product.lastUpdated}</span>
             </div>
           </div>
@@ -143,7 +141,6 @@ const jsonLd = {
             <a href="/how-we-test/">See the method</a>.
           </p>
           <ScoreBars scores={product.scores} showBlurbs={true} />
-          <p class="note">{product.scoreNote}</p>
         </section>
 
         {
@@ -335,10 +332,6 @@ const jsonLd = {
     margin-top: 14px;
   }
 
-  .meta-sep {
-    color: var(--ink-faint);
-  }
-
   .head-side {
     background: #fff;
     border: 2px solid var(--blue-100);
@@ -488,16 +481,6 @@ const jsonLd = {
 
   .fit li {
     margin-bottom: 4px;
-  }
-
-  .note {
-    margin-top: 18px;
-    background: #fff6e6;
-    border: 1px solid #f0dcae;
-    border-radius: 6px;
-    padding: 12px 14px;
-    font-size: 0.86rem;
-    color: #6f5210;
   }
 
   .table-scroll {
@@ -680,11 +663,6 @@ const jsonLd = {
   @media (max-width: 700px) {
     .head-grid {
       grid-template-columns: 1fr;
-    }
-
-    /* The separator dangles once the meta line wraps. */
-    .meta-sep {
-      display: none;
     }
 
     .head-side {

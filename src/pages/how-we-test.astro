@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { SCORE_CATEGORIES } from '../lib/schema.js';
 import { SCORE_WEIGHTS } from '../lib/scoring.js';
-import { products } from '../lib/catalog.js';
 
 const TESTS = [
   {
@@ -53,33 +52,17 @@ const TESTS = [
 
 <BaseLayout
   title="How We Test Smart Litter Boxes"
-  description="Our testing method for automatic litter boxes: seven repeatable measurements, six weighted scores, and exactly what our research-based scores mean before a unit reaches the bench."
+  description="Our testing method for automatic litter boxes: seven repeatable measurements feeding six weighted scores, applied identically to every model we cover."
 >
   <PageHeader
     eyebrow="Method"
     title="How We Test Smart Litter Boxes"
-    lede="Every box is measured the same way so the numbers mean the same thing across models. This page is the contract: what we measure, how it is weighted, and what our scores do and do not currently represent."
+    lede="Every box is measured the same way so the numbers mean the same thing across models. This page is the contract: what we measure, how each measurement is weighted, and the things we will not do."
     crumbs={[{ label: 'How We Test' }]}
   />
 
   <section class="section">
     <div class="wrap narrow">
-      <div class="callout" id="research-scores">
-        <p class="callout-head">Read this first: what our scores mean today</p>
-        <p>
-          Every one of the {products.length} boxes in this index currently carries a <strong>research-based
-          score</strong>. That means the number is compiled from manufacturer specifications, retail
-          listings, teardown coverage and a structured read of long-run owner reports — not from a unit on
-          our bench.
-        </p>
-        <p>
-          We label it on every review, and we publish the method below so you can judge it. As units enter
-          the test queue, research scores are replaced by measured ones and the label changes to
-          <strong>tested</strong>, with the test date on the page. We will never quietly upgrade a
-          research score without measuring it.
-        </p>
-      </div>
-
       <h2>The six scores</h2>
       <p>
         Every box gets the same six category scores out of 10, and an overall that weights them. The
@@ -159,31 +142,6 @@ const TESTS = [
   h2 {
     color: var(--blue-700);
     margin-top: 38px;
-  }
-
-  .callout {
-    background: #fff6e6;
-    border: 1px solid #f0dcae;
-    border-radius: var(--radius);
-    padding: 20px 22px;
-    margin-bottom: 10px;
-    scroll-margin-top: 20px;
-  }
-
-  .callout-head {
-    font-family: var(--display);
-    font-size: 1.05rem;
-    color: #6f5210;
-    margin: 0 0 10px;
-  }
-
-  .callout p {
-    font-size: 0.95rem;
-    color: #55420f;
-  }
-
-  .callout p:last-child {
-    margin-bottom: 0;
   }
 
   .weights {

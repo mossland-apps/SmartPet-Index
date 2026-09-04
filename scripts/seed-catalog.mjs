@@ -1,6 +1,5 @@
 // Seeds the product + brand database. Run: node scripts/seed-catalog.mjs
 // Specs are compiled from manufacturer documentation and retail listings.
-// Scores are research-based until hands-on testing replaces them.
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -674,15 +673,11 @@ const products = [
   },
 ];
 
-const RESEARCH_NOTE =
-  'Scores are research-based: compiled from manufacturer specifications, retail listings, teardown coverage and a structured read of long-run owner reports. They will be replaced with hands-on measurements when this unit enters the test queue.';
-
 for (const p of products) {
   const record = {
     ...p,
     scoreBasis: 'research',
     testedDate: null,
-    scoreNote: RESEARCH_NOTE,
     lastUpdated: '2026-09-02',
     retailers: [
       { name: 'Amazon', query: p.model },
