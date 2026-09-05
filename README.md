@@ -61,6 +61,26 @@ Each product also carries an internal `scoreBasis` (`"research"` or `"tested"`) 
 optional `testedDate`. These are not rendered anywhere — they exist so provenance can
 be tracked in the data and surfaced later if that is ever wanted.
 
+## Images
+
+`scripts/build-images.mjs` generates every social card and product image from the
+product data, and runs automatically before `npm run dev` and `npm run build`
+(`npm run images` to regenerate on demand). Output lands in `public/og/` and
+`public/img/products/` — both gitignored, because they are build artifacts.
+
+Per product it produces a 1200x630 social card (illustration, brand, model, score,
+price) and a 1200x1200 product image (illustration only), plus a card for every
+ranking, every guide, and a site default. Rankings, guides and the homepage each get
+their own card so a shared link never shows a generic image.
+
+The illustration geometry lives in `src/lib/product-art.js` and is used by both the
+on-page component and the generated images, so they cannot drift apart. Rendering is
+SVG rasterised offline with resvg using the packaged Oswald weights — no network, no
+headless browser, no system fonts, so a build produces identical bytes anywhere.
+
+These are our own illustrations, not photographs. Replace them with real product
+photos once units have been shot.
+
 ## Categories beyond litter boxes
 
 `src/lib/catalog.js` already defines feeders, fountains, cameras, trackers and pet

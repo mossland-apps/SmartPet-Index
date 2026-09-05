@@ -9,6 +9,8 @@ import { overallScore, formatScore, scoreLabel, scoreBand } from '../../lib/scor
 import { annualRunningCost, costOverYears, relatedProducts } from '../../lib/ownership.js';
 import { BEST_OF_LISTS, resolveList } from '../../lib/rankings.js';
 import { productPath, brandPath, troubleshootingPath, comparePath, listPath } from '../../lib/routes.js';
+import { SITE } from '../../config/site.js';
+import { productImagePath, productOgPath, absoluteUrl } from '../../lib/images.js';
 
 export function getStaticPaths() {
   return products.map((product) => ({ params: { product: product.slug }, props: { product } }));
@@ -42,18 +44,34 @@ const SECTIONS = [
 
 const years = [1, 2, 3, 4, 5];
 
+// A Review of a Product, not a Product for sale. Declaring an `offers` block here
+// makes Google classify the page as a merchant listing and demand image,
+// availability, shippingDetails and hasMerchantReturnPolicy — none of which we can
+// honestly supply, because we do not sell anything. The price still appears in the
+// page copy; it just is not an offer we are making.
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: product.model,
-  brand: { '@type': 'Brand', name: brand?.name || product.brand },
-  offers: { '@type': 'Offer', price: product.price, priceCurrency: 'USD' },
-  review: {
-    '@type': 'Review',
-    reviewRating: { '@type': 'Rating', ratingValue: overall, bestRating: 10 },
-    author: { '@type': 'Organization', name: 'SmartPet Index' },
-    reviewBody: product.verdict,
+  '@type': 'Review',
+  name: product.model + ' Review',
+  url: new URL(productPath(product.slug), Astro.site).href,
+  itemReviewed: {
+    '@type': 'Product',
+    name: product.model,
+    brand: { '@type': 'Brand', name: brand?.name || product.brand },
+    category: 'Automatic Litter Boxes',
+    image: absoluteUrl(productImagePath(product.slug)),
   },
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: overall,
+    bestRating: 10,
+    worstRating: 0,
+  },
+  author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  datePublished: product.lastUpdated,
+  dateModified: product.lastUpdated,
+  reviewBody: product.verdict,
 };
 ---
 
@@ -61,6 +79,9 @@ const jsonLd = {
   title={product.model + ' Review'}
   description={product.verdict.slice(0, 155)}
   jsonLd={jsonLd}
+  image={productOgPath(product.slug)}
+  imageAlt={product.model + ' — SmartPet Index review, scored ' + formatScore(overall) + ' out of 10'}
+  ogType="article"
 >
   <article>
     <header class="review-head">

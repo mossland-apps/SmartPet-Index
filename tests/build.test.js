@@ -4,6 +4,16 @@ import { join, relative, resolve } from 'node:path';
 import { products, brands } from '../src/lib/catalog.js';
 import { BEST_OF_LISTS } from '../src/lib/rankings.js';
 import { expectedRoutes } from '../src/lib/routes.js';
+import { guides } from '../src/lib/guides.js';
+import {
+  OG_SIZE,
+  PRODUCT_IMAGE_SIZE,
+  DEFAULT_OG,
+  productImagePath,
+  productOgPath,
+  listOgPath,
+  guideOgPath,
+} from '../src/lib/images.js';
 
 const dist = resolve('dist');
 
@@ -120,5 +130,183 @@ describe('built site', () => {
       }
     }
     expect(problems).toEqual([]);
+  });
+});
+
+describe('structured data', () => {
+  function jsonLdOf(file) {
+    const html = readFileSync(file, 'utf8');
+    return [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) =>
+      JSON.parse(m[1])
+    );
+  }
+
+  it('never claims to sell anything', () => {
+    // We are a publisher, not a merchant. An offers block makes Google treat the
+    // page as a merchant listing and demand image/availability/shipping/returns.
+    const offenders = [];
+    for (const file of htmlFiles) {
+      for (const blob of jsonLdOf(file)) {
+        const text = JSON.stringify(blob);
+        if (/"offers"|"@type":"Offer"|"priceCurrency"|"availability"/.test(text)) {
+          offenders.push(relative(dist, file));
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('marks every review page as a Review, not a Product', () => {
+    const problems = [];
+    for (const p of products) {
+      const file = join(dist, 'reviews', p.slug, 'index.html');
+      const blobs = jsonLdOf(file);
+      expect(blobs.length, p.slug + ': no structured data').toBe(1);
+      const ld = blobs[0];
+      if (ld['@type'] !== 'Review') problems.push(p.slug + ': @type is ' + ld['@type']);
+      if (ld.itemReviewed?.['@type'] !== 'Product') problems.push(p.slug + ': itemReviewed is not a Product');
+      if (ld.itemReviewed?.name !== p.model) problems.push(p.slug + ': itemReviewed.name mismatch');
+      if (!ld.itemReviewed?.brand?.name) problems.push(p.slug + ': no brand on itemReviewed');
+      if (!ld.author?.name) problems.push(p.slug + ': no author');
+      if (!ld.datePublished) problems.push(p.slug + ': no datePublished');
+    }
+    expect(problems).toEqual([]);
+  });
+
+  it('gives every review a rating Google can read', () => {
+    const problems = [];
+    for (const p of products) {
+      const ld = jsonLdOf(join(dist, 'reviews', p.slug, 'index.html'))[0];
+      const r = ld.reviewRating || {};
+      if (r['@type'] !== 'Rating') problems.push(p.slug + ': reviewRating is not a Rating');
+      if (typeof r.ratingValue !== 'number') problems.push(p.slug + ': ratingValue is not a number');
+      if (r.bestRating !== 10) problems.push(p.slug + ': bestRating is not 10');
+      if (r.worstRating !== 0) problems.push(p.slug + ': worstRating is not 0');
+      if (r.ratingValue > r.bestRating || r.ratingValue < r.worstRating) {
+        problems.push(p.slug + ': ratingValue outside its own scale');
+      }
+    }
+    expect(problems).toEqual([]);
+  });
+
+  it('emits valid JSON in every ld+json block on every page', () => {
+    for (const file of htmlFiles) {
+      expect(() => jsonLdOf(file), relative(dist, file)).not.toThrow();
+    }
+  });
+});
+
+describe('images', () => {
+  // PNG stores its dimensions in the IHDR chunk at a fixed offset.
+  function pngSize(file) {
+    const buf = readFileSync(file);
+    return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20), bytes: buf.length };
+  }
+
+  function checkImage(publicPath, expected, label) {
+    const file = join(dist, publicPath);
+    if (!existsSync(file)) return label + ': missing';
+    const { width, height, bytes } = pngSize(file);
+    if (width !== expected.width || height !== expected.height) {
+      return label + `: ${width}x${height}, expected ${expected.width}x${expected.height}`;
+    }
+    // A blank render still produces a valid but tiny PNG, so guard on size too.
+    if (bytes < 5000) return label + ': only ' + bytes + ' bytes, probably blank';
+    return null;
+  }
+
+  it('generates a social card and a product image for every product', () => {
+    const problems = [];
+    for (const p of products) {
+      problems.push(checkImage(productOgPath(p.slug), OG_SIZE, p.slug + ' og'));
+      problems.push(checkImage(productImagePath(p.slug), PRODUCT_IMAGE_SIZE, p.slug + ' product image'));
+    }
+    expect(problems.filter(Boolean)).toEqual([]);
+  });
+
+  it('generates a social card for every ranking, guide and the site default', () => {
+    const problems = [];
+    for (const l of BEST_OF_LISTS) problems.push(checkImage(listOgPath(l.slug), OG_SIZE, l.slug));
+    for (const g of guides) problems.push(checkImage(guideOgPath(g.slug), OG_SIZE, g.slug));
+    problems.push(checkImage(DEFAULT_OG, OG_SIZE, 'default'));
+    expect(problems.filter(Boolean)).toEqual([]);
+  });
+
+  it('gives every page an absolute og:image that actually exists', () => {
+    const problems = [];
+    for (const file of htmlFiles) {
+      const html = readFileSync(file, 'utf8');
+      const page = relative(dist, file);
+      const og = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+      if (!og) {
+        problems.push(page + ': no og:image');
+        continue;
+      }
+      if (!og.startsWith('https://smartpetindex.com/')) {
+        problems.push(page + ': og:image is not absolute (' + og + ')');
+        continue;
+      }
+      const local = join(dist, og.replace('https://smartpetindex.com', ''));
+      if (!existsSync(local)) problems.push(page + ': og:image 404s (' + og + ')');
+    }
+    expect(problems).toEqual([]);
+  });
+
+  it('declares the image dimensions and mirrors them to twitter', () => {
+    const problems = [];
+    for (const file of htmlFiles) {
+      const html = readFileSync(file, 'utf8');
+      const page = relative(dist, file);
+      const og = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+      const tw = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1];
+      const w = html.match(/<meta property="og:image:width" content="(\d+)"/)?.[1];
+      const h = html.match(/<meta property="og:image:height" content="(\d+)"/)?.[1];
+      const alt = html.match(/<meta property="og:image:alt" content="([^"]*)"/)?.[1];
+      if (tw !== og) problems.push(page + ': twitter:image does not match og:image');
+      if (Number(w) !== OG_SIZE.width || Number(h) !== OG_SIZE.height) {
+        problems.push(page + ': og:image dimensions missing or wrong');
+      }
+      if (!alt || alt.length < 10) problems.push(page + ': weak og:image:alt');
+    }
+    expect(problems).toEqual([]);
+  });
+
+  it('points every review page at a product image Google can fetch', () => {
+    const problems = [];
+    for (const p of products) {
+      const html = readFileSync(join(dist, 'reviews', p.slug, 'index.html'), 'utf8');
+      const ld = JSON.parse(
+        html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]
+      );
+      const image = ld.itemReviewed?.image;
+      if (!image) {
+        problems.push(p.slug + ': itemReviewed has no image');
+        continue;
+      }
+      if (!image.startsWith('https://smartpetindex.com/')) {
+        problems.push(p.slug + ': product image is not absolute');
+        continue;
+      }
+      const local = join(dist, image.replace('https://smartpetindex.com', ''));
+      if (!existsSync(local)) problems.push(p.slug + ': product image 404s');
+    }
+    expect(problems).toEqual([]);
+  });
+
+  it('gives products, rankings and guides their own card rather than the default', () => {
+    const generic = [];
+    const pages = [
+      ...products.map((p) => ['reviews/' + p.slug, productOgPath(p.slug)]),
+      ...BEST_OF_LISTS.map((l) => ['litter-boxes/' + l.slug, listOgPath(l.slug)]),
+      ...guides.map((g) => ['guides/' + g.slug, guideOgPath(g.slug)]),
+    ];
+    for (const [route, expectedPath] of pages) {
+      const html = readFileSync(join(dist, route, 'index.html'), 'utf8');
+      const og = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+      if (og !== 'https://smartpetindex.com' + expectedPath) {
+        generic.push(route + ' -> ' + og);
+      }
+    }
+    expect(generic).toEqual([]);
   });
 });

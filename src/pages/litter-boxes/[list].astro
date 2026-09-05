@@ -6,6 +6,7 @@ import { products } from '../../lib/catalog.js';
 import { BEST_OF_LISTS, resolveList } from '../../lib/rankings.js';
 import { listPath, productPath } from '../../lib/routes.js';
 import { formatScore } from '../../lib/scoring.js';
+import { listOgPath } from '../../lib/images.js';
 
 export function getStaticPaths() {
   return BEST_OF_LISTS.map((list) => ({ params: { list: list.slug }, props: { list } }));
@@ -30,7 +31,14 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={list.title} description={list.intro} jsonLd={jsonLd}>
+<BaseLayout
+  title={list.title}
+  description={list.intro}
+  jsonLd={jsonLd}
+  image={listOgPath(list.slug)}
+  imageAlt={list.title + ' — ' + ranked.length + ' models ranked by SmartPet Index'}
+  ogType="article"
+>
   <PageHeader
     eyebrow="Ranking"
     title={list.title}

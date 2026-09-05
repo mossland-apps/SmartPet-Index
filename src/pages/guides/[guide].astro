@@ -4,6 +4,7 @@ import PageHeader from '../../components/PageHeader.astro';
 import { guides } from '../../lib/guides.js';
 import { guidePath, listPath } from '../../lib/routes.js';
 import { BEST_OF_LISTS } from '../../lib/rankings.js';
+import { guideOgPath } from '../../lib/images.js';
 
 export function getStaticPaths() {
   return guides.map((guide) => ({ params: { guide: guide.slug }, props: { guide } }));
@@ -21,7 +22,14 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={guide.title} description={guide.summary} jsonLd={jsonLd}>
+<BaseLayout
+  title={guide.title}
+  description={guide.summary}
+  jsonLd={jsonLd}
+  image={guideOgPath(guide.slug)}
+  imageAlt={guide.title + ' — SmartPet Index buying guide'}
+  ogType="article"
+>
   <PageHeader
     eyebrow="Guide"
     title={guide.title}

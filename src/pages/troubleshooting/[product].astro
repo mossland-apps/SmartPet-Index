@@ -4,6 +4,7 @@ import PageHeader from '../../components/PageHeader.astro';
 import { products, getBrand } from '../../lib/catalog.js';
 import { getHub } from '../../lib/troubleshooting.js';
 import { productPath, troubleshootingPath } from '../../lib/routes.js';
+import { productOgPath } from '../../lib/images.js';
 
 export function getStaticPaths() {
   return products
@@ -33,6 +34,9 @@ const jsonLd = {
   title={product.model + ' Troubleshooting'}
   description={'Fix ' + product.model + ' problems: ' + hub.symptoms.slice(0, 5).map((s) => s.title.toLowerCase()).join(', ') + '.'}
   jsonLd={jsonLd}
+  image={productOgPath(product.slug)}
+  imageAlt={product.model + ' troubleshooting — SmartPet Index'}
+  ogType="article"
 >
   <PageHeader
     eyebrow="Troubleshooting"
