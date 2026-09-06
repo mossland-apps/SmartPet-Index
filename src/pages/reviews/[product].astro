@@ -44,34 +44,46 @@ const SECTIONS = [
 
 const years = [1, 2, 3, 4, 5];
 
-// A Review of a Product, not a Product for sale. Declaring an `offers` block here
-// makes Google classify the page as a merchant listing and demand image,
-// availability, shippingDetails and hasMerchantReturnPolicy — none of which we can
-// honestly supply, because we do not sell anything. The price still appears in the
-// page copy; it just is not an offer we are making.
+// A Product that carries our review — deliberately in that order.
+//
+// Two of Google's validators look at this page and they pull in opposite directions:
+//   - Merchant listings fires whenever a Product declares `offers`, and then demands
+//     image, availability, shippingDetails and hasMerchantReturnPolicy. We sell
+//     nothing, so we can supply none of that and must never publish `offers`.
+//   - Product snippets requires every Product to carry at least one of
+//     offers / review / aggregateRating.
+//
+// The nested review is what satisfies the second without tripping the first. An
+// aggregateRating would be dishonest — it implies pooled reader ratings, and this is
+// one editorial score from us. The price stays in the page copy where readers can
+// see it; it is simply not an offer we are making.
+const publisher = { '@type': 'Organization', name: SITE.name, url: SITE.url };
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Review',
-  name: product.model + ' Review',
+  '@type': 'Product',
+  name: product.model,
+  brand: { '@type': 'Brand', name: brand?.name || product.brand },
+  category: 'Automatic Litter Boxes',
+  image: absoluteUrl(productImagePath(product.slug)),
   url: new URL(productPath(product.slug), Astro.site).href,
-  itemReviewed: {
-    '@type': 'Product',
-    name: product.model,
-    brand: { '@type': 'Brand', name: brand?.name || product.brand },
-    category: 'Automatic Litter Boxes',
-    image: absoluteUrl(productImagePath(product.slug)),
+  description: product.verdict.split('. ')[0] + '.',
+  review: {
+    '@type': 'Review',
+    name: product.model + ' Review',
+    url: new URL(productPath(product.slug), Astro.site).href,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: overall,
+      bestRating: 10,
+      worstRating: 0,
+    },
+    author: publisher,
+    publisher,
+    datePublished: product.lastUpdated,
+    dateModified: product.lastUpdated,
+    reviewBody: product.verdict,
   },
-  reviewRating: {
-    '@type': 'Rating',
-    ratingValue: overall,
-    bestRating: 10,
-    worstRating: 0,
-  },
-  author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-  publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-  datePublished: product.lastUpdated,
-  dateModified: product.lastUpdated,
-  reviewBody: product.verdict,
 };
 ---
 

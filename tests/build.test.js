@@ -156,28 +156,45 @@ describe('structured data', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('marks every review page as a Review, not a Product', () => {
+  it('describes every review page as a Product that carries our review', () => {
     const problems = [];
     for (const p of products) {
       const file = join(dist, 'reviews', p.slug, 'index.html');
       const blobs = jsonLdOf(file);
       expect(blobs.length, p.slug + ': no structured data').toBe(1);
       const ld = blobs[0];
-      if (ld['@type'] !== 'Review') problems.push(p.slug + ': @type is ' + ld['@type']);
-      if (ld.itemReviewed?.['@type'] !== 'Product') problems.push(p.slug + ': itemReviewed is not a Product');
-      if (ld.itemReviewed?.name !== p.model) problems.push(p.slug + ': itemReviewed.name mismatch');
-      if (!ld.itemReviewed?.brand?.name) problems.push(p.slug + ': no brand on itemReviewed');
-      if (!ld.author?.name) problems.push(p.slug + ': no author');
-      if (!ld.datePublished) problems.push(p.slug + ': no datePublished');
+      if (ld['@type'] !== 'Product') problems.push(p.slug + ': @type is ' + ld['@type']);
+      if (ld.name !== p.model) problems.push(p.slug + ': name mismatch');
+      if (!ld.brand?.name) problems.push(p.slug + ': no brand');
+      if (ld.review?.['@type'] !== 'Review') problems.push(p.slug + ': no nested Review');
+      if (!ld.review?.author?.name) problems.push(p.slug + ': review has no author');
+      if (!ld.review?.datePublished) problems.push(p.slug + ': review has no datePublished');
+      if (!ld.review?.reviewBody) problems.push(p.slug + ': review has no body');
     }
     expect(problems).toEqual([]);
+  });
+
+  it('satisfies the rule that a Product must carry offers, review or aggregateRating', () => {
+    // The exact rule Google's Product snippets validator enforces. Since we never
+    // publish offers, the nested review is the only thing keeping these valid.
+    const invalid = [];
+    const walk = (node, file) => {
+      if (!node || typeof node !== 'object') return;
+      if (Array.isArray(node)) return node.forEach((n) => walk(n, file));
+      if (node['@type'] === 'Product' && !node.offers && !node.review && !node.aggregateRating) {
+        invalid.push(relative(dist, file) + ': Product "' + node.name + '" has none of the three');
+      }
+      Object.values(node).forEach((v) => walk(v, file));
+    };
+    for (const file of htmlFiles) for (const ld of jsonLdOf(file)) walk(ld, file);
+    expect(invalid).toEqual([]);
   });
 
   it('gives every review a rating Google can read', () => {
     const problems = [];
     for (const p of products) {
       const ld = jsonLdOf(join(dist, 'reviews', p.slug, 'index.html'))[0];
-      const r = ld.reviewRating || {};
+      const r = ld.review?.reviewRating || {};
       if (r['@type'] !== 'Rating') problems.push(p.slug + ': reviewRating is not a Rating');
       if (typeof r.ratingValue !== 'number') problems.push(p.slug + ': ratingValue is not a number');
       if (r.bestRating !== 10) problems.push(p.slug + ': bestRating is not 10');
@@ -278,9 +295,9 @@ describe('images', () => {
       const ld = JSON.parse(
         html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]
       );
-      const image = ld.itemReviewed?.image;
+      const image = ld.image;
       if (!image) {
-        problems.push(p.slug + ': itemReviewed has no image');
+        problems.push(p.slug + ': Product has no image');
         continue;
       }
       if (!image.startsWith('https://smartpetindex.com/')) {
