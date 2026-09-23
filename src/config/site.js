@@ -13,33 +13,7 @@ export const SITE = {
     'SmartPet Index is reader supported. When you buy through links on our site we may earn a commission.',
 };
 
-// Leave tag empty until the affiliate account is approved. Links still work.
-export const AFFILIATES = {
-  amazon: {
-    label: 'Amazon',
-    tag: '', // e.g. 'smartpetindex-20'
-    base: 'https://www.amazon.com/s',
-  },
-  chewy: {
-    label: 'Chewy',
-    tag: '',
-    base: 'https://www.chewy.com/s',
-  },
-};
-
-export function retailerUrl(retailer, query) {
-  const key = String(retailer).toLowerCase();
-  const config = AFFILIATES[key];
-  if (!config) return null;
-  const params = new URLSearchParams();
-  if (key === 'amazon') {
-    params.set('k', query);
-    if (config.tag) params.set('tag', config.tag);
-  } else {
-    params.set('query', query);
-  }
-  return config.base + '?' + params.toString();
-}
+// Retailer links live in src/lib/retailers.js.
 
 export const NAV = [
   {

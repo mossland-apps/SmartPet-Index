@@ -1,0 +1,91 @@
+{
+  "slug": "meowant-sc02",
+  "brand": "meowant",
+  "model": "Meowant SC02",
+  "shortName": "Meowant SC02",
+  "category": "litter-boxes",
+  "price": 269,
+  "priceNote": "Typical price $269.99. Recently $256.49.",
+  "releaseYear": 2026,
+  "accent": "#93a88f",
+  "asin": "B0GFM2YT53",
+  "sources": [
+    {
+      "name": "Amazon — Meowant Store",
+      "url": "https://www.amazon.com/dp/B0GFM2YT53"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "lastUpdated": "2026-09-23",
+  "availability": "current",
+  "scoreBasis": "research",
+  "testedDate": null,
+  "specs": {
+    "dimensions": null,
+    "footprint": null,
+    "entryHeight": "6.8 in",
+    "weight": "23 lb (10.5 kg)",
+    "minimumCatWeight": "3.3 lb",
+    "maximumCatWeight": "22 lb",
+    "wasteCapacity": null,
+    "interiorVolume": "75 L",
+    "litterTypes": null,
+    "wifi": true,
+    "app": "Meowant (iOS, Android)",
+    "odorSystem": "Odour removal module",
+    "noiseLevel": null,
+    "safetySensors": [
+      "Integrated anti-pinch protection"
+    ],
+    "bagType": "Meowant liners",
+    "proprietaryBags": null,
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null
+  },
+  "scores": {
+    "cleaning": 7.9,
+    "odorControl": 7.4,
+    "safety": 8.2,
+    "app": 7.2,
+    "maintenance": 7.8,
+    "value": 8.9
+  },
+  "verdict": "The SC02 is the cheapest box in this index that still does everything the expensive ones do. A 75 L open interior, health monitoring through the app, integrated anti-pinch protection, and — the specification that actually matters to a lot of buyers — a 6.8 inch entrance, the lowest figure any manufacturer here publishes. At $269 that combination is hard to argue with. What you give up is polish and any real track record on materials.",
+  "pros": [
+    "6.8 in entrance — the lowest published entry height of anything we track",
+    "75 L interior at $269",
+    "Health monitoring and app control at a budget price",
+    "Rated for cats from 3.3 to 22 lb",
+    "Amazon's Choice with over 1,300 ratings"
+  ],
+  "cons": [
+    "Meowant publishes no reliable dimensions for the unit",
+    "App is basic next to PETKIT or Whisker",
+    "Liners are Meowant’s own and we could not confirm third-party bags fit"
+  ],
+  "bestFor": [
+    "Kittens, senior and arthritic cats",
+    "First-time buyers",
+    "The lowest possible entry price with real features"
+  ],
+  "notIdealFor": [
+    "Cats over 22 lb",
+    "Buyers who want a mature app"
+  ],
+  "sections": {
+    "setup": "Meowant publishes no setup time. The unit ships largely assembled and pairs through the Meowant app.",
+    "app": "Basic but functional: remote control, usage data and health monitoring. It does not approach the depth of the PETKIT or Whisker apps, which at this price is not surprising.",
+    "odorControl": "Meowant describes an odour removal module. They publish no removal percentage and we have not measured it. The open design limits containment between cycles.",
+    "noise": "Meowant publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "A 75 L open interior with a large entrance, rated for cats from 3.3 to 22 lb. The open-top layout means cats can see out, which lifts acceptance rates.",
+    "safety": "Meowant describes integrated anti-pinch protection. They publish no sensor count, which is the main gap in an otherwise strong budget specification.",
+    "consumables": "Meowant liners, sold in 60-packs, plus an optional odour gel refill. We have not sourced current pricing, so we are not publishing a running-cost figure.",
+    "longTermCost": "At $269 it is among the cheapest powered boxes here. Until we can price the liners we cannot tell you what it costs to keep running."
+  },
+  "form": "open"
+}

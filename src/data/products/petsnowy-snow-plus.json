@@ -4,39 +4,34 @@
   "model": "PetSnowy SNOW+",
   "shortName": "PetSnowy SNOW+",
   "category": "litter-boxes",
-  "price": 649,
+  "price": 599,
   "releaseYear": 2023,
   "accent": "#8aa9c4",
   "specs": {
-    "dimensions": "23.6 x 21.7 x 24.8 in",
-    "footprint": "23.6 x 21.7 in",
-    "entryHeight": "7.5 in",
-    "weight": "28 lb",
-    "minimumCatWeight": "2.2 lb",
-    "maximumCatWeight": "19.8 lb",
-    "wasteCapacity": "7 L (heat-sealed)",
-    "litterTypes": [
-      "Clumping clay",
-      "Tofu",
-      "Mixed"
-    ],
+    "dimensions": "31 in L x 21 in W x 27 in H",
+    "footprint": "31 x 21 in",
+    "entryHeight": null,
+    "weight": "37 lb",
+    "minimumCatWeight": null,
+    "maximumCatWeight": null,
+    "wasteCapacity": null,
+    "litterTypes": null,
     "wifi": true,
-    "app": "PetSnowy (iOS, Android)",
-    "odorSystem": "Heat-sealed waste bag + deodoriser + carbon filter",
-    "noiseLevel": "~45 dB at 3 ft",
+    "app": "PetSnowy (iOS, Android), 2.4 GHz only",
+    "odorSystem": "TiO2 photocatalyst + auto-sealed disposable liners",
+    "noiseLevel": null,
     "safetySensors": [
-      "Infrared",
-      "Weight sensor",
-      "Anti-pinch reverse"
+      "SnowSafe+ 7-stage safety system"
     ],
-    "bagType": "Proprietary sealing film cartridge",
-    "replacementCost": 120,
-    "filterCost": 45,
-    "warranty": "1 year",
+    "bagType": "PetSnowy self-sealing liners",
+    "replacementCost": 50,
+    "filterCost": null,
+    "warranty": null,
     "multiCatCapable": true,
-    "catsSupported": "Up to 3",
-    "cycleTime": "~2 min 20 s",
-    "power": "Mains, 24 V adapter"
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null,
+    "proprietaryBags": true
   },
   "scores": {
     "cleaning": 8.5,
@@ -46,17 +41,17 @@
     "maintenance": 8,
     "value": 6.8
   },
-  "verdict": "The SNOW+ heat-seals the waste bag after every cycle, and on the evidence available it is the most effective odor solution in this category — nothing else physically closes the bag. The catch is unavoidable: the sealing film is proprietary, it costs roughly $120 a year, and if PetSnowy stops making it the box becomes an ordinary one. That is the whole trade.",
+  "verdict": "The SNOW+ packs waste into a sealed disposable liner after every cycle and runs a titanium-dioxide photocatalyst system over the top of it, which is a genuinely different approach to odour than the carbon filters everyone else uses. It is a large unit — 31 inches long — and it commits you to PetSnowy liners for as long as you own it. Whether that trade is worth it depends entirely on how much odour is the problem you are actually trying to solve.",
   "pros": [
-    "Heat-sealed bags — the strongest odor containment available",
-    "Very quiet",
-    "Low 7.5 in entry",
-    "Handles tofu and mixed litter"
+    "TiO2 photocatalyst odour system rather than a consumable carbon filter",
+    "Waste is auto-sealed into a liner after every cycle",
+    "Litter-Control Walkway with a built-in mat cuts tracking",
+    "SnowSafe+ 7-stage safety system pauses the moment a cat enters"
   ],
   "cons": [
-    "Sealing film is proprietary and mandatory at around $120 a year",
-    "Smaller effective waste capacity because of the sealing mechanism",
-    "Long-term dependence on one supplier"
+    "PetSnowy liners are mandatory — a genuine 50-pack is $49.99",
+    "At 31 in long it is the longest unit in this index",
+    "PetSnowy publishes little hard specification detail"
   ],
   "bestFor": [
     "Studio apartments",
@@ -69,25 +64,24 @@
   ],
   "scoreBasis": "research",
   "testedDate": null,
-  "lastUpdated": "2026-09-02",
-  "retailers": [
-    {
-      "name": "Amazon",
-      "query": "PetSnowy SNOW+"
-    },
-    {
-      "name": "Chewy",
-      "query": "PetSnowy SNOW+"
-    }
-  ],
+  "lastUpdated": "2026-09-23",
   "sections": {
     "setup": "Around twenty minutes, with an extra step: loading the sealing film cartridge and running a test seal. Get that wrong and the first few cycles will not seal properly.",
     "app": "Adequate. Cycle control, scheduling, a film-remaining indicator and basic logging. The film counter is the most useful thing in it, because running out mid-week is a real problem.",
-    "odorControl": "The best in this index, and not by a small margin. Heat-sealing the bag after every cycle removes the mechanism by which every other box eventually smells. Nothing else here physically closes the waste.",
-    "noise": "Around 45 dB at three feet including the sealing step, which adds a brief low hum rather than a bang. Quieter than both CATLINK models.",
+    "odorControl": "Two things work together here. Waste is packed and sealed into a disposable liner after each cycle rather than dropped loose into a drawer, and a TiO2 photocatalyst system treats the air rather than filtering it through carbon. On the manufacturer’s own description this is the most involved odour package in this index. We have not measured it.",
+    "noise": "PetSnowy publishes no decibel figure and we have not measured one, so we are not printing a number.",
     "cleaning": "Good, with wide litter compatibility. The trade is capacity: the sealing mechanism eats space, so the usable drawer is 7 L against 9–11 L elsewhere, and you will empty it more often.",
     "safety": "Infrared, weight sensing and anti-pinch reverse. Standard coverage. The sealing element is isolated from the cat-accessible area.",
-    "consumables": "Proprietary sealing film at roughly $120 a year, plus filters — the highest running cost of any box here and completely non-optional. If PetSnowy stops making the film, the box becomes an ordinary one.",
-    "longTermCost": "Expensive to buy and the most expensive to run. Over five years it is the second-costliest box in this index after the Purobot Ultra. You are buying the odor result and paying rent on it."
-  }
+    "consumables": "PetSnowy self-sealing liners, sold as a genuine 50-pack for $49.99. There is no carbon filter. How long a pack lasts depends on how often the box cycles, so treat $50 as the unit cost rather than a firm annual figure.",
+    "longTermCost": "List price has moved between $529 and $599 over the past year. Add the liners and it sits in the upper half of this index on total cost, though well below the PETKIT Purobot Ultra."
+  },
+  "asin": "B0CFVJ71GZ",
+  "priceNote": "List price has ranged $529–$599 over the past year; currently $529.99.",
+  "sources": [
+    {
+      "name": "Amazon — PetSnowy Store",
+      "url": "https://www.amazon.com/dp/B0CFVJ71GZ"
+    }
+  ],
+  "lastVerified": "2026-09-23"
 }

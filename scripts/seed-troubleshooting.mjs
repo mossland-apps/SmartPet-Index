@@ -448,7 +448,7 @@ const MAP = {
       'The Litter-Robot 3 uses the same light language as the LR4 with a coarser weight sensor, so weight-related complaints are more common and more of them are genuinely normal behaviour.',
     symptoms: [...whiskerLights, wontCycle(), weightWrong, drawerFull, offline('Whisker', 'Whisker'), odorTrouble('Whisker')],
   },
-  'catlink-scooper-pro-x': {
+  'catlink-ultra': {
     intro:
       'Most CATLINK problems are litter-related rather than electronic. Tofu litter in particular swells when damp and is the leading cause of drum jams on these units.',
     symptoms: [wontCycle(), ...catlinkExtra, weightWrong, drawerFull, offline('CATLINK', 'CATLINK'), wifiSetupFailed('CATLINK'), odorTrouble('CATLINK')],
@@ -468,7 +468,7 @@ const MAP = {
       'Almost every Pura Max 2 issue traces back to the bag roll or the network. The mechanism itself is shared with the Purobot and is reliable.',
     symptoms: [petkitExtra[0], wontCycle(), weightWrong, offline('PETKIT', 'PETKIT'), wifiSetupFailed('PETKIT'), odorTrouble('PETKIT')],
   },
-  'neakasa-m1': {
+  'neakasa-m1-plus': {
     intro:
       'The M1 has fewer failure modes than an enclosed box because there is no bonnet and no globe to seat. Its characteristic complaint is scatter, which is a design trade rather than a fault.',
     symptoms: [...neakasaExtra, wontCycle(), weightWrong, drawerFull, offline('Neakasa', 'Neakasa'), odorTrouble('Neakasa')],

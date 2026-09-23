@@ -1,7 +1,33 @@
 {
-  "product": "catlink-scooper-pro-x",
-  "intro": "Most CATLINK problems are litter-related rather than electronic. Tofu litter in particular swells when damp and is the leading cause of drum jams on these units.",
+  "product": "catlink-open-x",
+  "intro": "The Open-X has no bonnet and no enclosed globe, so the jam patterns that affect the rest of the CATLINK range mostly do not apply. Its characteristic complaints are the paid multi-cat recognition and litter scatter from the open top.",
   "symptoms": [
+    {
+      "slug": "multi-cat-recognition-not-working",
+      "title": "It will not tell my cats apart",
+      "severity": "common",
+      "summary": "The app logs visits but attributes them all to one cat, or refuses to separate them at all.",
+      "causes": [
+        "Multi-cat recognition is a paid upgrade in the CATLINK app and is not enabled by default.",
+        "Your cats are within 0.9 lb of each other, which is below the threshold the system can resolve.",
+        "The unit is on carpet or an uneven floor, so the weight readings drift."
+      ],
+      "fixes": [
+        {
+          "step": "Check whether you have bought it",
+          "detail": "Open the CATLINK app and confirm the multi-cat recognition upgrade is purchased and switched on. This is a one-time paid feature, not an included one."
+        },
+        {
+          "step": "Weigh your cats",
+          "detail": "CATLINK state a minimum difference of 0.9 lb between cats. Below that the system cannot separate them and no setting will fix it."
+        },
+        {
+          "step": "Move it off carpet",
+          "detail": "Weight sensing assumes a firm level floor. Carpet and thick mats flex under load and blur the readings the recognition depends on."
+        }
+      ],
+      "escalate": "If the upgrade is active, your cats differ by more than 0.9 lb and the unit is on a hard level floor, contact CATLINK — at that point it is their software, not your setup."
+    },
     {
       "slug": "wont-cycle",
       "title": "Will not cycle",
@@ -57,32 +83,6 @@
         }
       ],
       "escalate": "A module that draws no power at all after reseating is a warranty item."
-    },
-    {
-      "slug": "drum-jam",
-      "title": "Drum jams or grinds",
-      "severity": "serious",
-      "summary": "The drum makes a grinding noise, moves unevenly, or stops partway through rotation.",
-      "causes": [
-        "Litter has migrated into the drum track.",
-        "Tofu litter has absorbed moisture and swollen into the gap between drum and shell.",
-        "A roller is worn or has come out of its seat."
-      ],
-      "fixes": [
-        {
-          "step": "Stop using it",
-          "detail": "Unplug immediately. Running a jammed drum damages the drive gear."
-        },
-        {
-          "step": "Clear the track",
-          "detail": "Remove the drum, vacuum the track thoroughly, and wipe with a dry cloth. Do not lubricate."
-        },
-        {
-          "step": "Inspect the rollers",
-          "detail": "Check each roller turns freely and sits in its seat."
-        }
-      ],
-      "escalate": "A grinding noise that persists on a clean, empty drum means a drive fault. Open a warranty case."
     },
     {
       "slug": "cat-weight-incorrect",

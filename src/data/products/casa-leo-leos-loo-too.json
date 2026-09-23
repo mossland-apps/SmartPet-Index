@@ -4,38 +4,38 @@
   "model": "Casa Leo Leo's Loo Too",
   "shortName": "Leo's Loo Too",
   "category": "litter-boxes",
-  "price": 649,
+  "price": 599,
   "releaseYear": 2022,
   "accent": "#5f88a8",
   "specs": {
-    "dimensions": "22 x 23.6 x 24.4 in",
-    "footprint": "22 x 23.6 in",
-    "entryHeight": "8.3 in",
-    "weight": "26 lb",
-    "minimumCatWeight": "3 lb",
+    "dimensions": "27.6 in L x 22 in W x 24 in H",
+    "footprint": "27.6 x 22 in",
+    "entryHeight": null,
+    "weight": "30 lb",
+    "minimumCatWeight": "1 lb",
     "maximumCatWeight": "20 lb",
-    "wasteCapacity": "9 L",
+    "wasteCapacity": "6 L (1.5 gal)",
     "litterTypes": [
-      "Clumping clay",
-      "Tofu"
+      "Clumping clay"
     ],
     "wifi": true,
-    "app": "Leo's Loo (iOS, Android)",
-    "odorSystem": "UV sterilisation + active deodoriser + carbon filter",
-    "noiseLevel": "~47 dB at 3 ft",
+    "app": "Casa Leo (iOS, Android), Alexa and Google Assistant",
+    "odorSystem": "UV odor control + bamboo carbon filters + sealed waste drawer",
+    "noiseLevel": "~30 dB (manufacturer claim)",
     "safetySensors": [
-      "Infrared",
-      "Weight sensor",
-      "Anti-pinch reverse"
+      "Radar motion detection",
+      "Four weight sensors",
+      "Anti-pinch protection"
     ],
-    "bagType": "Standard kitchen bags",
-    "replacementCost": 30,
-    "filterCost": 50,
-    "warranty": "1 year",
+    "bagType": "Casa Leo drawer liners or standard bags",
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": "1 year limited",
     "multiCatCapable": true,
-    "catsSupported": "Up to 3",
-    "cycleTime": "~2 min 30 s",
-    "power": "Mains, 24 V adapter"
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null,
+    "proprietaryBags": false
   },
   "scores": {
     "cleaning": 8.4,
@@ -47,15 +47,15 @@
   },
   "verdict": "Leo's Loo Too throws more hardware at odor than anything else that still takes ordinary bags — UV sterilisation, an active deodoriser and carbon filtration in one drawer. If smell is the problem you are actually trying to solve and you do not want to be locked into film cartridges, this is the most direct answer. The app is the weak link and feels a generation behind.",
   "pros": [
-    "The most complete odor package that still uses standard bags",
-    "UV sterilisation is genuinely unusual at this price",
-    "Compact footprint for a globe box",
-    "Handles cats up to 20 lb"
+    "UV odor control plus bamboo carbon filters — unusual at this price",
+    "Rated from 1 lb, so it suits kittens as well as adults",
+    "Four weight sensors plus radar motion detection and anti-pinch",
+    "Alexa and Google Assistant control, with no subscription fees"
   ],
   "cons": [
-    "App is basic compared with PETKIT or Whisker",
-    "Smaller company means thinner parts supply",
-    "Only two litter types supported"
+    "6 L waste drawer is small for a box this size",
+    "Clumping clay only — no tofu, crystal or plant-based litter",
+    "App is functional but a generation behind PETKIT and Whisker"
   ],
   "bestFor": [
     "Small apartments where odor is the whole problem",
@@ -68,25 +68,24 @@
   ],
   "scoreBasis": "research",
   "testedDate": null,
-  "lastUpdated": "2026-09-02",
-  "retailers": [
-    {
-      "name": "Amazon",
-      "query": "Casa Leo Leo's Loo Too"
-    },
-    {
-      "name": "Chewy",
-      "query": "Casa Leo Leo's Loo Too"
-    }
-  ],
+  "lastUpdated": "2026-09-23",
   "sections": {
     "setup": "Around fifteen minutes and genuinely simple — the globe seats without fuss and the app pairing is one of the more reliable here. The UV module needs no user setup.",
     "app": "Functional and a generation behind. Cycle control, a fill indicator, basic weight logging and scheduling all work, but the interface is dated and the notification handling is coarse. It is the weakest part of an otherwise strong product.",
     "odorControl": "The best odor result of any box here that still takes ordinary bags. UV sterilisation, an active deodoriser and carbon filtration together keep a two-cat room acceptable well past a week. Only the heat-sealing PetSnowy beats it.",
-    "noise": "Around 47 dB at three feet. Middle of the pack, with a slightly higher-pitched motor than the Litter-Robot.",
-    "cleaning": "Good and consistent, with a 9 L drawer. It takes clay and tofu but not crystal or mixed, which is narrower than the CATLINK and PETKIT boxes.",
+    "noise": "Casa Leo rates it at about 30 dB. That is a manufacturer claim rather than a measurement of ours, but it is one of the few figures anyone in this category publishes at all, and it points at a deliberately slow, quiet cycle.",
+    "cleaning": "Good and consistent, with a fully enclosed 6 L waste drawer. That drawer is smaller than most of its rivals, so expect to empty it more often than the 9-11 L boxes. Casa Leo recommends clumping clay litter specifically.",
     "safety": "Infrared, weight sensing and anti-pinch reverse. The standard three layers, competently implemented, with a slower cycle than most that adds a margin of forgiveness.",
     "consumables": "Standard kitchen bags plus a carbon filter, around $80 a year. Combined with the UV module this is the cheapest strong odor solution to run.",
     "longTermCost": "Fifty dollars less than the Litter-Robot 4 to buy and similar to run. If odor is your actual problem rather than app polish, it is the better spend."
-  }
+  },
+  "asin": "B09LL9S99B",
+  "priceNote": "Amazon's Choice. The bundle with filters, bags and mat is $699.",
+  "sources": [
+    {
+      "name": "Amazon — Smarty Pear Store",
+      "url": "https://www.amazon.com/dp/B09LL9S99B"
+    }
+  ],
+  "lastVerified": "2026-09-23"
 }

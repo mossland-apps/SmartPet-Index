@@ -41,6 +41,7 @@ for (const row of c.specRows) {
 
 const years = [1, 3, 5];
 const title = a.model + ' vs ' + b.model;
+const money = (v) => (typeof v === 'number' ? '$' + v : '—');
 
 const otherPairs = products
   .filter((p) => p.slug !== a.slug && p.slug !== b.slug)
@@ -142,18 +143,19 @@ const otherPairs = products
           <tbody>
             <tr>
               <th scope="row">Running cost per year</th>
-              <td>${annualRunningCost(a)}</td>
-              <td>${annualRunningCost(b)}</td>
+              <td>{money(annualRunningCost(a))}</td>
+              <td>{money(annualRunningCost(b))}</td>
             </tr>
             {
               years.map((y) => {
                 const ca = costOverYears(a, y);
                 const cb = costOverYears(b, y);
+                const comparable = ca !== null && cb !== null;
                 return (
                   <tr>
                     <th scope="row">{y} year{y > 1 ? 's' : ''}</th>
-                    <td class={ca < cb ? 'win' : ''}>${ca}</td>
-                    <td class={cb < ca ? 'win' : ''}>${cb}</td>
+                    <td class={comparable && ca < cb ? 'win' : ''}>{money(ca)}</td>
+                    <td class={comparable && cb < ca ? 'win' : ''}>{money(cb)}</td>
                   </tr>
                 );
               })

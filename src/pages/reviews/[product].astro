@@ -21,6 +21,7 @@ const brand = getBrand(product.brand);
 const overall = overallScore(product.scores);
 const related = relatedProducts(product, products);
 const running = annualRunningCost(product);
+const money = (v) => (typeof v === 'number' ? '$' + v : '—');
 
 // The header carries the punchline; the Verdict block carries the argument.
 const hook = product.verdict.split('. ')[0] + '.';
@@ -192,10 +193,19 @@ const jsonLd = {
 
         <section class="block" id="cost">
           <h2>What it costs to own</h2>
-          <p class="muted small">
-            Purchase price plus ${running} a year in bags and filters. Consumables are where cheap boxes
-            get expensive.
-          </p>
+          {
+            running === null ? (
+              <p class="muted small">
+                We have not yet sourced current consumable prices for this model from the manufacturer,
+                so we are not publishing a running-cost figure. Purchase price is ${product.price}.
+              </p>
+            ) : (
+              <p class="muted small">
+                Purchase price plus ${running} a year in bags and filters. Consumables are where cheap
+                boxes get expensive.
+              </p>
+            )
+          }
           <div class="table-scroll">
             <table class="cost">
               <thead>
@@ -207,7 +217,7 @@ const jsonLd = {
               <tbody>
                 <tr>
                   <td class="row-label">{product.shortName || product.model}</td>
-                  {years.map((y) => <td>${costOverYears(product, y)}</td>)}
+                  {years.map((y) => <td>{money(costOverYears(product, y))}</td>)}
                 </tr>
                 {
                   related.map((r) => (
@@ -215,7 +225,7 @@ const jsonLd = {
                       <td class="row-label">
                         <a href={productPath(r.slug)}>{r.shortName || r.model}</a>
                       </td>
-                      {years.map((y) => <td>${costOverYears(r, y)}</td>)}
+                      {years.map((y) => <td>{money(costOverYears(r, y))}</td>)}
                     </tr>
                   ))
                 }

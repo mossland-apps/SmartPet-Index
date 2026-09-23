@@ -1,0 +1,102 @@
+{
+  "slug": "catlink-luxury-pro-x",
+  "brand": "catlink",
+  "model": "CATLINK Luxury Pro-X",
+  "shortName": "CATLINK Pro-X",
+  "category": "litter-boxes",
+  "price": 469,
+  "releaseYear": 2022,
+  "accent": "#7d9a86",
+  "specs": {
+    "dimensions": "23.62 in L x 23.62 in W x 27.95 in H",
+    "footprint": "23.62 x 23.62 in",
+    "entryHeight": null,
+    "weight": "22 lb",
+    "minimumCatWeight": null,
+    "maximumCatWeight": null,
+    "wasteCapacity": "13 L",
+    "litterTypes": null,
+    "wifi": true,
+    "app": "CATLINK (iOS, Android)",
+    "odorSystem": "Triple odor control + carbon filter + sealed globe chamber",
+    "noiseLevel": null,
+    "safetySensors": [
+      "Ten safety sensors",
+      "Radar and infrared detection",
+      "Pinch-free design",
+      "Ambient night light"
+    ],
+    "bagType": "Standard 8-gallon trash bags (60 CATLINK liners included)",
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null,
+    "interiorVolume": "65 L",
+    "proprietaryBags": false
+  },
+  "scores": {
+    "cleaning": 8.5,
+    "odorControl": 8.6,
+    "safety": 8.6,
+    "app": 8.2,
+    "maintenance": 8.1,
+    "value": 8.5
+  },
+  "verdict": "The Pro-X is the CATLINK to buy if you want the health monitoring without the camera. It shares its shell, its 65 L interior and its 13 L waste bin with the more expensive Ultra, tracks each cat’s weight and bathroom habits, and sends weekly summaries built to surface a UTI or a quiet weight loss early. What it lacks is the lens — which for a lot of households is a feature rather than an omission. CATLINK claims ten safety sensors and up to 90% odour elimination.",
+  "pros": [
+    "Per-cat health monitoring and weekly summaries without a camera in the room",
+    "13 L waste bin — CATLINK states 14 days for one cat, 7 for two",
+    "Ten safety sensors combining radar and infrared, plus a night light for older cats",
+    "Triple odour control with a carbon filter",
+    "Takes standard 8-gallon trash bags once the 60 included liners run out"
+  ],
+  "cons": [
+    "Sold through a reseller storefront rather than shipped by CATLINK directly",
+    "CATLINK publishes no cat weight range for this model"
+  ],
+  "bestFor": [
+    "Multi-cat homes wanting health data",
+    "Anyone who wants tracking but not a camera",
+    "Older cats — the night light is a genuine touch"
+  ],
+  "notIdealFor": [
+    "Buyers who want a published cat weight limit",
+    "Small rooms"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "lastUpdated": "2026-09-23",
+  "retailers": [
+    {
+      "name": "Amazon",
+      "query": "CATLINK Luxury Pro"
+    },
+    {
+      "name": "Chewy",
+      "query": "CATLINK Luxury Pro"
+    }
+  ],
+  "sections": {
+    "setup": "Identical process to the Scooper Pro X and about the same twenty-five minutes. The drum is slightly lighter, which makes the initial fit easier for one person.",
+    "app": "CATLINK tracks each cat’s weight and bathroom habits in real time, pushes an alert when something changes, and sends a weekly summary aimed at catching UTIs or weight loss early. It is the same platform as the Ultra without the video feed.",
+    "odorControl": "Triple odour control plus a carbon filter inside a sealed globe chamber. CATLINK claims up to 90% of odours eliminated — their figure, not ours, and notably more modest than the 98.55% they claim for the Ultra.",
+    "noise": "CATLINK publishes no decibel figure for the Pro-X and we have not measured one, so we are not printing a number.",
+    "cleaning": "A 65 L interior with a 13 L waste bin. CATLINK states up to 14 days between empties for one cat, or 7 days for two.",
+    "safety": "CATLINK describes ten safety sensors combining radar and infrared, halting the cycle the moment a cat is detected, with a pinch-free mechanism. A soft ambient light helps older cats find it at night.",
+    "consumables": "Sixty CATLINK liners come in the box, and once those run out the drawer takes standard 8-gallon trash bags rather than locking you into CATLINK refills. Note that ordinary grocery bags are too small for a drawer this size. Carbon filters are a separate recurring cost we have not yet priced.",
+    "longTermCost": "At $469 list — and routinely $369 — this undercuts the camera-equipped Ultra while keeping the health tracking. Because it takes ordinary 8-gallon trash bags, there is no mandatory consumable stream behind the purchase price, which is the thing that quietly doubles the cost of a cheap box over four years."
+  },
+  "asin": "B09L7Q9446",
+  "priceNote": "List price $469. Frequently discounted to $369. Sold as the X-Large (Luxury) size.",
+  "sources": [
+    {
+      "name": "Amazon — CATLINK Store",
+      "url": "https://www.amazon.com/dp/B09L7Q9446"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "availability": "current"
+}

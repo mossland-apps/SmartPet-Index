@@ -1,58 +1,36 @@
 {
-  "product": "petsafe-scoopfree-smart",
-  "intro": "The ScoopFree has a rake rather than a drum, so its failure modes are different from every other box in this index. Jams are mechanical and almost always visible.",
+  "product": "petsafe-scoopfree-smartspin",
+  "intro": "The SmartSpin replaces the rake-and-tray mechanism the older ScoopFree used, so none of the rake jams or tray sensor errors apply. It spins and sifts into a sealed drawer, and it takes ordinary clumping litter.",
   "symptoms": [
     {
-      "slug": "rake-stuck",
-      "title": "Rake is stuck or does not return",
+      "slug": "wont-spin",
+      "title": "Will not spin",
       "severity": "serious",
-      "summary": "The rake stops partway across the tray or fails to return to its parked position.",
+      "summary": "The unit sits idle after a visit, or starts and stops without completing a rotation.",
       "causes": [
-        "A large clump or a foreign object is blocking the rake path.",
-        "Crystal litter has been pushed into a ridge that the rake cannot climb.",
-        "The tray is not seated square in the bay."
+        "Litter filled above the marked line, which is the most common cause of a stalled cycle.",
+        "A clump has welded to the sifting screen.",
+        "The waste drawer is not fully seated, leaving the safety interlock open."
       ],
       "fixes": [
         {
-          "step": "Unplug and clear the path",
-          "detail": "Remove the obstruction by hand. Never force the rake while powered."
+          "step": "Check the litter level",
+          "detail": "Litter should sit at or just below the marked fill line. Remove a cup and retry if in doubt."
         },
         {
-          "step": "Level the crystals",
-          "detail": "Rake the crystal bed flat by hand every week or two — this prevents most jams."
+          "step": "Reseat the drawer",
+          "detail": "Pull the waste drawer fully out and push it back until it clicks home."
         },
         {
-          "step": "Reseat the tray",
-          "detail": "The tray must sit flat and square, with no lip catching the rake."
+          "step": "Clear the sifting screen",
+          "detail": "Unplug, remove the globe, and scrape any welded clump off the screen with a plastic scraper."
+        },
+        {
+          "step": "Run an empty test cycle",
+          "detail": "With litter removed, run one cycle. Completing empty but failing when loaded points at litter, not the motor."
         }
       ],
-      "escalate": "A rake that stalls on an empty, clean tray has a drive fault and is a warranty item."
-    },
-    {
-      "slug": "tray-sensor-error",
-      "title": "Tray sensor error",
-      "severity": "common",
-      "summary": "The unit reports no tray fitted, or reports the tray as spent immediately.",
-      "causes": [
-        "The tray is a third-party refill without the expected sensor profile.",
-        "The tray contacts are dusty.",
-        "The tray counter was not reset after the last change."
-      ],
-      "fixes": [
-        {
-          "step": "Reset the counter",
-          "detail": "Use the reset in the app or on the unit after fitting a new tray."
-        },
-        {
-          "step": "Wipe the contacts",
-          "detail": "Clean the tray bay contacts with a dry cloth."
-        },
-        {
-          "step": "Use genuine trays",
-          "detail": "Third-party crystal trays are the most common cause of persistent sensor errors on ScoopFree units."
-        }
-      ],
-      "escalate": "Persistent errors with a genuine tray and clean contacts are a warranty item."
+      "escalate": "A unit that fails an empty test cycle has a drive fault. PetSafe offer US-based phone, email and chat support — use it rather than continuing to reset."
     },
     {
       "slug": "offline-or-wont-connect",

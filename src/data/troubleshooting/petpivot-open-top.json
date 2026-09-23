@@ -1,0 +1,110 @@
+{
+  "product": "petpivot-open-top",
+  "intro": "There is no app, no network and no account, so most of the troubleshooting that dominates this category simply does not apply. What is left is mechanical, and nearly all of it comes back to litter.",
+  "symptoms": [
+    {
+      "slug": "wont-rotate",
+      "title": "Will not rotate",
+      "severity": "serious",
+      "summary": "The drum sits idle after a visit, or starts and stops partway through.",
+      "causes": [
+        "Litter filled above the line — the most common cause of a stalled cycle on any box.",
+        "The mechanical rotation limiter has engaged because something is obstructing the drum.",
+        "The waste bin is not seated, so the interlock keeps the motor disabled."
+      ],
+      "fixes": [
+        {
+          "step": "Reduce the litter",
+          "detail": "Take out a cup of litter and try again. Overfilling is the first thing to rule out and costs nothing to test."
+        },
+        {
+          "step": "Reseat the bin",
+          "detail": "Pull the 8 L waste bin fully out and push it back until it seats. A bin sitting proud will stop the cycle."
+        },
+        {
+          "step": "Check the drum path",
+          "detail": "Unplug, turn the drum by hand and feel for the obstruction the limiter is reacting to. Clear it rather than forcing past it."
+        }
+      ],
+      "escalate": "A drum that will not turn by hand when empty has a mechanical fault. Contact PetPivot rather than forcing it."
+    },
+    {
+      "slug": "cycle-keeps-stopping",
+      "title": "The cycle keeps interrupting itself",
+      "severity": "common",
+      "summary": "Cleaning starts, then halts a second later, repeatedly, with no cat present.",
+      "causes": [
+        "One of the seven infrared sensor pairs is dusty and reading a blockage that is not there.",
+        "The touch-sensitive safety pedal is being held down by a mat edge or a stray toy.",
+        "The unit is against a wall or curtain that intrudes into the sensor path."
+      ],
+      "fixes": [
+        {
+          "step": "Wipe the sensors",
+          "detail": "Litter dust films infrared sensors within weeks. Wipe around the opening with a dry microfibre cloth."
+        },
+        {
+          "step": "Clear the pedal",
+          "detail": "Check nothing is resting on the safety pedal. A rucked mat is enough to hold it active indefinitely."
+        },
+        {
+          "step": "Give it clearance",
+          "detail": "Pull the unit away from walls and curtains so nothing crosses the sensor field."
+        }
+      ],
+      "escalate": "If it still interrupts with clean sensors, a clear pedal and space around it, one of the sensor pairs has failed and that is a warranty matter."
+    },
+    {
+      "slug": "smearing-and-pancaking",
+      "title": "Waste smears on the drum wall",
+      "severity": "common",
+      "summary": "Clumps flatten against the wall or leave streaks instead of dropping cleanly into the bin.",
+      "causes": [
+        "Litter that does not clump hard enough. This design depends on a firm clump.",
+        "The bed is too shallow, so urine reaches the drum wall before it can clump.",
+        "The clumping delay has been shortened, or the box is cycling before litter has set."
+      ],
+      "fixes": [
+        {
+          "step": "Use a firm-clumping bentonite",
+          "detail": "PetPivot specify bentonite and mineral-based clumping litter. Budget litter that breaks up on rotation is a false economy here."
+        },
+        {
+          "step": "Deepen the bed",
+          "detail": "Three inches minimum. Shallow litter is the usual cause of smearing in an otherwise healthy unit."
+        },
+        {
+          "step": "Let the delay do its job",
+          "detail": "The clumping delay exists precisely to prevent this. If you have shortened it, put it back."
+        }
+      ],
+      "escalate": "Persistent smearing on a deep bed of firm-clumping litter suggests a drum surface problem worth raising with PetPivot."
+    },
+    {
+      "slug": "litter-scatter",
+      "title": "Litter scattered around the unit",
+      "severity": "common",
+      "summary": "The open top means more litter ends up on the floor than with an enclosed box.",
+      "causes": [
+        "No mat, or a mat that is too small.",
+        "Litter filled above the line, so rotation throws it.",
+        "An enthusiastic digger — the open top offers no containment."
+      ],
+      "fixes": [
+        {
+          "step": "Use a large trapping mat",
+          "detail": "Extend at least 18 inches from the entry side. This is the fix that actually works."
+        },
+        {
+          "step": "Reduce the depth slightly",
+          "detail": "Fill to the line, not above it. Overfilled open boxes throw litter on every rotation."
+        },
+        {
+          "step": "Add a rear shield",
+          "detail": "A simple splash guard behind the unit catches most of what a digger throws."
+        }
+      ],
+      "escalate": "This is a characteristic of open-top boxes rather than a fault. If it is intolerable, an enclosed globe is the answer."
+    }
+  ]
+}

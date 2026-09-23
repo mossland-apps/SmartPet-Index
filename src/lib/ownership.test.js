@@ -29,8 +29,16 @@ describe('cost of ownership', () => {
     expect(annualRunningCost(boxB)).toBe(220);
   });
 
-  it('treats missing consumable costs as zero, not as an error', () => {
-    expect(annualRunningCost({ specs: {} })).toBe(0);
+  it('reports unknown consumable costs as unknown, not as free', () => {
+    expect(annualRunningCost({ specs: {} })).toBeNull();
+    expect(costOverYears({ price: 500, specs: {} }, 3)).toBeNull();
+  });
+
+  it('refuses to total when only half the consumables are priced', () => {
+    // Free filters plus unpriced bags is not a free box to run.
+    expect(annualRunningCost({ specs: { filterCost: 0 } })).toBeNull();
+    expect(annualRunningCost({ specs: { replacementCost: 50 } })).toBeNull();
+    expect(annualRunningCost({ specs: { replacementCost: 50, filterCost: 0 } })).toBe(50);
   });
 
   it('adds purchase price to running cost across a span of years', () => {

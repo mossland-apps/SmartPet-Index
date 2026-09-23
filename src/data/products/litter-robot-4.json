@@ -8,34 +8,32 @@
   "releaseYear": 2022,
   "accent": "#3b6ea5",
   "specs": {
-    "dimensions": "22 x 27 x 29.5 in",
+    "dimensions": "22 in W x 27 in D x 29.5 in H",
     "footprint": "22 x 27 in",
-    "entryHeight": "8.5 in",
+    "entryHeight": null,
     "weight": "24 lb",
     "minimumCatWeight": "3 lb",
-    "maximumCatWeight": "20 lb",
-    "wasteCapacity": "9.2 L",
+    "maximumCatWeight": "25 lb",
+    "wasteCapacity": null,
     "litterTypes": [
-      "Clumping clay"
+      "Clumping clay",
+      "Some silica gel"
     ],
     "wifi": true,
     "app": "Whisker (iOS, Android)",
-    "odorSystem": "OdorTrap pods + carbon filter + sealed drawer",
-    "noiseLevel": "~44 dB at 3 ft",
-    "safetySensors": [
-      "SafeCat weight sensor",
-      "Laser entry detection",
-      "Pinch detect",
-      "Anti-pinch bonnet"
-    ],
-    "bagType": "Standard kitchen bags",
-    "replacementCost": 30,
-    "filterCost": 60,
-    "warranty": "1 year (3 with WhiskerCare)",
+    "odorSystem": "OdorTrap packs + carbon filter + sealed drawer",
+    "noiseLevel": null,
+    "safetySensors": null,
+    "bagType": "Standard kitchen bags or Whisker drawer liners",
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": "1 year (3-year extended plan $129)",
     "multiCatCapable": true,
     "catsSupported": "Up to 4",
-    "cycleTime": "~2 min 30 s",
-    "power": "Mains, 24 V adapter"
+    "cycleTime": null,
+    "power": "15 V DC",
+    "entryOpening": "15.75 x 15.75 in",
+    "proprietaryBags": false
   },
   "scores": {
     "cleaning": 9.1,
@@ -47,16 +45,16 @@
   },
   "verdict": "The Litter-Robot 4 is the box to beat and it knows it. Cleaning is close to flawless, the safety sensor stack is the most redundant in the category, and it runs quietly enough to sit in a bedroom. It is also the most expensive box here by a wide margin, and the value case only works if you keep it for years — which, given how well Whisker supports these, is a realistic assumption.",
   "pros": [
-    "Most reliable cleaning cycle we have found data on",
-    "Four independent safety systems, including laser entry detection",
-    "Uses ordinary kitchen bags — no consumable lock-in",
-    "Quietest full-size globe design",
-    "Excellent parts availability and support"
+    "Accepts ordinary kitchen bags — no consumable lock-in",
+    "Handles cats from 3 lb up to 25 lb, the widest range in this index",
+    "Whisker publishes a full spec sheet and sells every replaceable part",
+    "Best parts availability and support in the category",
+    "Optional 3-year extended cover for $129"
   ],
   "cons": [
     "Costs $200-$400 more than comparable boxes",
-    "Large footprint for small bathrooms",
-    "Carbon filters are a recurring cost"
+    "Large footprint at 22 x 27 in",
+    "Carbon filters and OdorTrap packs are a recurring cost"
   ],
   "bestFor": [
     "Multi-cat homes",
@@ -65,30 +63,33 @@
   ],
   "notIdealFor": [
     "Tight budgets",
-    "Very large cats over 20 lb",
+    "Cats over 25 lb",
     "Homes with no space for a 22 x 27 in footprint"
   ],
   "scoreBasis": "research",
   "testedDate": null,
-  "lastUpdated": "2026-09-02",
-  "retailers": [
-    {
-      "name": "Amazon",
-      "query": "Litter-Robot 4"
-    },
-    {
-      "name": "Chewy",
-      "query": "Litter-Robot 4"
-    }
-  ],
+  "lastUpdated": "2026-09-23",
   "sections": {
     "setup": "Out of the box it is close to plug-and-play: fit the bonnet, drop in a kitchen bag, add four inches of clumping clay and run one empty cycle. The globe is heavy enough that two people make it easier, and the unit needs a level floor or the weight sensor drifts. Budget fifteen minutes.",
     "app": "The Whisker app is the most polished in the category and the connection is the most stable. Weight tracking per visit is accurate enough to notice a cat drinking more, cycle history is genuinely readable, and firmware updates arrive without drama. It nags you toward accessory subscriptions at every opportunity.",
     "odorControl": "The sealed drawer plus OdorTrap pods and a carbon filter is a strong combination, and the room stays acceptable through a week with two cats. It is beaten only by boxes that physically seal the bag. The filters are a genuine recurring cost, and performance falls off noticeably if you skip them.",
-    "noise": "Around 44 dB at three feet, which in practice means you hear a low mechanical hum and nothing else. This is the one full-size globe box we would put in a bedroom without hesitation. The LR3 it replaced is clearly louder.",
+    "noise": "Whisker publishes no decibel figure for the Litter-Robot 4, and we have not measured one, so we are not going to print a number. What the design tells you is that the globe turns slowly on a geared drive rather than snapping through a cycle, and owner reports consistently describe it as unobtrusive rather than silent. Treat that as a reasonable expectation, not a measurement.",
     "cleaning": "The cycle clears clumps reliably and the sifting screen does not leave the streaks that cheaper globes do. It handles a heavy multi-cat day without jamming. It will only take clumping clay, so tofu and crystal users need to look elsewhere.",
     "safety": "Four overlapping systems: the SafeCat weight sensor, laser entry detection, pinch detect on the drawer and an anti-pinch bonnet. If a cat re-enters mid-cycle the globe stops and reverses. This is the most redundant safety stack of any box in this index and the main reason it scores 9.5.",
-    "consumables": "Ordinary kitchen bags and a carbon filter. There is no proprietary anything, which is unusual at this price and matters more than most buyers realise: about $90 a year against $220 for a ScoopFree.",
-    "longTermCost": "The purchase price is brutal and the running cost is among the lowest here, so the gap narrows every year. Against a cheap box on proprietary trays, it draws level somewhere in year three and is cheaper from year four onward."
-  }
+    "consumables": "Ordinary kitchen bags or Whisker drawer liners, plus OdorTrap packs and a carbon filter. There is no proprietary bag you are forced to buy, which is unusual at this price and matters more than most buyers realise. We have not yet priced the filters and OdorTrap refills from Whisker directly, so we are not publishing an annual figure.",
+    "longTermCost": "The purchase price is the highest here, but because it takes ordinary bags there is no mandatory consumable stream behind it. That is the structural reason a Litter-Robot tends to close the gap on cheaper boxes over several years. We will put exact numbers on this once we have sourced current Whisker refill pricing."
+  },
+  "asin": "B0FFDNZSHT",
+  "priceNote": "Robot Only configuration. The Supply Bundle on the same listing is $749.",
+  "sources": [
+    {
+      "name": "Whisker (manufacturer)",
+      "url": "https://www.litter-robot.com/litter-robot-4.html"
+    },
+    {
+      "name": "Amazon — Whisker Store",
+      "url": "https://www.amazon.com/dp/B0FFDNZSHT"
+    }
+  ],
+  "lastVerified": "2026-09-23"
 }

@@ -1,32 +1,32 @@
 {
-  "product": "neakasa-m1",
-  "intro": "The M1 has fewer failure modes than an enclosed box because there is no bonnet and no globe to seat. Its characteristic complaint is scatter, which is a design trade rather than a fault.",
+  "product": "meowant-sc02",
+  "intro": "The SC02 uses a conventional drum, so conventional drum fixes apply. Its low 6.8 inch entrance is its selling point and also the place litter escapes from, so scatter is the complaint owners raise most.",
   "symptoms": [
     {
-      "slug": "litter-scatter",
-      "title": "Litter scattered around the unit",
+      "slug": "noisy-operation",
+      "title": "Unusually loud or rattling cycle",
       "severity": "common",
-      "summary": "The open-top design means more litter ends up on the floor than with an enclosed box.",
+      "summary": "The cycle is louder than usual, or a rattle has developed over time.",
       "causes": [
-        "No mat, or a mat that is too small.",
-        "Litter filled above the recommended depth, so the rotation throws it.",
-        "A cat that digs enthusiastically — the open top offers no containment."
+        "The drum is not fully seated on the base.",
+        "Litter has worked into the drum track.",
+        "A panel clip has loosened. The plastics on this unit are the cheapest part of it."
       ],
       "fixes": [
         {
-          "step": "Use a large trapping mat",
-          "detail": "Extend at least 18 inches out from the entry side. This is the fix that actually works."
+          "step": "Reseat the drum",
+          "detail": "Lift and refit the drum until it seats flush all the way round."
         },
         {
-          "step": "Reduce the depth slightly",
-          "detail": "Fill to the line, not above it. Overfilled open boxes throw litter on every rotation."
+          "step": "Vacuum the track",
+          "detail": "Litter in the track is the most common cause of new noise."
         },
         {
-          "step": "Add a rear shield",
-          "detail": "A simple splash guard behind the unit catches most of what a digger throws."
+          "step": "Check the panel clips",
+          "detail": "Press around the shell seams. A loose clip rattles at a specific point in the rotation."
         }
       ],
-      "escalate": "This is a design characteristic of open-top boxes, not a fault. If it is intolerable, an enclosed globe is the answer."
+      "escalate": "Grinding rather than rattling means a drive fault. Stop using it and open a warranty case."
     },
     {
       "slug": "wont-cycle",
@@ -118,7 +118,7 @@
       "slug": "offline-or-wont-connect",
       "title": "Shows offline in the app",
       "severity": "common",
-      "summary": "The unit works but the Neakasa app shows it as offline, or commands from the app do nothing.",
+      "summary": "The unit works but the Meowant app shows it as offline, or commands from the app do nothing.",
       "causes": [
         "The box is on a 5 GHz network segment. Almost every litter box on the market is 2.4 GHz only.",
         "The router moved the unit to a different band after a firmware update or a mesh node reshuffle.",
@@ -142,7 +142,7 @@
           "detail": "Remove the device from the app entirely, then run setup again rather than retrying the existing entry."
         }
       ],
-      "escalate": "If it pairs and drops within minutes repeatedly, that is a hardware or firmware fault — contact Neakasa rather than continuing to re-pair."
+      "escalate": "If it pairs and drops within minutes repeatedly, that is a hardware or firmware fault — contact Meowant rather than continuing to re-pair."
     },
     {
       "slug": "odor-problems",
@@ -158,7 +158,7 @@
       "fixes": [
         {
           "step": "Replace the filter",
-          "detail": "Set a recurring reminder rather than waiting to notice. Neakasa filters are a running cost, not an optional accessory."
+          "detail": "Set a recurring reminder rather than waiting to notice. Meowant filters are a running cost, not an optional accessory."
         },
         {
           "step": "Clean the gasket",

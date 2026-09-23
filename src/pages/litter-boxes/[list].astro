@@ -17,6 +17,21 @@ const ranked = resolveList(list, products);
 const topSlug = ranked[0]?.product.slug;
 const others = BEST_OF_LISTS.filter((l) => l.slug !== list.slug);
 
+// Derived, not hardcoded — a stale date on a ranking page is its own inaccuracy.
+const latest = ranked
+  .map((e) => e.product.lastVerified || e.product.lastUpdated)
+  .filter(Boolean)
+  .sort()
+  .at(-1);
+const updated = latest
+  ? new Date(latest + 'T00:00:00Z').toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+  : 'recently';
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -46,7 +61,7 @@ const jsonLd = {
     crumbs={[{ label: 'Litter Boxes', href: '/litter-boxes/' }, { label: list.shortTitle }]}
   >
     <p class="meta-line">
-      {ranked.length} models ranked · Updated 2 September 2026 ·
+      {ranked.length} models ranked · Updated {updated} ·
       <a href="/how-we-test/">How we score</a>
     </p>
   </PageHeader>

@@ -27,13 +27,20 @@ function walk(dir) {
   return out;
 }
 
+// Astro emits a small meta-refresh stub for every redirect. Those are not content
+// pages, so they are held separately rather than judged on titles and images.
+const isRedirectStub = (file) => /http-equiv="refresh"/i.test(readFileSync(file, 'utf8'));
+
 let htmlFiles = [];
+let redirectStubs = [];
 
 beforeAll(() => {
   if (!existsSync(dist)) {
     throw new Error('dist/ is missing. Run "npm run build" before the test suite.');
   }
-  htmlFiles = walk(dist).filter((f) => f.endsWith('.html'));
+  const all = walk(dist).filter((f) => f.endsWith('.html'));
+  redirectStubs = all.filter(isRedirectStub);
+  htmlFiles = all.filter((f) => !redirectStubs.includes(f));
 });
 
 describe('built site', () => {
@@ -46,7 +53,9 @@ describe('built site', () => {
 
   it('publishes a comparison page for every pair of products', () => {
     const expected = (products.length * (products.length - 1)) / 2;
-    const built = readdirSync(join(dist, 'compare')).filter((n) => n.includes('-vs-'));
+    const built = readdirSync(join(dist, 'compare'))
+      .filter((n) => n.includes('-vs-'))
+      .filter((n) => !isRedirectStub(join(dist, 'compare', n, 'index.html')));
     expect(built.length).toBe(expected);
   });
 
@@ -325,5 +334,52 @@ describe('images', () => {
       }
     }
     expect(generic).toEqual([]);
+  });
+});
+
+describe('renamed products', () => {
+  // These URLs are indexed. Letting one 404 discards its ranking.
+  const RETIRED = [
+    'neakasa-m1',
+    'catlink-scooper-pro-x',
+    'catlink-luxury-pro',
+    'petsafe-scoopfree-smart',
+  ];
+
+  it('emits a redirect stub rather than a content page', () => {
+    expect(redirectStubs.length).toBeGreaterThan(20);
+  });
+
+  it('still answers on every retired URL', () => {
+    const missing = [];
+    for (const slug of RETIRED) {
+      for (const base of ['reviews', 'troubleshooting']) {
+        const file = join(dist, base, slug, 'index.html');
+        if (!existsSync(file)) missing.push(base + '/' + slug);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it('points each retired URL at the product that replaced it', () => {
+    const html = readFileSync(join(dist, 'reviews', 'catlink-scooper-pro-x', 'index.html'), 'utf8');
+    expect(html).toContain('/reviews/catlink-ultra/');
+    const neakasa = readFileSync(join(dist, 'reviews', 'neakasa-m1', 'index.html'), 'utf8');
+    expect(neakasa).toContain('/reviews/neakasa-m1-plus/');
+  });
+
+  it('ships a host-level 301 table as well', () => {
+    const redirects = readFileSync(join(dist, '_redirects'), 'utf8');
+    expect(redirects).toContain('/reviews/neakasa-m1/  /reviews/neakasa-m1-plus/  301');
+    expect(redirects).toContain('/reviews/catlink-scooper-pro-x/  /reviews/catlink-ultra/  301');
+    expect(redirects).toContain('/reviews/petsafe-scoopfree-smart/  /reviews/petsafe-scoopfree-smartspin/  301');
+    const rules = redirects.split(/\r?\n/).filter((l) => l.trim().endsWith('301'));
+    expect(rules.length).toBeGreaterThan(20);
+  });
+
+  it('never leaves a retired slug live as a real product', () => {
+    for (const slug of RETIRED) {
+      expect(products.find((p) => p.slug === slug), slug + ' is still in the catalog').toBeUndefined();
+    }
   });
 });

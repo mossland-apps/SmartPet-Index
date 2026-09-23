@@ -1,0 +1,93 @@
+{
+  "slug": "meowant-sc10",
+  "brand": "meowant",
+  "model": "Meowant SC10",
+  "shortName": "Meowant SC10",
+  "category": "litter-boxes",
+  "price": 279,
+  "priceNote": "List price $279.99.",
+  "releaseYear": 2026,
+  "accent": "#87a4a0",
+  "asin": "B0GX1642VT",
+  "sources": [
+    {
+      "name": "Amazon — Meowant Store",
+      "url": "https://www.amazon.com/dp/B0GX1642VT"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "lastUpdated": "2026-09-23",
+  "availability": "current",
+  "scoreBasis": "research",
+  "testedDate": null,
+  "specs": {
+    "dimensions": "21 in L x 17 in W x 26 in H",
+    "footprint": "21 x 17 in",
+    "entryHeight": null,
+    "entryOpening": "21.65 x 15.75 in (top entry)",
+    "weight": null,
+    "minimumCatWeight": "3 lb, and at least 5.91 in tall",
+    "maximumCatWeight": null,
+    "wasteCapacity": "12 L",
+    "litterCapacity": "6 L",
+    "litterTypes": null,
+    "wifi": true,
+    "app": "Meowant (iOS, Android)",
+    "odorSystem": "Odour control with sealed waste drawer",
+    "noiseLevel": null,
+    "safetySensors": [
+      "Six infrared sensors",
+      "Never fully closes — permanent exit route"
+    ],
+    "bagType": "Meowant liners",
+    "proprietaryBags": null,
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null
+  },
+  "scores": {
+    "cleaning": 8,
+    "odorControl": 7.3,
+    "safety": 8.4,
+    "app": 6.8,
+    "maintenance": 8,
+    "value": 8.7
+  },
+  "verdict": "The SC10 takes a deliberate position most of this category avoids: it has no weight sensor at all. Meowant argue that gravity sensors are defeated by uneven floors and thick rugs, so they use six infrared sensors instead and never close the unit fully, leaving a permanent exit. That removes the single most common source of complaints in this category — bad weight readings — at the cost of losing per-cat weight tracking entirely. The top entry is 21.65 by 15.75 inches, and the 12 L drawer is large for $279.",
+  "pros": [
+    "No weight sensor means no weight-sensor problems — uneven floors stop mattering",
+    "Six infrared sensors and a unit that never fully closes",
+    "12 L waste drawer and 6 L litter capacity at $279",
+    "Very large top entry at 21.65 x 15.75 in",
+    "Stainless steel construction"
+  ],
+  "cons": [
+    "No weight tracking at all, so no per-cat health data",
+    "Meowant publishes no maximum cat weight",
+    "Only 98 ratings — a short track record"
+  ],
+  "bestFor": [
+    "Homes with uneven floors or thick carpet",
+    "Large breeds",
+    "Anyone who has fought with weight-sensor errors"
+  ],
+  "notIdealFor": [
+    "Anyone who wants per-cat weight tracking",
+    "Cats under 3 lb or under 5.91 in tall"
+  ],
+  "sections": {
+    "setup": "Meowant publishes no setup time. Because there is no weight sensor there is no levelling or tare step, which removes the fiddliest part of setting up most rivals.",
+    "app": "Remote cycle control, visit frequency and habit data. With no weight sensor there is no weight trend, which is the single most useful health signal the better apps provide.",
+    "odorControl": "Odour control over a sealed waste drawer. Meowant publish no removal figure and we have not measured it. As with any open-top design, containment between cycles is limited.",
+    "noise": "Meowant publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "A 12 L waste drawer with 6 L of litter capacity, which Meowant states lasts around 10 days for one adult cat. The top entry is 21.65 by 15.75 inches, which they claim is 40% larger than typical.",
+    "safety": "Six infrared sensors monitor the cat, and the unit never closes completely so there is always an exit. The deliberate absence of a gravity sensor means floor levelling cannot cause a misread.",
+    "consumables": "Meowant liners. We have not sourced current pricing, so we are not publishing a running-cost figure.",
+    "longTermCost": "At $279 with a 12 L drawer, the up-front cost is low. The liners are the unknown."
+  },
+  "form": "open"
+}

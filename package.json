@@ -10,8 +10,8 @@
     "test": "npm run build && vitest run",
     "test:watch": "vitest",
     "test:unit": "vitest run",
-    "predev": "node scripts/build-images.mjs",
-    "prebuild": "node scripts/build-images.mjs",
+    "predev": "node scripts/build-redirects.mjs && node scripts/build-images.mjs",
+    "prebuild": "node scripts/build-redirects.mjs && node scripts/build-images.mjs",
     "images": "node scripts/build-images.mjs"
   },
   "dependencies": {

@@ -1,0 +1,17 @@
+{
+  "slug": "petpivot",
+  "name": "PetPivot",
+  "country": "United States",
+  "site": "amazon.com/stores/PetPivot",
+  "summary": "PetPivot sells one thing and sells it cheaply: an open-top self-cleaning box with no app, no account and no subscription. In a category where every rival is racing to add cameras, building something deliberately dumb and putting the money into safety sensors instead is a defensible position.",
+  "strengths": [
+    "Serious safety hardware at a budget price",
+    "No app, no account, no subscription",
+    "Takes ordinary bags and ordinary clumping litter"
+  ],
+  "weaknesses": [
+    "No smart tracking of any kind",
+    "Short company history",
+    "Interior is tight for large breeds"
+  ]
+}

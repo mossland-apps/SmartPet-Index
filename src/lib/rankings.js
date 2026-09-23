@@ -86,7 +86,14 @@ export const BEST_OF_LISTS = [
     shortTitle: 'No Proprietary Bags',
     intro:
       'Locked-in bags and cartridges can add $150 a year. These boxes take ordinary kitchen bags or no bag at all.',
-    filter: (p) => !/proprietar|cartridge/i.test(String(p.specs?.bagType ?? '')),
+    // false = confirmed no lock-in. true = confirmed lock-in. null = we looked and
+    // could not tell, so it stays out rather than being claimed as lock-in free.
+    // undefined = not yet assessed, fall back to reading the bag description.
+    filter: (p) => {
+      const flag = p.specs?.proprietaryBags;
+      if (flag === undefined) return !/proprietar|cartridge/i.test(String(p.specs?.bagType ?? ''));
+      return flag === false;
+    },
     sort: byOverall,
     awards: ['Best No-Lock-In Pick', 'Runner-Up', 'Also Great'],
   },
@@ -96,10 +103,15 @@ export function getList(slug) {
   return BEST_OF_LISTS.find((l) => l.slug === slug);
 }
 
+export const isBuyable = (p) => (p.availability ?? 'current') === 'current';
+
 export function resolveList(list, products) {
   if (!list) return [];
   return products
     .filter((p) => p.category === undefined || p.category === 'litter-boxes')
+    // Never recommend a box that is discontinued or out of stock. Its review page
+    // stays live for people who already own one; it just stops being a pick.
+    .filter(isBuyable)
     .filter(list.filter)
     .sort(list.sort)
     .map((product, index) => ({

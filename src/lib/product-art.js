@@ -7,6 +7,9 @@ export const DEFAULT_ACCENT = '#3d86b4';
 // Derived from the product data rather than hard-coded per model, so a new product
 // picks up the right silhouette from its own specs.
 export function productForm(product) {
+  // An explicit form wins. Inferring it from the odour-system text was fragile:
+  // verifying a product's specs could silently change how it was drawn.
+  if (product && product.form) return product.form;
   const s = (product && product.specs) || {};
   if (!s.wifi && String(s.app) === 'None') return 'manual';
   if (/open top/i.test(String(s.odorSystem))) return 'open';

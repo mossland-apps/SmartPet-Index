@@ -4,27 +4,29 @@ import PageHeader from '../../components/PageHeader.astro';
 import { products } from '../../lib/catalog.js';
 import { overallScore, formatScore } from '../../lib/scoring.js';
 import { comparePath } from '../../lib/routes.js';
+import { isBuyable } from '../../lib/rankings.js';
 
-const options = products.map((p) => ({
+const options = products.filter(isBuyable).map((p) => ({
   slug: p.slug,
   label: p.model,
   price: p.price,
   overall: formatScore(overallScore(p.scores)),
 }));
 
-// A handful of pairings people actually search for.
+// A handful of pairings people actually search for. Any pair naming a product that
+// has been renamed, retired or gone out of stock drops out rather than breaking the
+// build — the list is a convenience, not a contract.
 const popular = [
-  ['litter-robot-4', 'catlink-scooper-pro-x'],
+  ['litter-robot-4', 'catlink-ultra'],
   ['litter-robot-4', 'casa-leo-leos-loo-too'],
-  ['litter-robot-4', 'litter-robot-3-connect'],
+  ['litter-robot-4', 'neakasa-m1-plus'],
   ['petkit-purobot-ultra', 'litter-robot-4'],
-  ['neakasa-m1', 'litter-robot-4'],
-  ['petsafe-scoopfree-smart', 'meowant-sc-m01'],
-].map(([x, y]) => ({
-  a: products.find((p) => p.slug === x),
-  b: products.find((p) => p.slug === y),
-  href: comparePath(x, y),
-}));
+  ['catlink-ultra', 'catlink-luxury-pro-x'],
+  ['meowant-sc02', 'meowant-sc10'],
+]
+  .map(([x, y]) => ({ a: products.find((p) => p.slug === x), b: products.find((p) => p.slug === y) }))
+  .filter(({ a, b }) => a && b && isBuyable(a) && isBuyable(b))
+  .map(({ a, b }) => ({ a, b, href: comparePath(a.slug, b.slug) }));
 ---
 
 <BaseLayout

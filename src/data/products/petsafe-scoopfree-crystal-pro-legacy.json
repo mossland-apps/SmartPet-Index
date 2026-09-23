@@ -1,0 +1,93 @@
+{
+  "slug": "petsafe-scoopfree-crystal-pro-legacy",
+  "brand": "petsafe",
+  "model": "PetSafe ScoopFree Crystal Pro Legacy",
+  "shortName": "ScoopFree Crystal Pro",
+  "category": "litter-boxes",
+  "form": "tray",
+  "price": 149,
+  "priceNote": "List price $149.99 for the Pro Uncovered with Health Monitor. Recently $129.99. Front Entry and Smart variants cost more.",
+  "releaseYear": 2024,
+  "accent": "#8f9bab",
+  "asin": "B07WZPJ2LW",
+  "sources": [
+    {
+      "name": "Amazon — PetSafe Store",
+      "url": "https://www.amazon.com/dp/B07WZPJ2LW"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "lastUpdated": "2026-09-23",
+  "availability": "current",
+  "scoreBasis": "research",
+  "testedDate": null,
+  "specs": {
+    "dimensions": "27.6 in L x 19.1 in W x 6.2 in H",
+    "footprint": "27.6 x 19.1 in",
+    "entryHeight": null,
+    "weight": "13.3 lb",
+    "minimumCatWeight": null,
+    "maximumCatWeight": null,
+    "wasteCapacity": null,
+    "litterCapacity": null,
+    "litterTypes": [
+      "ScoopFree crystal litter only"
+    ],
+    "wifi": false,
+    "app": "None — health counter is on the unit itself",
+    "odorSystem": "Crystal litter absorption + lined disposable tray",
+    "noiseLevel": null,
+    "safetySensors": null,
+    "bagType": "Disposable crystal litter trays",
+    "proprietaryBags": true,
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": false,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null
+  },
+  "scores": {
+    "cleaning": 7.4,
+    "odorControl": 7.6,
+    "safety": 7.4,
+    "app": 3,
+    "maintenance": 8,
+    "value": 7.2
+  },
+  "verdict": "This is the oldest idea in the category and the one most people have actually bought — over ten thousand ratings, which is more than everything else in this index combined. A rake sweeps clumps into a covered compartment inside a disposable crystal tray, and the crystals do the rest: they absorb urine and dry solid waste rather than clumping it. The low, uncovered profile fits under shelves where a globe never will, and the on-unit health counter tracks visits without needing an app. The cost is the trays, which you will buy forever.",
+  "pros": [
+    "Over 10,000 ratings — by far the longest track record here",
+    "Crystals are low-tracking and 99% dust-free, which uncovered boxes usually are not",
+    "Health counter works on the unit itself, with no app or account needed",
+    "Only 6.2 in tall, so it fits where nothing else does",
+    "US-based phone, email and chat support"
+  ],
+  "cons": [
+    "Disposable crystal trays are mandatory and recurring",
+    "Takes no litter other than ScoopFree crystals",
+    "No app on this model — the Smart variant costs more",
+    "Uncovered, so odour containment depends entirely on the crystals"
+  ],
+  "bestFor": [
+    "Low spaces where a globe box will not fit",
+    "Single-cat homes",
+    "Anyone who wants a proven design over a new one"
+  ],
+  "notIdealFor": [
+    "Anyone calculating cost per year",
+    "Clumping litter users",
+    "Multi-cat homes"
+  ],
+  "sections": {
+    "setup": "The fastest setup here: slide in a pre-filled crystal tray and plug it in. There is nothing to assemble, no account to create and no network to join.",
+    "app": "There is no app on this model. What you get instead is a health counter on the unit with motion sensors, showing how often the box is being used. That is a genuine signal — a cat visiting far more than usual is the earliest warning most owners get — but it lives on a display rather than in a trend you can look back through.",
+    "odorControl": "Crystal litter absorbs urine and dries solid waste rather than clumping it, and each disposable tray is plastic-lined with a lid for disposal. It works well for the first stretch of a tray and tails off as the crystals saturate. Being uncovered, there is no sealed drawer doing any of the work.",
+    "noise": "PetSafe publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "A rake sweeps clumps into a covered compartment at one end of the tray. It is a simpler mechanism than a rotating globe with correspondingly less to break, though a rake smears more than a sifting drum does.",
+    "safety": "PetSafe publish no safety sensor detail for this model. The rake is slow and low-force, which limits the risk inherently, but the absence of a stated sensor specification is why this does not score higher.",
+    "consumables": "Disposable crystal trays, and they are not optional — the box takes no other litter. This is the defining ownership cost and the main argument against it. Reusable trays are available from PetSafe for owners who would rather buy crystals loose.",
+    "longTermCost": "Cheap to buy at $149 and the most consumable-dependent box in this index. The calculation that matters is how many trays a year your cat gets through, because that number, not the $149, is what you are really signing up for."
+  }
+}

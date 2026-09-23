@@ -1,24 +1,21 @@
 ---
-import { retailerUrl } from '../config/site.js';
+import { retailerLinks } from '../lib/retailers.js';
 const { product, compact = false } = Astro.props;
-const retailers = product.retailers || [];
+const links = retailerLinks(product);
 ---
 
 <div class={compact ? 'buy compact' : 'buy'}>
   {
-    retailers.map((r, i) => {
-      const href = retailerUrl(r.name, r.query);
-      return (
-        <a
-          class={'btn btn-block ' + (i === 0 ? 'btn-primary' : 'btn-outline')}
-          href={href}
-          rel="nofollow sponsored noopener"
-          target="_blank"
-        >
-          Check Price at {r.name}
-        </a>
-      );
-    })
+    links.map((link, i) => (
+      <a
+        class={'btn btn-block ' + (i === 0 ? 'btn-primary' : 'btn-outline')}
+        href={link.href}
+        rel={link.rel}
+        target="_blank"
+      >
+        Check Price at {link.name}
+      </a>
+    ))
   }
 </div>
 

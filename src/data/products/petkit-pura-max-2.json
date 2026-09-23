@@ -1,75 +1,75 @@
 {
   "slug": "petkit-pura-max-2",
   "brand": "petkit",
-  "model": "PETKIT Pura Max 2",
-  "shortName": "Pura Max 2",
+  "model": "PETKIT PuraMax 2",
+  "shortName": "PuraMax 2",
   "category": "litter-boxes",
-  "price": 429,
+  "price": 389,
   "releaseYear": 2024,
   "accent": "#6892b5",
   "specs": {
-    "dimensions": "21.7 x 25.2 x 24.4 in",
-    "footprint": "21.7 x 25.2 in",
-    "entryHeight": "8.7 in",
-    "weight": "26 lb",
-    "minimumCatWeight": "3.3 lb",
-    "maximumCatWeight": "17.6 lb",
-    "wasteCapacity": "9 L",
-    "litterTypes": [
-      "Clumping clay",
-      "Tofu",
-      "Mixed"
-    ],
+    "dimensions": "24.21 in L x 21.96 in W x 21.96 in H",
+    "footprint": "24.21 x 21.96 in",
+    "entryHeight": null,
+    "weight": "22 lb",
+    "minimumCatWeight": "3.3 lb (not for cats under 6 months)",
+    "maximumCatWeight": "22 lb",
+    "wasteCapacity": null,
+    "litterTypes": null,
     "wifi": true,
-    "app": "PETKIT (iOS, Android)",
-    "odorSystem": "Deodoriser module + carbon filter + sealed bag roll",
-    "noiseLevel": "~48 dB at 3 ft",
+    "app": "PETKIT (iOS, Android), 2.4 GHz only",
+    "odorSystem": "N50 2.0 odour module + sealed ShieldBase",
+    "noiseLevel": null,
     "safetySensors": [
-      "Infrared",
-      "Weight sensor",
-      "Anti-pinch reverse"
+      "Always-open anti-pinch design",
+      "Safety sensors"
     ],
-    "bagType": "Proprietary bag roll",
-    "replacementCost": 90,
-    "filterCost": 50,
-    "warranty": "1 year",
+    "bagType": "PETKIT trash bags (20 included)",
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": "2-year coverage",
     "multiCatCapable": true,
-    "catsSupported": "Up to 3",
-    "cycleTime": "~2 min 45 s",
-    "power": "Mains, 24 V adapter"
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null,
+    "interiorVolume": "76 L",
+    "proprietaryBags": true
   },
   "scores": {
     "cleaning": 8.4,
-    "odorControl": 8.6,
-    "safety": 8.2,
-    "app": 9,
-    "maintenance": 7.5,
-    "value": 7.8
+    "odorControl": 8.5,
+    "safety": 8.3,
+    "app": 8.6,
+    "maintenance": 7.8,
+    "value": 8.4
   },
-  "verdict": "The Pura Max 2 is the Purobot with the camera removed and $470 knocked off, and for most households that is the smarter purchase. You keep the excellent app, the strong deodoriser and the wide litter compatibility. You still pay for PETKIT bag rolls, which over three years quietly erases the price advantage over boxes that take kitchen bags.",
+  "verdict": "The PuraMax 2 is the PETKIT worth buying for most people. It drops the camera that makes the Purobot Ultra cost $799 and keeps the things that actually matter day to day: a 76 L interior, a low entrance, weight-based cat identification feeding the same health tracking, and a sealed ShieldBase that is PETKIT’s answer to the leaking that plagues this category. At $389 list it undercuts its own sibling by more than half, and PETKIT includes two years of coverage.",
   "pros": [
-    "Same excellent PETKIT app at half the Purobot price",
-    "Strong active deodoriser",
-    "Accepts tofu and mixed litter",
-    "Compact for a full-capacity box"
+    "76 L interior with a deliberately low entrance",
+    "Weight-based cat identification and per-cat health tracking without a camera",
+    "Sealed ShieldBase and elastic-edged litter pad target leaks directly",
+    "Two years of coverage included",
+    "Less than half the price of the camera-equipped Purobot Ultra"
   ],
   "cons": [
-    "Proprietary bag rolls at roughly $90 a year",
-    "No camera or per-cat identification",
-    "17.6 lb weight ceiling"
+    "PETKIT trash bags and the N50 odour module are proprietary consumables",
+    "2.4 GHz Wi-Fi only",
+    "PETKIT advises against use by cats under six months",
+    "Weight-based identification cannot separate cats of similar weight"
   ],
   "bestFor": [
-    "App-focused buyers on a mid budget",
-    "Two-cat homes",
-    "Tofu litter users"
+    "Multi-cat homes wanting health data without a camera",
+    "Cats needing a low entrance",
+    "Value-focused buyers"
   ],
   "notIdealFor": [
-    "Large cats",
-    "Anyone who refuses consumable subscriptions"
+    "Kittens under six months",
+    "Cats over 22 lb",
+    "Homes on a 5 GHz-only network"
   ],
   "scoreBasis": "research",
   "testedDate": null,
-  "lastUpdated": "2026-09-02",
+  "lastUpdated": "2026-09-23",
   "retailers": [
     {
       "name": "Amazon",
@@ -82,12 +82,22 @@
   ],
   "sections": {
     "setup": "About twenty minutes. Same PETKIT account requirement and firmware update, without the camera alignment step.",
-    "app": "The same excellent PETKIT app, minus per-cat visual identification. Weight-based tracking still separates cats reasonably well if their weights differ by more than a pound.",
-    "odorControl": "The deodoriser module plus sealed bag roll works well and is a step ahead of the CATLINK Luxury Pro at a similar price. Good with two cats through a week.",
-    "noise": "Around 48 dB at three feet. Mid-pack, and slightly louder than the Purobot because of a faster drum.",
-    "cleaning": "Good, with the same wide litter compatibility as the Purobot. The 9 L drawer suits two cats comfortably and three at a push.",
-    "safety": "Infrared, weight sensing and anti-pinch reverse — the standard three layers, without the camera backstop.",
-    "consumables": "Proprietary bag rolls again, around $90 a year plus filters. Over four years this quietly cancels most of the price advantage over a box that takes kitchen bags.",
-    "longTermCost": "Cheap to buy, expensive to feed. Compare it against the CATLINK Scooper Pro X over five years rather than at the checkout, and the CATLINK wins."
-  }
+    "app": "The same PETKIT app as the Purobot Ultra, identifying cats by weight rather than by sight. It logs each cat’s weight, visit frequency and duration, which is the data that actually surfaces a developing urinary problem. Weight-based identification struggles to separate cats within about a pound of each other.",
+    "odorControl": "An N50 2.0 odour module sits alongside a patented seamless ShieldBase that seals the cylinder, which PETKIT positions as much as an anti-leak measure as an odour one. PETKIT publishes no removal percentage for this model.",
+    "noise": "PETKIT publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "A 76 L interior, which is generous, with a cleaning cycle after each use. PETKIT rates it for cats from 3.3 to 22 lb and specifically warns against use by cats under six months old.",
+    "safety": "PETKIT describes an always-open, anti-pinch design with safety sensors, meaning the drum never fully closes and a cat always has an exit. They publish no sensor count.",
+    "consumables": "PETKIT trash bags, with 20 in the box, plus N50 odour refills. Both are proprietary. We have not sourced replacement pricing, so we are not publishing a running-cost figure.",
+    "longTermCost": "At $389 list, and routinely $299, this is the cheapest way into PETKIT’s health tracking. The bags and odour refills are the offsetting cost and we cannot yet put a number on them."
+  },
+  "asin": "B0DFYF2D7D",
+  "priceNote": "List price $389.99. Frequently discounted to $299.99.",
+  "sources": [
+    {
+      "name": "Amazon — PETKIT Store",
+      "url": "https://www.amazon.com/dp/B0DFYF2D7D"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "availability": "current"
 }

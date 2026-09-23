@@ -1,0 +1,97 @@
+{
+  "slug": "petpivot-open-top",
+  "brand": "petpivot",
+  "model": "PetPivot Open Top",
+  "shortName": "PetPivot Open Top",
+  "category": "litter-boxes",
+  "form": "open",
+  "price": 199,
+  "priceNote": "List price $199.99. Frequently discounted, recently $139.98 on a Prime deal.",
+  "releaseYear": 2026,
+  "accent": "#6e8b98",
+  "asin": "B0GL7Q6YXZ",
+  "sources": [
+    {
+      "name": "Amazon — PetPivot Official",
+      "url": "https://www.amazon.com/dp/B0GL7Q6YXZ"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "lastUpdated": "2026-09-23",
+  "availability": "current",
+  "scoreBasis": "research",
+  "testedDate": null,
+  "specs": {
+    "dimensions": "21.06 in L x 15.75 in W x 21.85 in H",
+    "footprint": "21.06 x 15.75 in",
+    "entryHeight": null,
+    "weight": "20.6 lb",
+    "minimumCatWeight": null,
+    "maximumCatWeight": "22 lb",
+    "wasteCapacity": "8 L",
+    "litterCapacity": null,
+    "litterTypes": [
+      "Bentonite and mineral-based clumping litter"
+    ],
+    "wifi": false,
+    "app": "None — deliberately app-free",
+    "odorSystem": null,
+    "noiseLevel": null,
+    "safetySensors": [
+      "Seven pairs of precision infrared sensors",
+      "Touch-sensitive safety pedal",
+      "Mechanical rotation limiter"
+    ],
+    "bagType": "Standard grocery bags or generic trash liners",
+    "proprietaryBags": false,
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null
+  },
+  "scores": {
+    "cleaning": 7.8,
+    "odorControl": 6.8,
+    "safety": 8.8,
+    "app": 0,
+    "maintenance": 8.2,
+    "value": 9.3
+  },
+  "verdict": "The PetPivot is the anti-smart-box. No app, no account, no subscription, no connectivity to go wrong — and the money that would have gone into a camera has gone into safety hardware instead: seven pairs of infrared sensors, a touch-sensitive pedal that halts the cycle on contact, and a mechanical limiter that physically restricts rotation. It also does something clever that expensive boxes often get wrong, holding a deliberate clumping delay before it rotates so litter has set and does not smear. The catch is size: the basin is tight, and owners with large cats say so even though PetPivot rate it to 22 lb.",
+  "pros": [
+    "Three independent safety layers, including a mechanical rotation limiter",
+    "No app, no account and nothing to lose connection",
+    "Clumping delay before rotation cuts pancaking and smearing",
+    "Takes ordinary clumping litter and ordinary bags",
+    "An access step built in for senior cats"
+  ],
+  "cons": [
+    "The basin is tight for large breeds despite the 22 lb rating",
+    "No tracking of any kind — no weight, no visit history, no health data",
+    "PetPivot describes no active odour system",
+    "Short company track record"
+  ],
+  "bestFor": [
+    "Anyone who wants automatic scooping and nothing else",
+    "Senior cats — the access step is a real design feature",
+    "Households avoiding apps and accounts entirely"
+  ],
+  "notIdealFor": [
+    "Large breeds",
+    "Anyone who wants health or weight tracking",
+    "Odour-sensitive rooms"
+  ],
+  "sections": {
+    "setup": "There is nothing to pair, no account to create and no network to join, so setup is assembly and litter. For a lot of buyers — particularly older owners, whom PetPivot name explicitly — that is the entire appeal.",
+    "app": "There is no app, by design. No subscription, no account, and nothing that stops working when a server goes down. You also get no visit history, no weight trend and no health data at all.",
+    "odorControl": "PetPivot describe no active odour system, and it is an open-top box, so nothing contains smell from the litter bed between cycles. This is the clearest compromise in the product and the main reason it does not score higher.",
+    "noise": "PetPivot publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "The interesting part is the timing. A built-in clumping delay lets litter solidify fully before rotation starts, which is aimed squarely at pancaking and wall smearing — two of the most common complaints about cheap automatic boxes. The 8 L bin is modest but adequate for one cat.",
+    "safety": "Three independent layers: seven pairs of infrared sensors covering the opening, a touch-sensitive pedal that interrupts the cycle on contact, and a mechanical limiter restricting how far the drum can turn. That last one matters because it is physical rather than electronic — it works even if a sensor fails.",
+    "consumables": "Ordinary clumping litter and ordinary bags. PetPivot sell replacement liners but nothing obliges you to use them, and at 8 L a heavy-duty grocery bag fits.",
+    "longTermCost": "At $199 list — and often nearer $140 — with no mandatory consumables and no subscription, this is among the cheapest boxes to own that we track. You are trading data for money."
+  }
+}

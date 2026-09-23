@@ -70,7 +70,7 @@
   ],
   "scoreBasis": "research",
   "testedDate": null,
-  "lastUpdated": "2026-09-02",
+  "lastUpdated": "2026-09-23",
   "retailers": [
     {
       "name": "Amazon",
@@ -90,5 +90,8 @@
     "safety": "Infrared entry, weight sensing and anti-pinch reverse — the same three layers as boxes costing twice as much. Meowant cut costs in materials and software, not in sensors, which is the right order.",
     "consumables": "Standard kitchen bags and a filter, around $65 a year. The lowest running cost of any powered box here.",
     "longTermCost": "Cheap to buy and cheap to run, which is a rare combination. Over five years it is roughly a third of the Purobot Ultra and comfortably the lowest total cost of any smart box in this index."
-  }
+  },
+  "availability": "limited",
+  "availabilityNote": "The MW-SC01 has not been formally discontinued, but its availability on Amazon US fluctuates and it was unavailable at our last check. We recommend the SC02 or SC10 instead.",
+  "supersededBy": "meowant-sc02"
 }

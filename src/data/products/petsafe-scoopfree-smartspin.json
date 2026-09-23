@@ -1,0 +1,89 @@
+{
+  "slug": "petsafe-scoopfree-smartspin",
+  "brand": "petsafe",
+  "model": "PetSafe ScoopFree SmartSpin",
+  "shortName": "ScoopFree SmartSpin",
+  "category": "litter-boxes",
+  "price": 369,
+  "priceNote": "Typical price $369.99. Recently $348.79.",
+  "releaseYear": 2025,
+  "accent": "#7d8b9c",
+  "asin": "B0F3P55FHZ",
+  "sources": [
+    {
+      "name": "Amazon — PetSafe Store",
+      "url": "https://www.amazon.com/dp/B0F3P55FHZ"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "lastUpdated": "2026-09-23",
+  "availability": "current",
+  "scoreBasis": "research",
+  "testedDate": null,
+  "specs": {
+    "dimensions": "20.9 in L x 19.3 in W x 26.4 in H",
+    "footprint": "20.9 x 19.3 in",
+    "entryHeight": null,
+    "weight": "25.9 lb",
+    "minimumCatWeight": null,
+    "maximumCatWeight": "25 lb",
+    "wasteCapacity": null,
+    "litterTypes": [
+      "Any litter; clumping clay recommended"
+    ],
+    "wifi": true,
+    "app": "PetSafe Pet Companion (iOS, Android), 2.4 GHz only",
+    "odorSystem": "Sealed waste drawer",
+    "noiseLevel": null,
+    "safetySensors": null,
+    "bagType": null,
+    "proprietaryBags": null,
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null
+  },
+  "scores": {
+    "cleaning": 7.6,
+    "odorControl": 7.8,
+    "safety": 7.8,
+    "app": 7.4,
+    "maintenance": 7.6,
+    "value": 7
+  },
+  "verdict": "The SmartSpin is PetSafe abandoning the thing that made ScoopFree expensive to own. Where the old ScoopFree raked waste into disposable crystal trays you had to keep buying, the SmartSpin sifts clumps into a sealed drawer and works with any litter — clumping clay recommended. That single change removes the worst running cost in this category. It also tracks weight and litter habits through PetSafe’s app and handles cats up to 25 lb. The concern is reception: it sits at 3.6 stars, the lowest of anything we track.",
+  "pros": [
+    "Works with any litter — no more mandatory crystal trays",
+    "Rated for cats up to 25 lb, matching the Litter-Robot 4",
+    "App tracks weight and litter habits",
+    "PetSafe states up to two weeks between empties",
+    "US-based phone, email and chat support"
+  ],
+  "cons": [
+    "3.6 stars across 570 ratings — the weakest reception of any box we track",
+    "PetSafe publishes very little hard specification detail",
+    "App needs a 2.4 GHz network"
+  ],
+  "bestFor": [
+    "Anyone escaping the old ScoopFree tray subscription",
+    "Large cats up to 25 lb",
+    "Buyers who want US-based support"
+  ],
+  "notIdealFor": [
+    "Buyers who weigh customer ratings heavily",
+    "Homes on a 5 GHz-only network"
+  ],
+  "sections": {
+    "setup": "PetSafe publishes no setup time. The app needs a 2.4 GHz network, which is the usual pairing constraint in this category.",
+    "app": "The PetSafe Pet Companion app gives real-time weight and litter-habit data. That is a substantial step up from the old ScoopFree, which offered no weight sensing at all.",
+    "odorControl": "Clumps are sifted into a sealed waste drawer, and PetSafe claims four times better odour control than their previous design. That is a comparison against their own older product rather than an absolute figure.",
+    "noise": "PetSafe publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "A spinning sifter rather than the rake used by the older ScoopFree, dropping clumps into a sealed drawer. PetSafe states up to two weeks of hands-free use. Crucially it takes ordinary clumping litter.",
+    "safety": "PetSafe describes the unit as built with cat safety in mind and sitting just 12 inches from the ground, but publishes no sensor detail. That gap is the main reason this does not score higher on safety.",
+    "consumables": "No proprietary crystal trays, which was the defining cost of the old ScoopFree. We have not confirmed whether the waste drawer needs PetSafe liners, so we are not publishing a running-cost figure.",
+    "longTermCost": "At $369 it costs more up front than the ScoopFree it replaces, and dramatically less to run, because the crystal tray subscription is gone. Over four years that is the trade that matters."
+  }
+}

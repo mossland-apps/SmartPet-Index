@@ -1,0 +1,97 @@
+{
+  "slug": "neakasa-m1-plus",
+  "brand": "neakasa",
+  "model": "Neakasa M1 Plus",
+  "shortName": "Neakasa M1 Plus",
+  "category": "litter-boxes",
+  "price": 449,
+  "releaseYear": 2023,
+  "accent": "#7fa38c",
+  "specs": {
+    "dimensions": "22 in L x 20 in W x 26 in H",
+    "footprint": "22 x 20 in",
+    "entryHeight": null,
+    "weight": "22 lb",
+    "minimumCatWeight": "3.3 lb (Kitten Mode below this)",
+    "maximumCatWeight": "33 lb",
+    "wasteCapacity": "11.2 L",
+    "litterTypes": null,
+    "wifi": true,
+    "app": "Neakasa (iOS, Android), 2.4 GHz only",
+    "odorSystem": "Built-in sealing strip + brush strip seal — no carbon filter required",
+    "noiseLevel": null,
+    "safetySensors": [
+      "6-array rotary infrared detection",
+      "Gear-limited rotation",
+      "Kitten Mode"
+    ],
+    "bagType": "Neakasa refill bag rolls",
+    "replacementCost": null,
+    "filterCost": 0,
+    "warranty": "2-year protection plan",
+    "multiCatCapable": true,
+    "catsSupported": "Up to 3",
+    "cycleTime": null,
+    "power": null,
+    "proprietaryBags": true,
+    "litterCapacity": "7.2 L"
+  },
+  "scores": {
+    "cleaning": 8.5,
+    "odorControl": 7.6,
+    "safety": 9,
+    "app": 7.9,
+    "maintenance": 9.1,
+    "value": 8.4
+  },
+  "verdict": "The M1 Plus solves the single biggest failure mode of automatic litter boxes: cats that refuse to enter an enclosed globe. The open top means most cats accept it quickly, it is rated for cats from 3.3 lb all the way to 33 lb — the widest ceiling of any box we track — and the 11.2 L waste bin is among the largest. Neakasa has also engineered out the carbon filter entirely, sealing odour at the litter bed with a brush strip and sealing ring instead. The catch is the waste bags: they are Neakasa refill rolls, not kitchen bags.",
+  "pros": [
+    "Open top — the highest cat acceptance rate of any design here",
+    "Rated to 33 lb, comfortably the widest weight ceiling in this index",
+    "11.2 L waste bin plus 7.2 L litter capacity, good for 7-14 days",
+    "No carbon filters to buy, ever — odour is sealed mechanically",
+    "Two-year protection plan included"
+  ],
+  "cons": [
+    "Uses Neakasa refill bag rolls rather than ordinary kitchen bags",
+    "Open design contains less odour between cycles than a sealed globe",
+    "Rated for up to 3 cats, fewer than several rivals"
+  ],
+  "bestFor": [
+    "Cats that refuse enclosed boxes",
+    "Large breeds up to 33 lb",
+    "Multi-cat homes up to three cats"
+  ],
+  "notIdealFor": [
+    "Rooms where odor containment is the top priority",
+    "Anyone avoiding proprietary consumables",
+    "Homes wanting a small footprint"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "lastUpdated": "2026-09-23",
+  "sections": {
+    "setup": "The easiest setup here at around ten minutes, because there is no bonnet to align and no drum to seat. Wi-Fi pairing is straightforward. It needs more floor width than a globe box, so measure first.",
+    "app": "Plain but reliable. Cycle scheduling, a fill indicator and basic weight logging. No health trends, no per-cat identification. It does what it says and nothing more.",
+    "odorControl": "Neakasa dropped the carbon filter entirely on the M1 Plus and replaced it with mechanics: a brush strip at the base of the litter bed seals against the waste bin, and a composite sealing ring resists urine seepage. That removes a recurring cost and a common failure mode. It is still an open-top box, though, so nothing contains smell from the litter bed itself between cycles.",
+    "noise": "Neakasa publishes no decibel figure and we have not measured one, so we are not printing a number.",
+    "cleaning": "The 11.2 L waste bin and 7.2 L litter capacity are among the largest here, and Neakasa states 7-14 days between empties for one cat. Disposal is a pull-and-wrap action that seals the bag without touching it.",
+    "safety": "Six sets of sweeping infrared sensors track the cat’s movement, size and position, backed by a gear structure that mechanically limits how far the bed can rotate. Kitten Mode covers cats under 3.3 lb. The open top also means a cat is never enclosed.",
+    "consumables": "Neakasa refill bag rolls, and nothing else — there is no filter to replace. We have not yet sourced current roll pricing from Neakasa, so we are not publishing an annual figure.",
+    "longTermCost": "At $449 list it sits in the middle of this index, and removing carbon filters takes out one of the two recurring costs every rival still carries. The bag rolls are the offsetting factor."
+  },
+  "asin": "B0CSKBWBF6",
+  "priceNote": "List price $449.99. Frequently discounted to $399.99.",
+  "sources": [
+    {
+      "name": "Neakasa (manufacturer)",
+      "url": "https://neakasa.com/products/neakasa-m1-cat-litter-box"
+    },
+    {
+      "name": "Amazon — Neakasa Official",
+      "url": "https://www.amazon.com/dp/B0CSKBWBF6"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "form": "open"
+}

@@ -25,6 +25,10 @@ export const SPEC_FIELDS = SPEC_FIELD_DEFS.map((f) => f.key);
 
 // Optional fields: recorded where known, never required, still comparable.
 export const OPTIONAL_SPEC_FIELD_DEFS = [
+  { key: 'entryOpening', label: 'Entry opening', group: 'Size & fit' },
+  { key: 'litterCapacity', label: 'Litter capacity', group: 'Capacity & litter' },
+  { key: 'proprietaryBags', label: 'Requires proprietary bags', group: 'Running costs' },
+  { key: 'interiorVolume', label: 'Interior volume', group: 'Capacity & litter' },
   { key: 'multiCatCapable', label: 'Rated for multiple cats', group: 'Capacity & litter' },
   { key: 'catsSupported', label: 'Cats supported', group: 'Capacity & litter' },
   { key: 'cycleTime', label: 'Cycle time', group: 'Odor & noise' },
@@ -45,6 +49,8 @@ export const SCORE_CATEGORIES = [
 export const SCORE_KEYS = SCORE_CATEGORIES.map((c) => c.key);
 
 export const SCORE_BASES = ['research', 'tested'];
+
+export const AVAILABILITY = ['current', 'limited', 'discontinued'];
 
 export const PRODUCT_REQUIRED_FIELDS = [
   'slug',
@@ -94,6 +100,10 @@ export function validateProduct(product) {
 
   if (product.scoreBasis && !SCORE_BASES.includes(product.scoreBasis)) {
     errors.push('invalid scoreBasis: ' + product.scoreBasis);
+  }
+
+  if (product.availability && !AVAILABILITY.includes(product.availability)) {
+    errors.push('invalid availability: ' + product.availability);
   }
 
   for (const listField of ['pros', 'cons', 'bestFor', 'notIdealFor']) {

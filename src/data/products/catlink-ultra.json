@@ -1,0 +1,95 @@
+{
+  "slug": "catlink-ultra",
+  "brand": "catlink",
+  "model": "CATLINK Ultra",
+  "shortName": "CATLINK Ultra",
+  "category": "litter-boxes",
+  "price": 499,
+  "releaseYear": 2023,
+  "accent": "#6b8f7a",
+  "specs": {
+    "dimensions": "23.62 in L x 23.62 in W x 27.95 in H",
+    "footprint": "23.62 x 23.62 in",
+    "entryHeight": null,
+    "weight": null,
+    "minimumCatWeight": "3.5 lb",
+    "maximumCatWeight": "22 lb",
+    "wasteCapacity": "13 L",
+    "litterTypes": null,
+    "wifi": true,
+    "app": "CATLINK (iOS, Android), 2.4 GHz and 5 GHz",
+    "odorSystem": "Five-stage system: C70 odor eliminator + sealed HDPE waste bag",
+    "noiseLevel": null,
+    "safetySensors": [
+      "Ten-level protection system",
+      "Sensors and radar",
+      "AI camera detection",
+      "Anti-pinch stop"
+    ],
+    "bagType": "CATLINK HDPE waste bags (supply included)",
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null,
+    "litterCapacity": null,
+    "proprietaryBags": null,
+    "interiorVolume": "65 L"
+  },
+  "scores": {
+    "cleaning": 8.7,
+    "odorControl": 8.8,
+    "safety": 8.7,
+    "app": 8.9,
+    "maintenance": 8.2,
+    "value": 8.4
+  },
+  "verdict": "The Ultra is CATLINK putting a camera and a health monitor into a $499 box, which is roughly $300 less than anyone else charges for the same idea. It watches each visit, identifies individual cats, and flags things like blood or soft stools in the waste — genuinely useful if you are managing a cat with a known condition. The 13 L drawer is among the largest here and CATLINK claims a lab-verified 98.55% odour removal. The catch is the same one every camera box carries: there is a lens pointed at your floor, and the footage goes to CATLINK.",
+  "pros": [
+    "AI camera and per-cat health reporting at $499, far below the camera competition",
+    "13 L waste drawer inside a 65 L interior — among the largest here",
+    "Dual-band Wi-Fi, so it works on 5 GHz networks most rivals cannot join",
+    "Ten-level protection system combining sensors, radar and anti-pinch",
+    "Two-way audio and live streaming"
+  ],
+  "cons": [
+    "A camera in a litter box is a privacy decision, and footage goes to CATLINK",
+    "Sold through a reseller storefront rather than shipped by CATLINK directly",
+    "Very few customer reviews — this is a new listing with a short track record",
+    "CATLINK publishes little hard specification detail beyond the marketing copy"
+  ],
+  "bestFor": [
+    "Multi-cat homes needing per-cat health data",
+    "Cats with a monitored urinary or digestive condition",
+    "Homes on a 5 GHz-only network"
+  ],
+  "notIdealFor": [
+    "Privacy-sensitive households",
+    "Cats over 22 lb",
+    "Buyers who want a long track record before spending $499"
+  ],
+  "scoreBasis": "research",
+  "testedDate": null,
+  "lastUpdated": "2026-09-23",
+  "sections": {
+    "setup": "CATLINK does not publish a setup time. The unit ships assembled enough to need only the drawer fitted and the app paired, and unusually for this category it will join either a 2.4 GHz or a 5 GHz network, which removes the single most common pairing failure.",
+    "app": "This is where the money goes. The app identifies individual cats, builds daily and weekly health reports per cat, and flags waste that looks abnormal. It also carries live video and two-way audio. For a single healthy cat that is overkill; for a household managing a urinary condition across three cats it is the reason to buy this box.",
+    "odorControl": "CATLINK describes a five-stage system built around a C70 odour eliminator and a sealed HDPE waste bag, and claims 98.55% odour removal verified by independent lab testing. That is their figure, not ours, and we have not seen the test protocol.",
+    "noise": "CATLINK publishes no decibel figure for the Ultra and we have not measured one, so we are not printing a number.",
+    "cleaning": "A 13 L waste drawer inside a 65 L interior. CATLINK states roughly 20 days between empties for a single cat, and that the included bag supply lasts about 1000 days on the same basis.",
+    "safety": "CATLINK describes ten levels of protection, combining sensors, radar and the AI camera, with the globe halting the moment a cat comes near. They specifically warn against placing the unit on carpet, which interferes with the sensors — worth knowing before you buy.",
+    "consumables": "CATLINK HDPE waste bags, with a supply included that CATLINK says lasts about 1000 days for one cat. We have not established whether third-party bags fit, or sourced replacement pricing, so we are not publishing a running-cost figure.",
+    "longTermCost": "At $499 with an included bag supply measured in years rather than months, the early running cost is close to nothing. What we cannot yet tell you is what a refill costs once that supply runs out."
+  },
+  "asin": "B0DSCFTSTQ",
+  "priceNote": "Listed as the X-Large (Ultra) size. An X-Large (Luxury) size sits on the same listing.",
+  "sources": [
+    {
+      "name": "Amazon — CATLINK Store",
+      "url": "https://www.amazon.com/dp/B0DSCFTSTQ"
+    }
+  ],
+  "lastVerified": "2026-09-23"
+}

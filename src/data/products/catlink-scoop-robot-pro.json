@@ -1,0 +1,96 @@
+{
+  "slug": "catlink-scoop-robot-pro",
+  "brand": "catlink",
+  "model": "CATLINK Scoop Robot Pro",
+  "shortName": "Scoop Robot Pro",
+  "category": "litter-boxes",
+  "price": 699,
+  "priceNote": "White and Black colourway. A second colourway on the same listing is $799.",
+  "releaseYear": 2026,
+  "accent": "#5f8f84",
+  "asin": "B0GZ3C5ZTF",
+  "sources": [
+    {
+      "name": "Amazon — CATLINK Store",
+      "url": "https://www.amazon.com/dp/B0GZ3C5ZTF"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "lastUpdated": "2026-09-23",
+  "scoreBasis": "research",
+  "testedDate": null,
+  "specs": {
+    "dimensions": "25.2 in L x 32.1 in W x 21.3 in H",
+    "footprint": "25.2 x 32.1 in",
+    "entryHeight": null,
+    "entryOpening": "17 in wide",
+    "weight": null,
+    "minimumCatWeight": null,
+    "maximumCatWeight": null,
+    "wasteCapacity": "15 L",
+    "litterCapacity": null,
+    "litterTypes": null,
+    "wifi": true,
+    "app": "CATLINK (iOS, Android), dual-band Wi-Fi",
+    "odorSystem": "Built-in odor control with sealed waste bin",
+    "noiseLevel": "~30 dB (manufacturer claim)",
+    "safetySensors": [
+      "Dual AI cameras",
+      "AI visual detection",
+      "Weight detection",
+      "Side-roll anti-pinch structure"
+    ],
+    "bagType": "CATLINK waste bags",
+    "proprietaryBags": null,
+    "replacementCost": null,
+    "filterCost": null,
+    "warranty": null,
+    "multiCatCapable": true,
+    "catsSupported": null,
+    "cycleTime": null,
+    "power": null,
+    "interiorVolume": "82 L"
+  },
+  "scores": {
+    "cleaning": 8.5,
+    "odorControl": 8.2,
+    "safety": 8.8,
+    "app": 9,
+    "maintenance": 8,
+    "value": 7.6
+  },
+  "verdict": "The Scoop Robot Pro is built around one idea: make the box big enough that a large cat never feels cornered. The interior is 82 litres and the entrance is 17 inches wide, roughly double the standard, which is the most direct answer anyone in this category has given to cats that refuse enclosed boxes. It cleans by rolling to one side rather than tumbling a globe, which CATLINK says cuts the dust cloud you get when a drum dumps. Two AI cameras handle identification and health tracking. It is $699 and it has been on sale for a matter of weeks.",
+  "pros": [
+    "82 L interior with a 17 in wide entrance — the most spacious box in this index",
+    "Side-roll dumping produces less airborne dust than a tumbling drum",
+    "15 L waste bin, around 20 days for a single cat",
+    "Dual AI cameras with two-way talk and per-cat health reports",
+    "CATLINK rates it at 30 dB"
+  ],
+  "cons": [
+    "A very large footprint at 25 x 32 in",
+    "Two cameras pointed at your floor, with footage going to CATLINK",
+    "Almost no customer history — a handful of reviews at the time of writing",
+    "CATLINK publishes no cat weight range for this model"
+  ],
+  "bestFor": [
+    "Large breeds and cats that refuse enclosed boxes",
+    "Households where litter dust is a concern",
+    "Multi-cat homes wanting per-cat health data"
+  ],
+  "notIdealFor": [
+    "Small rooms — the footprint is the largest here",
+    "Privacy-sensitive households",
+    "Buyers who want a proven track record"
+  ],
+  "sections": {
+    "setup": "CATLINK does not publish a setup time. It joins either a 2.4 GHz or a 5 GHz network, which removes the most common pairing failure in this category. Measure your floor before ordering: at 25 by 32 inches this is the largest unit we track.",
+    "app": "Dual cameras feed live video, two-way audio and per-cat identification into the CATLINK app, which generates bathroom-habit reports intended to surface urinary problems early. It is the same software as the Ultra with a second camera behind it.",
+    "odorControl": "CATLINK describes built-in odour control over a sealed waste bin holding 15 litres, and claims around 20 days of hands-free use for one cat. They publish no removal percentage for this model, and we have not measured it.",
+    "noise": "CATLINK rates it at 30 dB. That is their figure rather than a measurement of ours, but it is consistent with a mechanism that rolls to one side instead of spinning a drum.",
+    "cleaning": "Rather than tumbling a globe, the unit rolls to one side and lets waste fall into the bin in a single motion. CATLINK argues this reduces the dust cloud a drum throws up. The 82 L interior means large cats can turn around fully, which is the design point.",
+    "safety": "Two AI cameras and weight detection stop the cycle the moment a cat approaches, and the side-roll structure has no pinch gap of the kind a rotating drum creates. CATLINK publishes no minimum or maximum cat weight for this model, which is a gap we would want closed before recommending it for kittens.",
+    "consumables": "CATLINK waste bags. We have not established whether third-party bags fit, or sourced replacement pricing, so we are not publishing a running-cost figure.",
+    "longTermCost": "At $699 it sits alongside the Litter-Robot 4 on purchase price. Until we can price CATLINK bag refills we cannot tell you how the two compare over several years, which is the comparison that actually matters."
+  }
+}

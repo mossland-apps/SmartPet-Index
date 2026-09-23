@@ -4,35 +4,34 @@
   "model": "Omega Paw Roll'n Clean",
   "shortName": "Omega Paw Roll'n Clean",
   "category": "litter-boxes",
-  "price": 45,
+  "price": 65,
   "releaseYear": 2004,
   "accent": "#a2a297",
   "specs": {
-    "dimensions": "21.5 x 19.5 x 20.5 in",
-    "footprint": "21.5 x 19.5 in",
-    "entryHeight": "7.0 in",
-    "weight": "6 lb",
-    "minimumCatWeight": "No minimum",
-    "maximumCatWeight": "18 lb",
-    "wasteCapacity": "Pull-out tray",
+    "dimensions": "21.5 in L x 18.5 in W x 20 in H",
+    "footprint": "21.5 x 18.5 in",
+    "entryHeight": null,
+    "weight": "6.5 lb",
+    "minimumCatWeight": null,
+    "maximumCatWeight": null,
+    "wasteCapacity": null,
     "litterTypes": [
       "Clumping clay"
     ],
     "wifi": false,
     "app": "None",
     "odorSystem": "Hood only",
-    "noiseLevel": "Silent",
-    "safetySensors": [
-      "None — manual operation"
-    ],
+    "noiseLevel": null,
+    "safetySensors": null,
     "bagType": "None required",
     "replacementCost": 0,
     "filterCost": 0,
-    "warranty": "1 year",
+    "warranty": null,
     "multiCatCapable": false,
     "catsSupported": "1",
-    "cycleTime": "Manual, ~10 s",
-    "power": "None"
+    "cycleTime": null,
+    "power": "None",
+    "proprietaryBags": false
   },
   "scores": {
     "cleaning": 6.8,
@@ -40,7 +39,7 @@
     "safety": 9.6,
     "app": 0,
     "maintenance": 8.4,
-    "value": 9.4
+    "value": 9
   },
   "verdict": "This is in the index as a reality check. You roll it on its side, the clumps fall into a tray, you pull the tray. It costs $45, uses no power, has nothing to break and no consumables. It is not automatic and it has no odor system beyond a hood — but for a single cat on a tight budget, it removes the daily scooping for about the price of two months of ScoopFree trays.",
   "pros": [
@@ -67,7 +66,7 @@
   ],
   "scoreBasis": "research",
   "testedDate": null,
-  "lastUpdated": "2026-09-02",
+  "lastUpdated": "2026-09-23",
   "retailers": [
     {
       "name": "Amazon",
@@ -85,7 +84,18 @@
     "noise": "Silent. There is no motor.",
     "cleaning": "You roll the box onto its side and back; clumps fall through a grate into a pull-out tray. It works, but it misses material against the seams and needs a full wash more often than any powered box.",
     "safety": "Nothing can pinch, trap or start unexpectedly, because nothing moves without you. On pure risk it is the safest object in this index, which is why it scores 9.6 — a fair score that should not be read as a recommendation over a good powered box.",
-    "consumables": "None. No bags, no filters, no trays, no subscription.",
-    "longTermCost": "Around $45 once and nothing thereafter. Over five years it costs less than a single year of ScoopFree trays. What you spend instead is your own time, every day."
-  }
+    "consumables": "None. No bags, no filters, no trays, no subscription, and no power.",
+    "longTermCost": "Around $65 once and nothing thereafter. Omega Paw state plainly that it needs no liners, no filters and no electricity, which is the entire argument for it. Note the price has climbed — it was long sold nearer $45."
+  },
+  "asin": "B01N4KIKOM",
+  "priceNote": "Listed at $66.99 for the Large in Brown at the time of checking.",
+  "sources": [
+    {
+      "name": "Amazon — Omega Paw",
+      "url": "https://www.amazon.com/dp/B01N4KIKOM"
+    }
+  ],
+  "lastVerified": "2026-09-23",
+  "availability": "current",
+  "form": "manual"
 }

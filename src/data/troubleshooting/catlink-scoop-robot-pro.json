@@ -1,7 +1,33 @@
 {
-  "product": "catlink-luxury-pro",
-  "intro": "The Luxury Pro shares its drum and app with the Scooper Pro X, so the same fixes apply. It has one fewer safety layer, which means jams stop the cycle rather than reversing out of it.",
+  "product": "catlink-scoop-robot-pro",
+  "intro": "The Scoop Robot Pro rolls to one side rather than tumbling a drum, so the jam patterns are different from every other CATLINK. Its own characteristic complaints are the cameras and the sheer size of the thing.",
   "symptoms": [
+    {
+      "slug": "cameras-not-identifying",
+      "title": "Cameras do not identify cats",
+      "severity": "common",
+      "summary": "The app records visits but attributes them to the wrong cat, or to no cat at all.",
+      "causes": [
+        "Ambient light is too low for the cameras to separate coat patterns.",
+        "The cat profiles have too few training images, or the cats look alike.",
+        "Litter dust has filmed over one or both lenses."
+      ],
+      "fixes": [
+        {
+          "step": "Add light",
+          "detail": "A cheap plug-in nightlight near the unit measurably improves identification on every camera box we have looked at."
+        },
+        {
+          "step": "Add training images",
+          "detail": "Feed the app more images of each cat from above and behind — the angles the cameras actually see — rather than front-on portraits."
+        },
+        {
+          "step": "Clean both lenses",
+          "detail": "Litter dust films the optics within weeks. Wipe both with a dry microfibre cloth monthly."
+        }
+      ],
+      "escalate": "If identification still fails in good light with clean lenses and full profiles, report it to CATLINK — this is a software problem, not something you can fix at the unit."
+    },
     {
       "slug": "wont-cycle",
       "title": "Will not cycle",
@@ -59,32 +85,6 @@
       "escalate": "A module that draws no power at all after reseating is a warranty item."
     },
     {
-      "slug": "drum-jam",
-      "title": "Drum jams or grinds",
-      "severity": "serious",
-      "summary": "The drum makes a grinding noise, moves unevenly, or stops partway through rotation.",
-      "causes": [
-        "Litter has migrated into the drum track.",
-        "Tofu litter has absorbed moisture and swollen into the gap between drum and shell.",
-        "A roller is worn or has come out of its seat."
-      ],
-      "fixes": [
-        {
-          "step": "Stop using it",
-          "detail": "Unplug immediately. Running a jammed drum damages the drive gear."
-        },
-        {
-          "step": "Clear the track",
-          "detail": "Remove the drum, vacuum the track thoroughly, and wipe with a dry cloth. Do not lubricate."
-        },
-        {
-          "step": "Inspect the rollers",
-          "detail": "Check each roller turns freely and sits in its seat."
-        }
-      ],
-      "escalate": "A grinding noise that persists on a clean, empty drum means a drive fault. Open a warranty case."
-    },
-    {
       "slug": "cat-weight-incorrect",
       "title": "Cat weight readings are wrong",
       "severity": "common",
@@ -115,6 +115,32 @@
       "escalate": "If readings are still erratic on a level floor after re-taring, the load cell is likely faulty and is a warranty item."
     },
     {
+      "slug": "drawer-shows-full",
+      "title": "Drawer shows full when it is not",
+      "severity": "common",
+      "summary": "The app or the indicator light insists the waste drawer is full immediately after you emptied it.",
+      "causes": [
+        "Waste is packed against the sensor window rather than spread across the drawer.",
+        "The sensor window is dusty. Litter dust builds a film that reads as full.",
+        "The liner is bunched up over the sensor."
+      ],
+      "fixes": [
+        {
+          "step": "Wipe the sensor window",
+          "detail": "Find the small clear window inside the drawer bay and wipe it with a dry microfibre cloth. Do this monthly."
+        },
+        {
+          "step": "Reset the drawer count",
+          "detail": "Use the reset in the app or the physical drawer button so the counter clears after emptying."
+        },
+        {
+          "step": "Fit the liner flat",
+          "detail": "Tuck the bag so it lies against the drawer walls rather than ballooning across the sensor line."
+        }
+      ],
+      "escalate": "A sensor that reads full with the drawer removed entirely is faulty and is a warranty item."
+    },
+    {
       "slug": "offline-or-wont-connect",
       "title": "Shows offline in the app",
       "severity": "common",
@@ -143,6 +169,32 @@
         }
       ],
       "escalate": "If it pairs and drops within minutes repeatedly, that is a hardware or firmware fault — contact CATLINK rather than continuing to re-pair."
+    },
+    {
+      "slug": "wifi-setup-failed",
+      "title": "Wi-Fi setup fails during pairing",
+      "severity": "common",
+      "summary": "Setup runs to the last step and then reports a failure, or the app never finds the unit.",
+      "causes": [
+        "Phone is on 5 GHz while the box needs 2.4 GHz.",
+        "The Wi-Fi password contains characters the unit rejects, or the network name is hidden.",
+        "Location or local-network permission is denied to the CATLINK app, so it cannot see the device."
+      ],
+      "fixes": [
+        {
+          "step": "Grant the permissions",
+          "detail": "Both Location and Local Network permissions must be allowed for pairing to work on iOS. Android needs Location."
+        },
+        {
+          "step": "Use a simple 2.4 GHz SSID",
+          "detail": "Broadcast a plain, visible 2.4 GHz network with an alphanumeric password for setup. You can move it afterwards."
+        },
+        {
+          "step": "Stay within six feet during pairing",
+          "detail": "Pairing uses a short-range handshake before the box joins the network."
+        }
+      ],
+      "escalate": "If pairing fails on a known-good 2.4 GHz network from two different phones, the radio module is faulty."
     },
     {
       "slug": "odor-problems",
