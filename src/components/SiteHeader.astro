@@ -53,10 +53,6 @@ const { pathname } = Astro.url;
       </nav>
     </div>
   </div>
-
-  <p class="disclosure">
-    {SITE.disclosure} <a href="/about/disclosure/">Details</a>.
-  </p>
 </header>
 
 <style>
@@ -67,6 +63,7 @@ const { pathname } = Astro.url;
 
   .bar {
     background: var(--blue-600);
+    position: relative;
   }
 
   .bar-inner {
@@ -178,7 +175,8 @@ const { pathname } = Astro.url;
   }
 
   .has-menu:hover .mega,
-  .has-menu:focus-within .mega {
+  .has-menu:focus-within .mega,
+  .has-menu.is-open .mega {
     display: block;
   }
 
@@ -218,16 +216,6 @@ const { pathname } = Astro.url;
 
   .mega-col a:hover {
     color: var(--blue-700);
-  }
-
-  .disclosure {
-    margin: 0;
-    text-align: center;
-    background: var(--bg-soft);
-    border-bottom: 1px solid var(--line);
-    color: var(--ink-soft);
-    font-size: 0.82rem;
-    padding: 9px 20px;
   }
 
   @media (max-width: 900px) {
@@ -300,5 +288,32 @@ const { pathname } = Astro.url;
   toggle?.addEventListener('click', () => {
     const open = nav?.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // CSS :hover alone already works now that the dropdown sits flush under the bar,
+  // so this is belt and braces: a short grace period on the way out means a fast or
+  // slightly diagonal pointer does not drop the menu mid-move.
+  const CLOSE_DELAY = 220;
+  for (const item of document.querySelectorAll('.nav-item.has-menu')) {
+    let timer;
+    const open = () => {
+      clearTimeout(timer);
+      item.classList.add('is-open');
+    };
+    const close = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => item.classList.remove('is-open'), CLOSE_DELAY);
+    };
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', close);
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    for (const item of document.querySelectorAll('.nav-item.has-menu.is-open')) {
+      item.classList.remove('is-open');
+    }
   });
 </script>
