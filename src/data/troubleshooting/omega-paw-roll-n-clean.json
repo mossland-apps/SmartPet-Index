@@ -1,58 +1,58 @@
 {
   "product": "omega-paw-roll-n-clean",
-  "intro": "There is no motor, no sensor and no app, so there is very little to break. Every problem with this box is a litter problem or a technique problem.",
-  "symptoms": [
+  "indexable": false,
+  "intro": "There is no motor, no sensor and no app, so almost nothing can break. Omega Paw's instruction is simple: roll the box over onto its top and back again, and the waste ends up in the pull-out tray. Most problems come from the litter or from how it is rolled.",
+  "sources": [
     {
-      "slug": "clumps-not-falling",
-      "title": "Clumps do not fall into the tray",
-      "severity": "common",
-      "summary": "You roll the box but clumps stay in the litter bed instead of dropping through the grate.",
-      "causes": [
-        "Litter is not clumping hard enough — cheap clay breaks up on the roll.",
-        "The bed is too shallow, so urine reaches the plastic and smears.",
-        "The box was not rolled fully onto its side."
-      ],
-      "fixes": [
-        {
-          "step": "Use a firm-clumping clay",
-          "detail": "This design depends entirely on clumps holding together. Budget litter is a false economy here."
-        },
-        {
-          "step": "Deepen the bed",
-          "detail": "Three inches minimum. Shallow beds are the usual cause."
-        },
-        {
-          "step": "Roll it all the way",
-          "detail": "Roll until the box is fully on its side and hold for two seconds before rolling back."
-        }
-      ],
-      "escalate": "There is no mechanism to fail here — if clumps still will not drop, the litter is the variable to change."
+      "name": "Amazon — Omega Paw",
+      "url": "https://www.amazon.com/dp/B01N4KIKOM"
+    }
+  ],
+  "facts": [
+    {
+      "text": "Needs no liners, filters or electricity."
     },
     {
-      "slug": "litter-in-seams",
-      "title": "Litter and waste stuck in the seams",
+      "text": "Rolled over onto its top and back, a patented sifting grate drops waste into a pull-out tray."
+    }
+  ],
+  "symptoms": [
+    {
+      "slug": "clumps-not-dropping",
+      "title": "Clumps stay in the litter after rolling",
       "severity": "common",
-      "summary": "Material collects where the two halves join and does not clear on rolling.",
+      "summary": "You roll the box but waste does not reach the tray.",
       "causes": [
-        "This is inherent to the two-piece design.",
-        "The halves are not clipped fully together, widening the seam.",
-        "Litter is too fine and packs into the joint."
+        "The litter does not clump firmly enough to survive the roll.",
+        "The box was not rolled all the way onto its top."
       ],
       "fixes": [
         {
-          "step": "Split and wash monthly",
-          "detail": "Unclip the halves and wash both with warm water and unscented soap."
+          "step": "Use firm-clumping litter",
+          "detail": "The grate only works with clumps that hold together."
         },
         {
-          "step": "Check the clips",
-          "detail": "Press all clips home. A partly open seam collects far more material."
-        },
-        {
-          "step": "Try a coarser litter",
-          "detail": "Fine-grain litter packs into the joint; a coarser clay does not."
+          "step": "Roll it fully",
+          "detail": "Roll the box right over onto its top, pause, then roll it back."
         }
       ],
-      "escalate": "Not a fault. It is the maintenance cost of a $45 box with no motor."
+      "escalate": "There is no mechanism to fail; if clumps still stay put, change the litter."
+    },
+    {
+      "slug": "seams-and-clips",
+      "title": "Litter collects at the join",
+      "severity": "common",
+      "summary": "Material builds up where the two halves meet.",
+      "causes": [
+        "The locking clips are not fully closed, widening the seam."
+      ],
+      "fixes": [
+        {
+          "step": "Close every clip",
+          "detail": "Press each locking clip fully home, and wash both halves periodically."
+        }
+      ],
+      "escalate": "This is routine maintenance for a two-piece box, not a fault."
     }
   ]
 }

@@ -1,97 +1,66 @@
 {
   "product": "petsafe-scoopfree-smartspin",
-  "intro": "The SmartSpin replaces the rake-and-tray mechanism the older ScoopFree used, so none of the rake jams or tray sensor errors apply. It spins and sifts into a sealed drawer, and it takes ordinary clumping litter.",
+  "indexable": true,
+  "intro": "The SmartSpin sifts clumps into a sealed drawer instead of raking them into a disposable tray, so none of the old ScoopFree tray problems apply. It accepts most litters but has a clear preference.",
+  "sources": [
+    {
+      "name": "Amazon — PetSafe Store",
+      "url": "https://www.amazon.com/dp/B0F3P55FHZ"
+    }
+  ],
+  "facts": [
+    {
+      "text": "The PetSafe Pet Companion app needs a 2.4 GHz network.",
+      "common": "offline-or-wont-connect"
+    },
+    {
+      "text": "Rated for cats up to 25 lb.",
+      "common": "cat-weight-incorrect"
+    },
+    {
+      "text": "Works with any litter, though PetSafe recommends clumping clay for best results."
+    },
+    {
+      "text": "PetSafe offers US-based support by phone, email and chat."
+    }
+  ],
   "symptoms": [
     {
       "slug": "wont-spin",
-      "title": "Will not spin",
+      "title": "The drum will not spin",
       "severity": "serious",
-      "summary": "The unit sits idle after a visit, or starts and stops without completing a rotation.",
+      "summary": "The unit does not start its sifting rotation, or stops partway.",
       "causes": [
-        "Litter filled above the marked line, which is the most common cause of a stalled cycle.",
-        "A clump has welded to the sifting screen.",
-        "The waste drawer is not fully seated, leaving the safety interlock open."
+        "Litter above the fill line.",
+        "The waste drawer not fully seated."
       ],
       "fixes": [
         {
-          "step": "Check the litter level",
-          "detail": "Litter should sit at or just below the marked fill line. Remove a cup and retry if in doubt."
+          "step": "Correct the litter level",
+          "detail": "Reduce litter to the marked line and try again."
         },
         {
-          "step": "Reseat the drawer",
-          "detail": "Pull the waste drawer fully out and push it back until it clicks home."
-        },
-        {
-          "step": "Clear the sifting screen",
-          "detail": "Unplug, remove the globe, and scrape any welded clump off the screen with a plastic scraper."
-        },
-        {
-          "step": "Run an empty test cycle",
-          "detail": "With litter removed, run one cycle. Completing empty but failing when loaded points at litter, not the motor."
+          "step": "Seat the drawer",
+          "detail": "Push the waste drawer fully home."
         }
       ],
-      "escalate": "A unit that fails an empty test cycle has a drive fault. PetSafe offer US-based phone, email and chat support — use it rather than continuing to reset."
+      "escalate": "If it will not spin empty, use PetSafe's US-based support rather than resetting repeatedly."
     },
     {
-      "slug": "offline-or-wont-connect",
-      "title": "Shows offline in the app",
+      "slug": "poor-sifting",
+      "title": "Waste is left in the litter",
       "severity": "common",
-      "summary": "The unit works but the PetSafe app shows it as offline, or commands from the app do nothing.",
+      "summary": "Sifting leaves clumps or smears behind.",
       "causes": [
-        "The box is on a 5 GHz network segment. Almost every litter box on the market is 2.4 GHz only.",
-        "The router moved the unit to a different band after a firmware update or a mesh node reshuffle.",
-        "The box sits behind an appliance or in a metal-lined cabinet that kills the signal."
+        "The litter clumps poorly. PetSafe recommends clumping clay."
       ],
       "fixes": [
         {
-          "step": "Check the band",
-          "detail": "Confirm your phone is on the 2.4 GHz network when you pair. On a combined-band router, temporarily split the bands or use the guest 2.4 GHz network."
-        },
-        {
-          "step": "Power cycle in order",
-          "detail": "Unplug the box for 30 seconds, then reboot the router, then plug the box back in. Order matters — the box looks for the network on boot."
-        },
-        {
-          "step": "Move it 3 feet",
-          "detail": "Signal strength at floor level behind a washing machine is far worse than it looks. Try the unit in the open before concluding the radio is faulty."
-        },
-        {
-          "step": "Re-pair from scratch",
-          "detail": "Remove the device from the app entirely, then run setup again rather than retrying the existing entry."
+          "step": "Change litter",
+          "detail": "Switch to a clumping clay litter for best results."
         }
       ],
-      "escalate": "If it pairs and drops within minutes repeatedly, that is a hardware or firmware fault — contact PetSafe rather than continuing to re-pair."
-    },
-    {
-      "slug": "odor-problems",
-      "title": "It still smells",
-      "severity": "common",
-      "summary": "The box cycles normally but the room smells worse than expected — often starting a few weeks in.",
-      "causes": [
-        "The carbon filter is past its life. Filters degrade quietly; there is no warning.",
-        "The drawer gasket has litter dust on the seal face, so the drawer no longer closes airtight.",
-        "Litter depth is too shallow, so urine reaches the drum wall instead of clumping.",
-        "The unit needs a full wash. Waste film builds on the drum wall and no amount of cycling removes it."
-      ],
-      "fixes": [
-        {
-          "step": "Replace the filter",
-          "detail": "Set a recurring reminder rather than waiting to notice. PetSafe filters are a running cost, not an optional accessory."
-        },
-        {
-          "step": "Clean the gasket",
-          "detail": "Wipe the drawer seal and the mating face with a damp cloth, then dry. A gritty seal leaks."
-        },
-        {
-          "step": "Deepen the litter",
-          "detail": "Run to the fill line, not below it. Shallow litter is the most common cause of odor in an otherwise healthy unit."
-        },
-        {
-          "step": "Full wash every 4-6 weeks",
-          "detail": "Strip the unit, wash the drum and drawer with unscented soap and warm water, dry completely before reassembly."
-        }
-      ],
-      "escalate": "Persistent ammonia smell despite all of the above can indicate a cat health issue. It is worth a vet conversation, not just a cleaning routine."
+      "escalate": "If sifting stays poor on clumping clay, contact PetSafe."
     }
   ]
 }

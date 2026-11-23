@@ -1,18 +1,24 @@
 import { products, brands } from '../lib/catalog.js';
 import { BEST_OF_LISTS } from '../lib/rankings.js';
-import { expectedRoutes, comparePath } from '../lib/routes.js';
+import { expectedRoutes, troubleshootingPath } from '../lib/routes.js';
+import { troubleshootingHubs } from '../lib/troubleshooting.js';
+import { featuredComparisons } from '../lib/comparisons.js';
 import { SITE } from '../config/site.js';
 
+// The sitemap lists only pages we want in Google's index. Pages carrying noindex
+// — auto-generated comparisons and thin troubleshooting hubs — stay out, so the
+// two signals never contradict each other.
 export function GET() {
-  const routes = new Set(expectedRoutes({ products, brands, lists: BEST_OF_LISTS }));
-  for (let i = 0; i < products.length; i += 1) {
-    for (let j = i + 1; j < products.length; j += 1) {
-      routes.add(comparePath(products[i].slug, products[j].slug));
-    }
-  }
-  const urls = [...routes]
-    .map((r) => '  <url><loc>' + SITE.url + r + '</loc></url>')
-    .join('\n');
+  const hidden = new Set(
+    troubleshootingHubs.filter((h) => !h.indexable).map((h) => troubleshootingPath(h.product))
+  );
+
+  const routes = new Set(
+    expectedRoutes({ products, brands, lists: BEST_OF_LISTS }).filter((r) => !hidden.has(r))
+  );
+  for (const c of featuredComparisons) routes.add('/compare/' + c.slug + '/');
+
+  const urls = [...routes].map((r) => '  <url><loc>' + SITE.url + r + '</loc></url>').join('\n');
   const body =
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

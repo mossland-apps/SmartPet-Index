@@ -1,0 +1,174 @@
+{
+  "intro": "Most problems with automatic litter boxes are not specific to a brand. Networks, overfilled litter, uneven floors and tired filters cause the same symptoms on almost every model, so the fixes live here once. Each model page links back to the relevant section and covers only what is particular to that box.",
+  "symptoms": [
+    {
+      "slug": "offline-or-wont-connect",
+      "title": "Shows offline in the app",
+      "severity": "common",
+      "summary": "The box cleans normally, but the app shows it as offline or app commands do nothing.",
+      "causes": [
+        "Many boxes join only 2.4 GHz networks. If your router merges 2.4 and 5 GHz under one name, the box may be steered onto a band it cannot use.",
+        "A router replacement, password change or mesh reshuffle has moved the network out from under the box.",
+        "Signal at floor level behind an appliance or inside a cabinet is far weaker than it looks from a phone held at chest height."
+      ],
+      "fixes": [
+        {
+          "step": "Check which bands your model supports",
+          "detail": "Look at the model page on this site or the maker's spec sheet. Some boxes are 2.4 GHz only; a few join 5 GHz as well."
+        },
+        {
+          "step": "Restart in order",
+          "detail": "Unplug the box for 30 seconds, restart the router, then power the box back on. It looks for the network as it boots."
+        },
+        {
+          "step": "Test it closer to the router",
+          "detail": "Move the box into open space nearer the router for a few minutes. If it connects there, placement is the problem, not the radio."
+        },
+        {
+          "step": "Re-pair from scratch",
+          "detail": "Remove the device from the app entirely and run setup again, rather than retrying the old entry."
+        }
+      ],
+      "escalate": "If it pairs successfully and then drops within minutes, over and over, treat it as a hardware or firmware fault and contact the manufacturer rather than re-pairing indefinitely."
+    },
+    {
+      "slug": "wifi-setup-failed",
+      "title": "Setup fails during pairing",
+      "severity": "common",
+      "summary": "Pairing runs to the final step and reports a failure, or the app never finds the box at all.",
+      "causes": [
+        "The phone is on a network band the box cannot join.",
+        "The app has been denied the permissions it needs to find devices nearby.",
+        "The network name is hidden, or the password contains characters the box rejects."
+      ],
+      "fixes": [
+        {
+          "step": "Grant permissions",
+          "detail": "On iPhone, allow both Location and Local Network for the app. On Android, allow Location. Pairing quietly fails without them."
+        },
+        {
+          "step": "Use a plain, visible network",
+          "detail": "Pair to a visible network with a simple alphanumeric password. You can move the box to another network afterwards."
+        },
+        {
+          "step": "Stay close",
+          "detail": "Keep the phone within a few feet of the box during pairing, which starts with a short-range handshake."
+        }
+      ],
+      "escalate": "If pairing fails from two different phones on a network you know works, the box's radio is the likely fault."
+    },
+    {
+      "slug": "wont-cycle",
+      "title": "Will not cycle",
+      "severity": "serious",
+      "summary": "The box sits idle after a visit, or starts a cycle and stops before finishing.",
+      "causes": [
+        "Litter filled above the line. This is the single most common cause of a failed cycle on any model.",
+        "A clump has stuck to the screen or drum wall and is blocking rotation.",
+        "The waste drawer is not fully seated, so a safety interlock keeps the motor off."
+      ],
+      "fixes": [
+        {
+          "step": "Bring the litter to the line",
+          "detail": "Remove litter until it sits at or just below the marked fill line, then try again."
+        },
+        {
+          "step": "Reseat the drawer",
+          "detail": "Pull the drawer fully out and push it home until it seats. A few millimetres proud is enough to stop a cycle."
+        },
+        {
+          "step": "Clear stuck waste",
+          "detail": "Power off, then scrape any welded clump from the screen or drum with a plastic scraper."
+        },
+        {
+          "step": "Run it empty",
+          "detail": "Remove the litter and run one cycle. If it completes empty but fails loaded, the cause is litter or weight rather than the motor."
+        }
+      ],
+      "escalate": "A box that will not complete a cycle while empty has a motor, gear or board fault. Stop using it and open a warranty claim."
+    },
+    {
+      "slug": "cat-weight-incorrect",
+      "title": "Weight readings are wrong",
+      "severity": "common",
+      "summary": "The app reports implausible weights, readings jump between visits, or visits land on the wrong cat.",
+      "causes": [
+        "The box is on carpet, a mat, a cable or an uneven floor, all of which distort a scale.",
+        "Litter was added or removed without the scale being re-zeroed.",
+        "The cats weigh too nearly the same for weight alone to tell them apart."
+      ],
+      "fixes": [
+        {
+          "step": "Put it on a hard, level floor",
+          "detail": "Keep it off carpet, litter mats, power cords and grout lines, and clear of walls. Scales assume a firm, level base."
+        },
+        {
+          "step": "Re-zero after litter changes",
+          "detail": "Run the app's calibration or reset routine whenever you top up or replace the litter."
+        },
+        {
+          "step": "Check the weight gap between cats",
+          "detail": "Weight-based identification needs a real difference between cats. If yours are close, expect mix-ups and tag visits by hand."
+        }
+      ],
+      "escalate": "If readings stay erratic on a hard level floor after re-zeroing, the scale itself is suspect and is a warranty matter."
+    },
+    {
+      "slug": "drawer-shows-full",
+      "title": "Drawer shows full when it is not",
+      "severity": "common",
+      "summary": "The box or app says the waste drawer is full immediately after you emptied it.",
+      "causes": [
+        "Litter dust has filmed over the drawer sensor.",
+        "The bag is bunched up in the sensor's line of sight.",
+        "The fill counter was not reset after emptying."
+      ],
+      "fixes": [
+        {
+          "step": "Clean the sensor",
+          "detail": "Wipe the drawer sensor with a dry microfibre cloth. Doing this monthly prevents most false alerts."
+        },
+        {
+          "step": "Lay the bag flat",
+          "detail": "Tuck the bag against the drawer walls so it does not balloon across the sensor."
+        },
+        {
+          "step": "Reset the counter",
+          "detail": "Use the reset in the app or on the unit after each empty."
+        }
+      ],
+      "escalate": "A drawer sensor that reads full with the drawer taken out entirely is faulty and is a warranty matter."
+    },
+    {
+      "slug": "odor-problems",
+      "title": "It still smells",
+      "severity": "common",
+      "summary": "The box cycles normally, but the room smells worse than it should, often a few weeks in.",
+      "causes": [
+        "A filter or odour cartridge is past its life. Most degrade without any warning.",
+        "Dust on the drawer seal is stopping it from closing properly.",
+        "The litter bed is too shallow, so urine reaches the drum instead of clumping.",
+        "The drum needs a full wash; residue builds up that cycling never removes."
+      ],
+      "fixes": [
+        {
+          "step": "Replace consumables on a schedule",
+          "detail": "Set a reminder for filters and odour cartridges rather than waiting until you notice the smell."
+        },
+        {
+          "step": "Clean the seal",
+          "detail": "Wipe the drawer seal and the surface it closes against, then dry both."
+        },
+        {
+          "step": "Fill to the line",
+          "detail": "Shallow litter is the commonest cause of smell in an otherwise healthy box."
+        },
+        {
+          "step": "Wash it every month or so",
+          "detail": "Strip the box, wash the drum and drawer with unscented soap, and let everything dry completely."
+        }
+      ],
+      "escalate": "A persistent ammonia smell despite all of this can point to a health problem in your cat. It is worth raising with a vet."
+    }
+  ]
+}

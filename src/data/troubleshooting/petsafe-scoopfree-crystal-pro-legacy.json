@@ -1,84 +1,101 @@
 {
   "product": "petsafe-scoopfree-crystal-pro-legacy",
-  "intro": "A rake and a disposable tray, with no app and no network, so the failure modes are mechanical and visible. Almost everything that goes wrong with these is either the rake path or the tray seating.",
+  "indexable": true,
+  "intro": "A rake, a disposable crystal tray and no app: the Crystal Pro's problems are mechanical and usually visible. Nearly all of them come down to the rake path, the tray or the crystals themselves.",
+  "sources": [
+    {
+      "name": "Amazon — PetSafe Store",
+      "url": "https://www.amazon.com/dp/B07WZPJ2LW"
+    }
+  ],
+  "facts": [
+    {
+      "text": "Uses only ScoopFree crystal litter in disposable, plastic-lined trays."
+    },
+    {
+      "text": "A health counter driven by motion sensors shows usage on the unit itself; there is no app."
+    },
+    {
+      "text": "Only 6.2 in tall, uncovered."
+    }
+  ],
   "symptoms": [
     {
       "slug": "rake-stuck",
-      "title": "Rake is stuck or does not return",
+      "title": "The rake stops partway or does not return",
       "severity": "serious",
-      "summary": "The rake stops partway across the tray or fails to return to its parked position.",
+      "summary": "The rake halts mid-sweep or fails to park.",
       "causes": [
-        "A large clump or a foreign object is blocking the rake path.",
-        "Crystals have been pushed into a ridge the rake cannot climb.",
-        "The tray is not seated square in the bay."
+        "A large clump or object blocks the rake path.",
+        "Crystals are piled into a ridge the rake cannot climb.",
+        "The tray is not seated square."
       ],
       "fixes": [
         {
-          "step": "Unplug and clear the path",
-          "detail": "Remove the obstruction by hand. Never force the rake while the unit is powered."
+          "step": "Unplug and clear it",
+          "detail": "Remove the obstruction by hand with the power off. Never force the rake while powered."
         },
         {
           "step": "Level the crystals",
-          "detail": "Rake the crystal bed flat by hand every week or two. This prevents most jams before they happen."
+          "detail": "Smooth the crystal bed by hand every week or two."
         },
         {
           "step": "Reseat the tray",
-          "detail": "The tray must sit flat and square with no lip catching the rake."
+          "detail": "Make sure the tray sits flat and square with no lip catching the rake."
         }
       ],
-      "escalate": "A rake that stalls on a clean, level, correctly seated tray has a drive fault. PetSafe offer US-based support — use it."
+      "escalate": "If the rake stalls on a clean, level, well-seated tray, contact PetSafe's US-based support."
     },
     {
       "slug": "health-counter-wrong",
       "title": "The health counter looks wrong",
       "severity": "common",
-      "summary": "The usage count on the display seems far too high, too low, or does not move at all.",
+      "summary": "The usage count is far too high, too low, or never changes.",
       "causes": [
-        "The motion sensor counts movement, not cats — a passing dog or a robot vacuum registers as a visit.",
+        "The motion sensor counts any movement, not just your cat.",
         "The sensor window is dusty.",
-        "The counter has not been reset since the last tray change."
+        "The counter was not reset at the last tray change."
       ],
       "fixes": [
         {
-          "step": "Wipe the sensor window",
-          "detail": "Clean the small sensor window with a dry cloth. Crystal dust is fine but it still builds a film."
+          "step": "Clean the sensor",
+          "detail": "Wipe the sensor window with a dry cloth."
         },
         {
-          "step": "Move traffic away",
-          "detail": "Anything crossing the opening counts. A box in a hallway will over-count badly."
+          "step": "Reduce passing traffic",
+          "detail": "Other pets or a robot vacuum passing the opening will add to the count."
         },
         {
-          "step": "Reset on each tray change",
-          "detail": "Clear the counter when you fit a fresh tray so the number means something."
+          "step": "Reset with each new tray",
+          "detail": "Clear the counter when fitting a new tray so the figure means something."
         }
       ],
-      "escalate": "A counter that never moves with a clean sensor and confirmed use has a sensor fault and is a warranty item."
+      "escalate": "A counter that never moves despite confirmed use has a sensor fault."
     },
     {
-      "slug": "odor-problems",
-      "title": "It still smells",
+      "slug": "crystals-saturated",
+      "title": "Smell rises late in a tray's life",
       "severity": "common",
-      "summary": "The box rakes normally but the room smells worse than expected, usually later in a tray cycle.",
+      "summary": "The box smells fine at first, then worse as a tray ages.",
       "causes": [
-        "The crystals are saturated. They absorb well early and much less well once loaded.",
-        "Solid waste is sitting in the covered compartment longer than the crystals can dry it.",
-        "It is an uncovered box, so there is no sealed drawer doing any containment."
+        "The crystals are saturated and absorbing less.",
+        "Solid waste is sitting in the compartment too long."
       ],
       "fixes": [
         {
           "step": "Change the tray sooner",
-          "detail": "Tray life is a guideline, not a guarantee. A larger or more frequent cat will exhaust the crystals early."
+          "detail": "Tray life varies with your cat; a larger cat or extra use exhausts it early."
         },
         {
           "step": "Stir the crystals",
-          "detail": "Mixing the bed weekly exposes dry crystals and noticeably extends useful tray life."
+          "detail": "Mixing the bed weekly exposes fresh crystals."
         },
         {
           "step": "Empty the waste compartment",
-          "detail": "Solids collect at one end. Clearing them is a separate job from changing the tray."
+          "detail": "Clear solids from the covered end separately from changing the tray."
         }
       ],
-      "escalate": "A persistent ammonia smell on a fresh tray can point at a cat health issue rather than the box. That is worth a vet conversation."
+      "escalate": "Persistent ammonia smell on a fresh tray may be a health signal worth raising with a vet."
     }
   ]
 }

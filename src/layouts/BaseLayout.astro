@@ -14,6 +14,9 @@ const {
   image = DEFAULT_OG,
   imageAlt = null,
   ogType = 'website',
+  // Live for readers, hidden from search engines. "follow" keeps link equity
+  // flowing to the pages these link to.
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = title ? title + ' | ' + SITE.name : SITE.name + ' — ' + SITE.tagline;
@@ -30,6 +33,7 @@ const ogImage = absoluteUrl(image);
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />

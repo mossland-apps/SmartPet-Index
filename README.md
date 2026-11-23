@@ -25,26 +25,53 @@ Nothing is typed into an article. Every page reads from these:
 | --- | --- |
 | Products (specs + scores + review prose) | `src/data/products/*.json` |
 | Brands | `src/data/brands/*.json` |
-| Troubleshooting hubs | `src/data/troubleshooting/*.json` |
+| Troubleshooting hubs (model-specific only) | `src/data/troubleshooting/*.json` |
+| Common troubleshooting (shared by every model) | `src/data/troubleshooting-common.json` |
+| Featured comparisons + written verdicts | `src/data/comparisons/*.json` |
 | Buying guides | `src/data/guides/*.json` |
 | Best-of rankings (filters + sort rules) | `src/lib/rankings.js` |
 | Score weights | `src/lib/scoring.js` |
-| Navigation + affiliate settings | `src/config/site.js` |
+| Amazon associate tag + retailer links | `src/lib/retailers.js` |
+| Navigation | `src/config/site.js` |
 
-The seed scripts in `scripts/` generated the current data files. They are kept so the
-whole catalogue can be regenerated, but day-to-day edits go straight into the JSON.
+The JSON files are the single source of truth. There are deliberately no generator
+scripts: the original seed scripts held unverified data, and re-running one would have
+silently overwritten verified records. Edit the JSON directly.
 
-## Turning on affiliate links
+## Accuracy rules
 
-Open `src/config/site.js` and put the tag in `AFFILIATES.amazon.tag`. Every
-"Check Price" button on the site picks it up. Nothing else needs to change.
+Every product carries `sources` (the manufacturer page and/or current Amazon listing
+the figures came from) and a `lastVerified` date. Anything that cannot be sourced is
+`null` and renders as "—" rather than as a guess. `npm test` fails once a verified
+product is more than 45 days old — that failure is the prompt to re-check prices and
+models, not something to silence.
+
+## What Google is allowed to index
+
+The site generates far more pages than it offers to search engines:
+
+- **Comparison pages** exist for every pair of products so the comparison tool works,
+  but only the pairs in `src/data/comparisons/` — each with a written verdict — are
+  indexable. Every other pair carries `noindex, follow`.
+- **Troubleshooting hubs** hold only model-specific content. Generic fixes live once on
+  `/troubleshooting/` and every hub links to them. A hub with too little verified,
+  model-specific material is marked `"indexable": false` and stays live for owners.
+- **The sitemap** lists only indexable pages, so the two signals never disagree.
+
+This is deliberate. In September 2026 the site lost its search traffic during a Google
+spam update, when 74% of its pages were auto-generated comparisons and the
+troubleshooting hubs were near-copies of each other. Tests now fail if a non-featured
+comparison becomes indexable, if a hub repeats a generic fix, or if two indexable hubs
+share more than 20% of their text.
 
 ## Adding a product
 
-1. Copy an existing file in `src/data/products/`.
+1. Copy an existing file in `src/data/products/`. Record `sources` and `lastVerified`,
+   and leave anything you cannot source as `null`.
 2. Fill in every field — `npm test` fails if a standardized spec field or a score is
    missing, which is deliberate.
-3. Add a matching file in `src/data/troubleshooting/` keyed to the same slug.
+3. Add a matching file in `src/data/troubleshooting/` keyed to the same slug, with only
+   model-specific content, its own `sources`, and an honest `indexable` flag.
 4. Run `npm test`.
 
 The review page, every ranking it qualifies for, its brand hub entry, its

@@ -1,0 +1,20 @@
+{
+  "slug": "petkit-pura-max-2-vs-petsnowy-snow-plus",
+  "pair": [
+    "petkit-pura-max-2",
+    "petsnowy-snow-plus"
+  ],
+  "summary": "The PETKIT PuraMax 2 costs $210 less and gives you something the PetSnowy does not emphasise: per-cat health tracking, identifying each cat by weight and logging visits, frequency and duration in the app. It has a 76 L interior and two years of coverage. The PetSnowy SNOW+ puts its effort into odour instead, sealing waste after every cycle and using a TiO2 photocatalyst. Both rely on their own bags. Choose on what you want the box to tell you versus what you want it to hide.",
+  "chooseA": [
+    "You want per-cat health data on weight and visit patterns",
+    "Price matters: it lists for $210 less",
+    "You value two years of included coverage",
+    "Your cats are at least six months old and between 3.3 and 22 lb"
+  ],
+  "chooseB": [
+    "Odour control matters more to you than health data",
+    "You want each cycle's waste sealed away",
+    "You have the floor space for a 31 in long unit",
+    "You prefer an enclosed, odour-first design"
+  ]
+}

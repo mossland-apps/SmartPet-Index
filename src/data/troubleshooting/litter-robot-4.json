@@ -1,279 +1,267 @@
 {
   "product": "litter-robot-4",
-  "intro": "The Litter-Robot 4 signals almost every fault through the status light, so start there. Blue is a pause, yellow is the drawer, red is a stop. Nearly every red-light call we can find in owner reports comes down to overfilled litter or a drawer that is not fully seated.",
+  "indexable": true,
+  "intro": "The Litter-Robot 4 reports almost everything through its light bar, and both colour and pattern matter: solid red and flashing red mean different things. The meanings below follow Whisker's official light codes guide. Whisker revises codes with firmware updates, so if your unit shows something not listed here, their guide is the authority.",
+  "sources": [
+    {
+      "name": "Whisker — Litter-Robot 4 light codes guide",
+      "url": "https://www.litter-robot.com/support/article/litter-robot-4-light-codes-guide/"
+    },
+    {
+      "name": "Whisker — Litter-Robot 4 specifications",
+      "url": "https://www.litter-robot.com/litter-robot-4.html"
+    },
+    {
+      "name": "Amazon — Whisker Store",
+      "url": "https://www.amazon.com/dp/B0FFDNZSHT"
+    }
+  ],
+  "facts": [
+    {
+      "text": "Rated for cats from 3 to 25 lb; each cat must be at least 3 lb for Automatic Mode.",
+      "common": "cat-weight-incorrect"
+    },
+    {
+      "text": "Whisker notes the scale is most accurate on a firm surface rather than carpet or uneven flooring.",
+      "common": "cat-weight-incorrect"
+    },
+    {
+      "text": "Designed for standard-weight clay clumping litter. Whisker lists crystal, plant-based, wood pellet, newspaper and non-clumping litters as incompatible."
+    },
+    {
+      "text": "Runs on a 15 V DC power supply. Using the wrong supply triggers its own light code."
+    }
+  ],
   "symptoms": [
     {
       "slug": "flashing-blue-light",
       "title": "Flashing blue light",
       "severity": "common",
-      "summary": "The status light pulses blue rather than sitting solid.",
+      "summary": "A flashing blue light bar means the waste drawer is full.",
       "causes": [
-        "A cycle is paused because the cat sensor is still triggered.",
-        "The unit is in the middle of its post-visit countdown.",
-        "Something is resting on the globe and holding the weight sensor active."
+        "The drawer has reached capacity."
       ],
       "fixes": [
         {
-          "step": "Wait out the countdown",
-          "detail": "A pulsing blue light during the delay period is normal behaviour, not a fault."
-        },
-        {
-          "step": "Clear the top of the unit",
-          "detail": "A towel, a cat bed or a second cat sitting on the bonnet will hold the sensor triggered indefinitely."
-        },
-        {
-          "step": "Reset by power cycle",
-          "detail": "If blue persists with nothing on the unit, unplug for 30 seconds."
+          "step": "Empty, reset, cycle",
+          "detail": "Empty the waste drawer, press Reset, then press Cycle."
         }
       ],
-      "escalate": "Continuous pulsing blue with an empty, level unit points to a weight sensor fault — a warranty item."
+      "escalate": "If it keeps flashing blue with an empty drawer, Whisker's drawer-full guide and support line are the next step."
+    },
+    {
+      "slug": "blue-with-flashing-yellow",
+      "title": "Blue with two flashing yellow lights",
+      "severity": "common",
+      "summary": "The scale has been triggered for more than 30 minutes.",
+      "causes": [
+        "Something is resting on or against the unit, or the base is not sitting squarely on the floor."
+      ],
+      "fixes": [
+        {
+          "step": "Clear and reposition",
+          "detail": "Remove anything adding weight, and make sure the unit is not on carpet, a litter mat, a power cord or a grout line, and is not touching a wall. Then press Reset."
+        }
+      ],
+      "escalate": "If the alert returns with the unit clear and level, contact Whisker — the scale may need attention."
+    },
+    {
+      "slug": "solid-red-light",
+      "title": "Solid red light",
+      "severity": "normal",
+      "summary": "The cat sensor has detected a cat entering, and the cycle delay countdown has started.",
+      "causes": [
+        "Normal behaviour after a visit."
+      ],
+      "fixes": [
+        {
+          "step": "Let it finish",
+          "detail": "The unit cycles once the countdown ends. Pressing Reset starts the cycle sooner."
+        }
+      ],
+      "escalate": "Solid red that never clears after the countdown is not normal — check for the flashing red condition below."
     },
     {
       "slug": "flashing-red-light",
       "title": "Flashing red light",
       "severity": "serious",
-      "summary": "Red is the fault code. The unit has stopped and will not resume on its own.",
+      "summary": "A cat or weight has been detected in the globe for more than 30 minutes.",
       "causes": [
-        "The globe is obstructed or has not returned to its home position.",
-        "The drawer is out or not fully seated.",
-        "Over-torque protection has tripped, usually from packed or overfilled litter."
+        "A cat is resting inside, or litter, a toy or another object is weighing on the sensor."
       ],
       "fixes": [
         {
-          "step": "Power off and inspect",
-          "detail": "Unplug, remove the globe, and look for a jam at the sifting screen or the drop zone."
-        },
-        {
-          "step": "Reduce the litter",
-          "detail": "Remove litter down to the fill line before restarting. Over-filling is the usual cause of an over-torque trip."
-        },
-        {
-          "step": "Reseat and restart",
-          "detail": "Refit the globe, seat the drawer until it clicks, then plug in and let it home itself."
+          "step": "Check inside and around",
+          "detail": "Make sure no cat is inside and nothing is sitting in the globe or leaning on the unit. Whisker links a dedicated guide for this code from its light codes page."
         }
       ],
-      "escalate": "Red that returns immediately after a clean restart is a motor or control-board fault. Do not keep resetting it — open a warranty case."
+      "escalate": "If it flashes red with the globe empty and nothing touching the unit, follow Whisker's red flashing guide or contact their support."
+    },
+    {
+      "slug": "red-with-flashing-yellow",
+      "title": "Red with two flashing yellow lights",
+      "severity": "serious",
+      "summary": "The globe is jammed or overloaded. The motor stops, retracts and tries to continue the cycle.",
+      "causes": [
+        "Too much litter, or a large clump, is resisting rotation."
+      ],
+      "fixes": [
+        {
+          "step": "Reduce the load",
+          "detail": "Bring the litter down to the fill line and remove any large clump, then let the unit retry."
+        }
+      ],
+      "escalate": "Repeated jams on a correct litter level point to a mechanical problem. Contact Whisker rather than forcing the globe."
+    },
+    {
+      "slug": "solid-yellow-light",
+      "title": "Solid yellow light",
+      "severity": "common",
+      "summary": "The unit has been paused.",
+      "causes": [
+        "A button press or interruption paused the cycle."
+      ],
+      "fixes": [
+        {
+          "step": "Resume",
+          "detail": "Press Cycle or Reset. If neither resumes it, turn the unit off with the Power button and back on."
+        }
+      ],
+      "escalate": "If it will not leave the paused state after a power cycle, contact Whisker."
     },
     {
       "slug": "flashing-yellow-light",
       "title": "Flashing yellow light",
       "severity": "common",
-      "summary": "Yellow indicates the drawer needs attention.",
+      "summary": "The bonnet has been removed.",
       "causes": [
-        "The waste drawer is full.",
-        "The drawer is not seated.",
-        "The drawer sensor is dusty and reading full."
+        "The bonnet is off or not seated."
       ],
       "fixes": [
         {
-          "step": "Empty and reseat",
-          "detail": "Empty the drawer, wipe the sensor window, and push the drawer home until it clicks."
-        },
-        {
-          "step": "Reset the counter",
-          "detail": "Press and hold the reset so the fill count clears."
+          "step": "Refit the bonnet",
+          "detail": "Replace the bonnet. The unit resumes what it was doing about five seconds later."
         }
       ],
-      "escalate": "Yellow with an empty, clean, correctly seated drawer is a sensor fault."
+      "escalate": "Flashing yellow with the bonnet firmly in place suggests a sensor problem worth raising with Whisker."
     },
     {
-      "slug": "cycle-interrupted",
-      "title": "Cycle interrupted",
-      "severity": "common",
-      "summary": "The cycle starts and then reverses or aborts partway.",
-      "causes": [
-        "The cat re-entered mid-cycle. This is the safety system doing its job.",
-        "A clump has jammed against the sifting screen.",
-        "The unit is on an unstable surface and the weight reading fluctuates during rotation."
-      ],
-      "fixes": [
-        {
-          "step": "Confirm it is not the cat",
-          "detail": "Check the app cycle log. An interruption immediately followed by a visit entry is normal safety behaviour."
-        },
-        {
-          "step": "Clear the screen",
-          "detail": "Power off and scrape any welded clump from the screen and drop zone."
-        },
-        {
-          "step": "Stabilise the base",
-          "detail": "Move the unit off carpet or a flexing floorboard onto a solid, level surface."
-        }
-      ],
-      "escalate": "Repeated interruptions with no cat present and a clean screen indicate a sensor fault."
-    },
-    {
-      "slug": "wont-cycle",
-      "title": "Will not cycle",
+      "slug": "yellow-ping-pong",
+      "title": "One yellow light moving back and forth",
       "severity": "serious",
-      "summary": "The unit sits idle after a visit, or starts and immediately stops without completing a cycle.",
+      "summary": "The pinch detector has been activated.",
       "causes": [
-        "Too much litter. Overfilling past the fill line is the single most common cause of a failed cycle.",
-        "A clump has welded to the sifting screen or the drum wall and is jamming rotation.",
-        "The waste drawer is not seated fully, so the safety interlock keeps the motor disabled."
+        "Something has triggered the anti-pinch protection during movement."
       ],
       "fixes": [
         {
-          "step": "Check the litter level",
-          "detail": "Litter should sit at or just below the marked fill line. If in doubt, remove a cup and try again."
-        },
-        {
-          "step": "Reseat the drawer",
-          "detail": "Pull the waste drawer fully out and push it back until it clicks. A drawer that is 5 mm proud will stop the cycle."
-        },
-        {
-          "step": "Clear the screen",
-          "detail": "Power off, remove the globe or drum, and scrape any welded clumps off the sifting screen with a plastic scraper."
-        },
-        {
-          "step": "Run an empty test cycle",
-          "detail": "With the litter removed, run one cycle. If it completes empty and fails when loaded, the problem is litter or weight, not the motor."
+          "step": "Check for obstructions",
+          "detail": "Look for anything caught between the globe and the base before restarting."
         }
       ],
-      "escalate": "A unit that fails an empty test cycle has a motor, gear or control-board fault and needs warranty service. Stop using it."
+      "escalate": "If the pinch detector keeps tripping with nothing in the way, contact Whisker."
     },
     {
-      "slug": "cat-weight-incorrect",
-      "title": "Cat weight readings are wrong",
+      "slug": "red-and-blue-alternating",
+      "title": "Red and blue alternating",
       "severity": "common",
-      "summary": "The app reports a weight that is clearly wrong, jumps between visits, or attributes visits to the wrong cat.",
+      "summary": "The three laser curtain sensors need cleaning.",
       "causes": [
-        "The unit is not on a level floor. Weight sensing assumes level.",
-        "Litter has been added or removed without re-taring, so the baseline is stale.",
-        "Something is resting against the unit — a wall, a mat edge, a cable — and taking part of the load."
+        "Litter dust on the curtain sensors."
       ],
       "fixes": [
         {
-          "step": "Level it",
-          "detail": "Use a phone level on the base. Even a small tilt on an uneven floor throws readings off by a pound or more."
-        },
-        {
-          "step": "Re-tare after every litter change",
-          "detail": "Run the calibration or re-zero routine in the app whenever you add or fully change litter."
-        },
-        {
-          "step": "Give it clearance",
-          "detail": "Leave two inches around the unit and keep it off thick rugs, which flex under load."
-        },
-        {
-          "step": "Separate similar cats manually",
-          "detail": "Weight-based identification cannot reliably separate two cats within about a pound of each other. Tag visits by hand if that is your situation."
+          "step": "Clean the curtain sensors",
+          "detail": "Clean the three laser sensors that detect a cat at the entrance."
         }
       ],
-      "escalate": "If readings are still erratic on a level floor after re-taring, the load cell is likely faulty and is a warranty item."
+      "escalate": "If the alert persists after cleaning, Whisker can walk through recalibration."
     },
     {
-      "slug": "drawer-shows-full",
-      "title": "Drawer shows full when it is not",
+      "slug": "green-with-flashing-red",
+      "title": "Green with two flashing red lights",
       "severity": "common",
-      "summary": "The app or the indicator light insists the waste drawer is full immediately after you emptied it.",
+      "summary": "Automatic calibration of the cat-detection sensors has failed and they need cleaning.",
       "causes": [
-        "Waste is packed against the sensor window rather than spread across the drawer.",
-        "The sensor window is dusty. Litter dust builds a film that reads as full.",
-        "The liner is bunched up over the sensor."
+        "Dirty sensors preventing calibration."
       ],
       "fixes": [
         {
-          "step": "Wipe the sensor window",
-          "detail": "Find the small clear window inside the drawer bay and wipe it with a dry microfibre cloth. Do this monthly."
-        },
-        {
-          "step": "Reset the drawer count",
-          "detail": "Use the reset in the app or the physical drawer button so the counter clears after emptying."
-        },
-        {
-          "step": "Fit the liner flat",
-          "detail": "Tuck the bag so it lies against the drawer walls rather than ballooning across the sensor line."
+          "step": "Clean, then let it recalibrate",
+          "detail": "Clean the sensors. A green light moving back and forth afterwards means calibration is running and needs nothing from you."
         }
       ],
-      "escalate": "A sensor that reads full with the drawer removed entirely is faulty and is a warranty item."
+      "escalate": "If calibration keeps failing on clean sensors, contact Whisker."
     },
     {
-      "slug": "offline-or-wont-connect",
-      "title": "Shows offline in the app",
+      "slug": "wifi-light",
+      "title": "Wi-Fi light by the Connect button",
       "severity": "common",
-      "summary": "The unit works but the Whisker app shows it as offline, or commands from the app do nothing.",
+      "summary": "The small light beside the Connect button shows the network state separately from the main light bar.",
       "causes": [
-        "The box is on a 5 GHz network segment. Almost every litter box on the market is 2.4 GHz only.",
-        "The router moved the unit to a different band after a firmware update or a mesh node reshuffle.",
-        "The box sits behind an appliance or in a metal-lined cabinet that kills the signal."
+        "Flashing blue: connecting, or trying to reconnect after losing the connection.",
+        "Flashing red: the unit cannot reach the router.",
+        "Solid white: Wi-Fi is switched off."
       ],
       "fixes": [
         {
-          "step": "Check the band",
-          "detail": "Confirm your phone is on the 2.4 GHz network when you pair. On a combined-band router, temporarily split the bands or use the guest 2.4 GHz network."
+          "step": "Flashing red",
+          "detail": "Check the router is on and working, then power cycle the robot."
         },
         {
-          "step": "Power cycle in order",
-          "detail": "Unplug the box for 30 seconds, then reboot the router, then plug the box back in. Order matters — the box looks for the network on boot."
-        },
-        {
-          "step": "Move it 3 feet",
-          "detail": "Signal strength at floor level behind a washing machine is far worse than it looks. Try the unit in the open before concluding the radio is faulty."
-        },
-        {
-          "step": "Re-pair from scratch",
-          "detail": "Remove the device from the app entirely, then run setup again rather than retrying the existing entry."
+          "step": "Solid white",
+          "detail": "Short-press the Connect button to turn Wi-Fi back on."
         }
       ],
-      "escalate": "If it pairs and drops within minutes repeatedly, that is a hardware or firmware fault — contact Whisker rather than continuing to re-pair."
+      "escalate": "Whisker lists a flashing white Wi-Fi light as a defective Wi-Fi chip, which means a base replacement through support."
     },
     {
-      "slug": "wifi-setup-failed",
-      "title": "Wi-Fi setup fails during pairing",
-      "severity": "common",
-      "summary": "Setup runs to the last step and then reports a failure, or the app never finds the unit.",
+      "slug": "red-and-green-alternating",
+      "title": "Red and green alternating",
+      "severity": "serious",
+      "summary": "The unit has lost its factory scale calibration.",
       "causes": [
-        "Phone is on 5 GHz while the box needs 2.4 GHz.",
-        "The Wi-Fi password contains characters the unit rejects, or the network name is hidden.",
-        "Location or local-network permission is denied to the Whisker app, so it cannot see the device."
+        "A scale calibration fault in the base."
       ],
       "fixes": [
         {
-          "step": "Grant the permissions",
-          "detail": "Both Location and Local Network permissions must be allowed for pairing to work on iOS. Android needs Location."
-        },
-        {
-          "step": "Use a simple 2.4 GHz SSID",
-          "detail": "Broadcast a plain, visible 2.4 GHz network with an alphanumeric password for setup. You can move it afterwards."
-        },
-        {
-          "step": "Stay within six feet during pairing",
-          "detail": "Pairing uses a short-range handshake before the box joins the network."
+          "step": "Contact Whisker",
+          "detail": "This is not user-fixable: Whisker states the base needs replacing. Submit a support request."
         }
       ],
-      "escalate": "If pairing fails on a known-good 2.4 GHz network from two different phones, the radio module is faulty."
+      "escalate": "Contact Whisker support directly for a base replacement."
     },
     {
-      "slug": "odor-problems",
-      "title": "It still smells",
-      "severity": "common",
-      "summary": "The box cycles normally but the room smells worse than expected — often starting a few weeks in.",
+      "slug": "solid-purple-light",
+      "title": "Solid purple light",
+      "severity": "normal",
+      "summary": "Sleep Mode is on.",
       "causes": [
-        "The carbon filter is past its life. Filters degrade quietly; there is no warning.",
-        "The drawer gasket has litter dust on the seal face, so the drawer no longer closes airtight.",
-        "Litter depth is too shallow, so urine reaches the drum wall instead of clumping.",
-        "The unit needs a full wash. Waste film builds on the drum wall and no amount of cycling removes it."
+        "Sleep Mode was enabled, by schedule or by hand."
       ],
       "fixes": [
         {
-          "step": "Replace the filter",
-          "detail": "Set a recurring reminder rather than waiting to notice. Whisker filters are a running cost, not an optional accessory."
-        },
-        {
-          "step": "Clean the gasket",
-          "detail": "Wipe the drawer seal and the mating face with a damp cloth, then dry. A gritty seal leaks."
-        },
-        {
-          "step": "Deepen the litter",
-          "detail": "Run to the fill line, not below it. Shallow litter is the most common cause of odor in an otherwise healthy unit."
-        },
-        {
-          "step": "Full wash every 4-6 weeks",
-          "detail": "Strip the unit, wash the drum and drawer with unscented soap and warm water, dry completely before reassembly."
+          "step": "Toggle Sleep Mode",
+          "detail": "Long-press the Cycle button to turn Sleep Mode off, or back on."
         }
       ],
-      "escalate": "Persistent ammonia smell despite all of the above can indicate a cat health issue. It is worth a vet conversation, not just a cleaning routine."
+      "escalate": "If it will not leave Sleep Mode, check the schedule in the Whisker app."
+    },
+    {
+      "slug": "wrong-litter",
+      "title": "Clumps break up or litter leaves residue",
+      "severity": "common",
+      "summary": "Cycles leave waste behind, clumps crumble, or litter collects where it should not.",
+      "causes": [
+        "The litter is not one Whisker recommends for this unit."
+      ],
+      "fixes": [
+        {
+          "step": "Switch litter",
+          "detail": "Use a high-quality, standard-weight clay clumping litter. Whisker lists crystal, plant-based, wood pellet, newspaper and non-clumping litters as incompatible."
+        }
+      ],
+      "escalate": "If problems continue on a recommended litter, work through the light codes above or contact Whisker."
     }
   ]
 }

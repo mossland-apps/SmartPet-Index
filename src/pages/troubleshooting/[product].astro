@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import { products, getBrand } from '../../lib/catalog.js';
-import { getHub } from '../../lib/troubleshooting.js';
+import { getHub, commonSymptoms, getCommonSymptom } from '../../lib/troubleshooting.js';
 import { productPath, troubleshootingPath } from '../../lib/routes.js';
 import { productOgPath } from '../../lib/images.js';
 
@@ -15,28 +15,39 @@ export function getStaticPaths() {
 const { product, hub } = Astro.props;
 const brand = getBrand(product.brand);
 const siblings = products.filter((p) => p.brand === product.brand && p.slug !== product.slug);
+const facts = hub.facts || [];
+const sources = hub.sources || [];
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: hub.symptoms.map((s) => ({
-    '@type': 'Question',
-    name: product.model + ': ' + s.title,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: s.summary + ' ' + s.fixes.map((f) => f.step + ': ' + f.detail).join(' '),
-    },
-  })),
-};
+const SEVERITY = { serious: 'Stop and check', normal: 'Normal behaviour', common: 'Common' };
+
+const description = hub.symptoms.length
+  ? 'Fix ' + product.model + ' problems: ' + hub.symptoms.slice(0, 5).map((s) => s.title.toLowerCase()).join(', ') + '.'
+  : product.model + ' troubleshooting: where to find model-specific help, and fixes for common automatic litter box problems.';
+
+const jsonLd = hub.symptoms.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: hub.symptoms.map((s) => ({
+        '@type': 'Question',
+        name: product.model + ': ' + s.title,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: s.summary + ' ' + s.fixes.map((f) => f.step + ': ' + f.detail).join(' '),
+        },
+      })),
+    }
+  : null;
 ---
 
 <BaseLayout
   title={product.model + ' Troubleshooting'}
-  description={'Fix ' + product.model + ' problems: ' + hub.symptoms.slice(0, 5).map((s) => s.title.toLowerCase()).join(', ') + '.'}
+  description={description}
   jsonLd={jsonLd}
   image={productOgPath(product.slug)}
   imageAlt={product.model + ' troubleshooting — SmartPet Index'}
   ogType="article"
+  noindex={!hub.indexable}
 >
   <PageHeader
     eyebrow="Troubleshooting"
@@ -47,67 +58,122 @@ const jsonLd = {
       { label: product.model },
     ]}
   >
-    <div class="jump">
-      {
-        hub.symptoms.map((s) => (
-          <a class={'chip ' + (s.severity === 'serious' ? 'chip-serious' : '')} href={'#' + s.slug}>
-            {s.title}
-          </a>
-        ))
-      }
-    </div>
+    {
+      hub.symptoms.length > 0 && (
+        <div class="jump">
+          {hub.symptoms.map((s) => (
+            <a class={'chip ' + (s.severity === 'serious' ? 'chip-serious' : '')} href={'#' + s.slug}>
+              {s.title}
+            </a>
+          ))}
+        </div>
+      )
+    }
   </PageHeader>
 
   <section class="section">
     <div class="wrap layout">
       <div class="symptoms">
+        <!-- Only content specific to this model lives in hub-body. -->
+        <div class="hub-body">
+          {
+            facts.length > 0 && (
+              <section class="facts">
+                <h2>Know your {product.shortName || product.model}</h2>
+                <ul>
+                  {facts.map((f) => (
+                    <li>
+                      {f.text}
+                      {f.common && getCommonSymptom(f.common) && (
+                        <a class="fact-link" href={'/troubleshooting/#' + f.common}>
+                          {getCommonSymptom(f.common).title} →
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          }
+
+          {
+            hub.symptoms.map((s) => (
+              <article class="symptom" id={s.slug}>
+                <div class="sym-head">
+                  <h2>{s.title}</h2>
+                  <span class={'badge ' + (s.severity === 'serious' ? 'badge-serious' : 'badge-sage')}>
+                    {SEVERITY[s.severity] || 'Common'}
+                  </span>
+                </div>
+                <p class="summary">{s.summary}</p>
+
+                <div class="cols">
+                  <div>
+                    <p class="mini-head">{s.causes.length > 1 ? 'Likely causes' : 'Cause'}</p>
+                    <ul class="causes">
+                      {s.causes.map((c) => (
+                        <li>{c}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="mini-head">{s.fixes.length > 1 ? 'Fix it, in this order' : 'What to do'}</p>
+                    <ol class="fixes">
+                      {s.fixes.map((f) => (
+                        <li>
+                          <strong>{f.step}.</strong> {f.detail}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+
+                <p class="escalate">
+                  <strong>When to stop and get help:</strong> {s.escalate}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+
+        <section class="common-links">
+          <h2>Common problems on any automatic litter box</h2>
+          <p class="muted small">
+            These affect almost every model, so the fixes are kept in one place rather than repeated on each page.
+          </p>
+          <ul>
+            {commonSymptoms.map((c) => (
+              <li><a href={'/troubleshooting/#' + c.slug}>{c.title}</a></li>
+            ))}
+          </ul>
+        </section>
+
         {
-          hub.symptoms.map((s) => (
-            <article class="symptom" id={s.slug}>
-              <div class="sym-head">
-                <h2>{s.title}</h2>
-                <span class={'badge ' + (s.severity === 'serious' ? 'badge-serious' : 'badge-sage')}>
-                  {s.severity === 'serious' ? 'Stop and check' : 'Common'}
-                </span>
-              </div>
-              <p class="summary">{s.summary}</p>
-
-              <div class="cols">
-                <div>
-                  <p class="mini-head">Likely causes</p>
-                  <ul class="causes">
-                    {s.causes.map((c) => (
-                      <li>{c}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p class="mini-head">Fix it, in this order</p>
-                  <ol class="fixes">
-                    {s.fixes.map((f) => (
-                      <li>
-                        <strong>{f.step}.</strong> {f.detail}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-
-              <p class="escalate">
-                <strong>When to stop and get help:</strong> {s.escalate}
-              </p>
-            </article>
-          ))
+          sources.length > 0 && (
+            <p class="sources">
+              Sources:{' '}
+              {sources.map((src, i) => (
+                <>
+                  {i > 0 && ' · '}
+                  <a href={src.url} rel="noopener" target="_blank">{src.name}</a>
+                </>
+              ))}
+            </p>
+          )
         }
       </div>
 
       <aside class="sidebar">
-        <div class="side-card">
-          <p class="side-head">Jump to a problem</p>
-          <ul class="toc">
-            {hub.symptoms.map((s) => <li><a href={'#' + s.slug}>{s.title}</a></li>)}
-          </ul>
-        </div>
+        {
+          hub.symptoms.length > 0 && (
+            <div class="side-card">
+              <p class="side-head">Jump to a problem</p>
+              <ul class="toc">
+                {hub.symptoms.map((s) => <li><a href={'#' + s.slug}>{s.title}</a></li>)}
+              </ul>
+            </div>
+          )
+        }
 
         <div class="side-card">
           <p class="side-head">About this box</p>
@@ -171,15 +237,41 @@ const jsonLd = {
     align-items: start;
   }
 
+  .facts {
+    background: var(--sage-050);
+    border: 1px solid var(--sage-300);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+
+  .facts h2 {
+    font-size: 1.15rem;
+    color: var(--sage-600);
+    margin-bottom: 10px;
+  }
+
+  .facts ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+  }
+
+  .facts li {
+    margin-bottom: 7px;
+  }
+
+  .fact-link {
+    margin-left: 8px;
+    font-size: 0.84rem;
+    white-space: nowrap;
+  }
+
   .symptom {
     padding: 24px 0;
     border-top: 1px solid var(--line);
     scroll-margin-top: 20px;
-  }
-
-  .symptom:first-child {
-    border-top: 0;
-    padding-top: 0;
   }
 
   .sym-head {
@@ -259,6 +351,36 @@ const jsonLd = {
     color: var(--ink-soft);
   }
 
+  .common-links {
+    margin-top: 34px;
+    padding-top: 24px;
+    border-top: 2px solid var(--blue-100);
+  }
+
+  .common-links h2 {
+    color: var(--blue-700);
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .common-links ul {
+    columns: 2;
+    column-gap: 28px;
+    padding-left: 18px;
+    margin: 12px 0 0;
+  }
+
+  .common-links li {
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+
+  .sources {
+    margin-top: 24px;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+
   .sidebar {
     position: sticky;
     top: 16px;
@@ -320,6 +442,10 @@ const jsonLd = {
 
     .sidebar {
       grid-template-columns: 1fr;
+    }
+
+    .common-links ul {
+      columns: 1;
     }
   }
 </style>

@@ -5,6 +5,7 @@ import { products } from '../../lib/catalog.js';
 import { overallScore, formatScore } from '../../lib/scoring.js';
 import { comparePath } from '../../lib/routes.js';
 import { isBuyable } from '../../lib/rankings.js';
+import { featuredComparisons } from '../../lib/comparisons.js';
 
 const options = products.filter(isBuyable).map((p) => ({
   slug: p.slug,
@@ -13,18 +14,10 @@ const options = products.filter(isBuyable).map((p) => ({
   overall: formatScore(overallScore(p.scores)),
 }));
 
-// A handful of pairings people actually search for. Any pair naming a product that
-// has been renamed, retired or gone out of stock drops out rather than breaking the
-// build — the list is a convenience, not a contract.
-const popular = [
-  ['litter-robot-4', 'catlink-ultra'],
-  ['litter-robot-4', 'casa-leo-leos-loo-too'],
-  ['litter-robot-4', 'neakasa-m1-plus'],
-  ['petkit-purobot-ultra', 'litter-robot-4'],
-  ['catlink-ultra', 'catlink-luxury-pro-x'],
-  ['meowant-sc02', 'meowant-sc10'],
-]
-  .map(([x, y]) => ({ a: products.find((p) => p.slug === x), b: products.find((p) => p.slug === y) }))
+// The comparisons with a written verdict — the ones people actually search for,
+// and the only comparison pages offered to search engines.
+const popular = featuredComparisons
+  .map((c) => ({ a: products.find((p) => p.slug === c.pair[0]), b: products.find((p) => p.slug === c.pair[1]), c }))
   .filter(({ a, b }) => a && b && isBuyable(a) && isBuyable(b))
   .map(({ a, b }) => ({ a, b, href: comparePath(a.slug, b.slug) }));
 ---

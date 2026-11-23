@@ -5,6 +5,8 @@ import { products, brands } from '../src/lib/catalog.js';
 import { BEST_OF_LISTS } from '../src/lib/rankings.js';
 import { expectedRoutes } from '../src/lib/routes.js';
 import { guides } from '../src/lib/guides.js';
+import { featuredComparisons } from '../src/lib/comparisons.js';
+import { troubleshootingHubs } from '../src/lib/troubleshooting.js';
 import {
   OG_SIZE,
   PRODUCT_IMAGE_SIZE,
@@ -111,11 +113,17 @@ describe('built site', () => {
   });
 
   it('marks every outbound retailer link as sponsored and nofollow', () => {
+    // Buy links: any Chewy link, and any Amazon link carrying our associate tag.
+    // Untagged Amazon links are source citations on troubleshooting hubs, not
+    // commercial links, so they are not held to the sponsored rule.
     const problems = [];
     for (const file of htmlFiles) {
       const html = readFileSync(file, 'utf8');
-      for (const m of html.matchAll(/<a\s([^>]*href="https?:\/\/(?:www\.)?(?:amazon|chewy)[^"]*"[^>]*)>/g)) {
+      for (const m of html.matchAll(/<a\s([^>]*href="(https?:\/\/(?:www\.)?(?:amazon|chewy)[^"]*)"[^>]*)>/g)) {
         const attrs = m[1];
+        const href = m[2];
+        const isBuyLink = /chewy\.com/.test(href) || /[?&]tag=/.test(href);
+        if (!isBuyLink) continue;
         if (!/nofollow/.test(attrs) || !/sponsored/.test(attrs)) {
           problems.push(relative(dist, file) + ': unmarked retailer link');
         }
@@ -381,5 +389,82 @@ describe('renamed products', () => {
     for (const slug of RETIRED) {
       expect(products.find((p) => p.slug === slug), slug + ' is still in the catalog').toBeUndefined();
     }
+  });
+});
+
+describe('search engine indexing', () => {
+  const isNoindex = (file) => /<meta name="robots" content="noindex/i.test(readFileSync(file, 'utf8'));
+  const pageFor = (url) => join(dist, url.replace('https://smartpetindex.com', ''), 'index.html');
+
+  it('hides every auto-generated comparison except the featured few', () => {
+    const featured = new Set(featuredComparisons.map((c) => c.slug));
+    const wrong = [];
+    for (const dir of readdirSync(join(dist, 'compare')).filter((n) => n.includes('-vs-'))) {
+      const file = join(dist, 'compare', dir, 'index.html');
+      if (isRedirectStub(file)) continue;
+      const hidden = isNoindex(file);
+      if (featured.has(dir) && hidden) wrong.push(dir + ' is featured but hidden');
+      if (!featured.has(dir) && !hidden) wrong.push(dir + ' is auto-generated but indexable');
+    }
+    expect(wrong).toEqual([]);
+  });
+
+  it('puts a written verdict on every featured comparison page', () => {
+    for (const c of featuredComparisons) {
+      const html = readFileSync(join(dist, 'compare', c.slug, 'index.html'), 'utf8');
+      expect(html, c.slug).toContain('class="verdict"');
+    }
+  });
+
+  it('hides exactly the troubleshooting hubs marked as not indexable', () => {
+    for (const hub of troubleshootingHubs) {
+      const file = join(dist, 'troubleshooting', hub.product, 'index.html');
+      expect(isNoindex(file), hub.product).toBe(!hub.indexable);
+    }
+  });
+
+  it('lists only indexable pages in the sitemap', () => {
+    const xml = readFileSync(join(dist, 'sitemap.xml'), 'utf8');
+    const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const problems = [];
+    for (const url of urls) {
+      const file = pageFor(url);
+      if (!existsSync(file)) problems.push(url + ' does not exist');
+      else if (isNoindex(file)) problems.push(url + ' is noindex but in the sitemap');
+      else if (isRedirectStub(file)) problems.push(url + ' is a redirect but in the sitemap');
+    }
+    expect(problems).toEqual([]);
+    const compareUrls = urls.filter((u) => u.includes('/compare/') && u.includes('-vs-'));
+    expect(compareUrls.length).toBe(featuredComparisons.length);
+  });
+
+  it('keeps indexable troubleshooting hubs genuinely distinct from each other', () => {
+    // The original hubs averaged 35% shared text with the worst pair at 95%.
+    const body = (slug) => {
+      const html = readFileSync(join(dist, 'troubleshooting', slug, 'index.html'), 'utf8');
+      const m = html.match(/<div class="hub-body"[^>]*>([\s\S]*?)<section class="common-links"/);
+      return (m ? m[1] : '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').toLowerCase();
+    };
+    const shingles = (t) => {
+      const w = t.split(' ');
+      const s = new Set();
+      for (let i = 0; i + 8 <= w.length; i++) s.add(w.slice(i, i + 8).join(' '));
+      return s;
+    };
+    const indexable = troubleshootingHubs.filter((h) => h.indexable).map((h) => h.product);
+    const sets = indexable.map((slug) => [slug, shingles(body(slug))]);
+    const worst = [];
+    for (let i = 0; i < sets.length; i++) {
+      expect(sets[i][1].size, sets[i][0] + ' has no hub-body content').toBeGreaterThan(20);
+      for (let j = i + 1; j < sets.length; j++) {
+        const [a, sa] = sets[i];
+        const [b, sb] = sets[j];
+        let inter = 0;
+        for (const x of sa) if (sb.has(x)) inter++;
+        const overlap = inter / (sa.size + sb.size - inter);
+        if (overlap > 0.2) worst.push(a + ' / ' + b + ': ' + Math.round(overlap * 100) + '%');
+      }
+    }
+    expect(worst).toEqual([]);
   });
 });

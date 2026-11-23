@@ -1,0 +1,20 @@
+{
+  "slug": "litter-robot-4-vs-petsnowy-snow-plus",
+  "pair": [
+    "litter-robot-4",
+    "petsnowy-snow-plus"
+  ],
+  "summary": "These two answer different questions. The Litter-Robot 4 is the box to buy if you never want to be tied to a consumable: it takes ordinary kitchen bags, handles cats from 3 to 25 lb, and comes from the maker with the deepest support and parts network in the category. The PetSnowy SNOW+ is the box to buy if odour is the whole problem: it seals waste into a liner after every cycle and treats the air with a titanium dioxide photocatalyst. It is $100 cheaper up front, but those liners are mandatory for as long as you own it.",
+  "chooseA": [
+    "You want no mandatory consumables — it takes standard kitchen bags",
+    "You have a large cat: it is rated up to 25 lb",
+    "Long-term support and spare parts matter to you",
+    "You want the option of a 3-year extended plan ($129)"
+  ],
+  "chooseB": [
+    "Odour containment is your top priority",
+    "You like waste sealed away after every cycle",
+    "You would rather spend $100 less at checkout",
+    "You are comfortable buying PetSnowy liners indefinitely ($49.99 per 50)"
+  ]
+}

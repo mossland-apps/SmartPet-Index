@@ -1,0 +1,20 @@
+{
+  "slug": "litter-robot-4-vs-petkit-pura-max-2",
+  "pair": [
+    "litter-robot-4",
+    "petkit-pura-max-2"
+  ],
+  "summary": "The PETKIT PuraMax 2 lists for $310 less than the Litter-Robot 4 and includes two years of coverage against the Litter-Robot's one. Both track each cat's weight in their apps. The case for the Litter-Robot 4 is ownership: it takes ordinary kitchen bags where the PuraMax 2 uses PETKIT's own, it is rated for cats up to 25 lb against 22 lb, and Whisker's support and parts network is the strongest in the category. Pay the difference if you plan to keep the box for years; save it if you want the most capable box for the money today.",
+  "chooseA": [
+    "You want ordinary kitchen bags and no consumable lock-in",
+    "Your cat is between 22 and 25 lb",
+    "You plan to keep the box for many years",
+    "Whisker's support and parts availability matter to you"
+  ],
+  "chooseB": [
+    "You want to spend $310 less up front",
+    "Two years of included coverage appeals",
+    "A 76 L interior suits your cats",
+    "Your cats are under 22 lb and over six months old"
+  ]
+}
