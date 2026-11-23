@@ -78,6 +78,19 @@ The review page, every ranking it qualifies for, its brand hub entry, its
 troubleshooting hub, its cost tables and a comparison page against every other
 product are all generated from that one file.
 
+## Prices
+
+`price` is the **Amazon list price**, not the sale price and not the brand store's
+"was" price (brand stores tend to inflate that figure). When a listing has several
+variants, use the higher list price. Amazon blocks automated access, so price checks
+are done by a person; brand stores are used to confirm models are still sold.
+
+## Products queued for later
+
+- **PETKIT Purobot Max 3** — successor to the PuraMax 2 on PETKIT's own store
+  (November 2026). The PuraMax 2 stays: it is still sold on Amazon and Chewy at its
+  $389 list price.
+
 ## Scores
 
 Six categories out of 10 — cleaning, odor control, safety, app, maintenance, value —

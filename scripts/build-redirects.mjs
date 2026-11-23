@@ -12,6 +12,7 @@ const RENAMES = {
   'catlink-scooper-pro-x': 'catlink-ultra',
   'catlink-luxury-pro': 'catlink-luxury-pro-x',
   'petsafe-scoopfree-smart': 'petsafe-scoopfree-smartspin',
+  'petpivot-open-top': 'petpivot-autoscooper-12-lite',
 };
 
 const slugs = readdirSync(join(root, 'src/data/products'))

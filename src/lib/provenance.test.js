@@ -17,7 +17,7 @@ const VERIFIED_SLUGS = [
   'meowant-sc02',
   'meowant-sc10',
   'catlink-open-x',
-  'petpivot-open-top',
+  'petpivot-autoscooper-12-lite',
   'petsafe-scoopfree-crystal-pro-legacy',
 ];
 

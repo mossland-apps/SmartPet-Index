@@ -1,8 +1,8 @@
 {
-  "slug": "petpivot-open-top",
+  "slug": "petpivot-autoscooper-12-lite",
   "brand": "petpivot",
-  "model": "PetPivot Open Top",
-  "shortName": "PetPivot Open Top",
+  "model": "PetPivot AutoScooper 12 Lite",
+  "shortName": "AutoScooper 12 Lite",
   "category": "litter-boxes",
   "form": "open",
   "price": 199,
@@ -14,10 +14,14 @@
     {
       "name": "Amazon — PetPivot Official",
       "url": "https://www.amazon.com/dp/B0GL7Q6YXZ"
+    },
+    {
+      "name": "PetPivot — AutoScooper 12 Lite",
+      "url": "https://petpivot.com/products/autoscooper-12-lite-automatic-litter-box"
     }
   ],
-  "lastVerified": "2026-09-23",
-  "lastUpdated": "2026-09-23",
+  "lastVerified": "2026-11-23",
+  "lastUpdated": "2026-11-23",
   "availability": "current",
   "scoreBasis": "research",
   "testedDate": null,
@@ -60,7 +64,7 @@
     "maintenance": 8.2,
     "value": 9.3
   },
-  "verdict": "The PetPivot is the anti-smart-box. No app, no account, no subscription, no connectivity to go wrong — and the money that would have gone into a camera has gone into safety hardware instead: seven pairs of infrared sensors, a touch-sensitive pedal that halts the cycle on contact, and a mechanical limiter that physically restricts rotation. It also does something clever that expensive boxes often get wrong, holding a deliberate clumping delay before it rotates so litter has set and does not smear. The catch is size: the basin is tight, and owners with large cats say so even though PetPivot rate it to 22 lb.",
+  "verdict": "The AutoScooper 12 Lite is the anti-smart-box. No app, no account, no subscription, no connectivity to go wrong — and the money that would have gone into a camera has gone into safety hardware instead: seven pairs of infrared sensors, a touch-sensitive pedal that halts the cycle on contact, and a mechanical limiter that physically restricts rotation. It also does something clever that expensive boxes often get wrong, holding a deliberate clumping delay before it rotates so litter has set and does not smear. The catch is size: the basin is tight, and owners with large cats say so even though PetPivot rate it to 22 lb.",
   "pros": [
     "Three independent safety layers, including a mechanical rotation limiter",
     "No app, no account and nothing to lose connection",
