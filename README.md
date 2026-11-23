@@ -90,6 +90,15 @@ are done by a person; brand stores are used to confirm models are still sold.
 - **PETKIT Purobot Max 3** — successor to the PuraMax 2 on PETKIT's own store
   (November 2026). The PuraMax 2 stays: it is still sold on Amazon and Chewy at its
   $389 list price.
+- **Meowant MW-SC02** — check first whether it is the same box as our existing
+  `meowant-sc02` page. Meowant's own store dates the MW-SC02 to 2024; our page says
+  2026.
+
+## Products to remove or replace if they do not come back
+
+- **Omega Paw Roll'n Clean** — unavailable on Amazon US since November 2026 and not
+  sold by Omega Paw directly. Marked hard to find. If it is not relisted, remove or
+  replace it (removing a product needs redirects for its old URLs).
 
 ## Scores
 

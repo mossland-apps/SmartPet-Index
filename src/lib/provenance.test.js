@@ -19,6 +19,7 @@ const VERIFIED_SLUGS = [
   'catlink-open-x',
   'petpivot-autoscooper-12-lite',
   'petsafe-scoopfree-crystal-pro-legacy',
+  'meowant-sc-m01',
 ];
 
 const MAX_AGE_DAYS = 45;

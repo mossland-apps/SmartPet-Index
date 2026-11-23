@@ -45,6 +45,11 @@ const SECTIONS = [
 
 const years = [1, 2, 3, 4, 5];
 
+// Products we still review but can no longer recommend buying.
+const availability = product.availability ?? 'current';
+const replacement = availability === 'current' ? null : products.find((p) => p.slug === product.supersededBy);
+const availabilityLabel = availability === 'discontinued' ? 'Discontinued' : 'Hard to find';
+
 // A Product that carries our review — deliberately in that order.
 //
 // Two of Google's validators look at this page and they pull in opposite directions:
@@ -121,6 +126,17 @@ const jsonLd = {
             <div class="head-meta">
               <span class="tiny muted">Updated {product.lastUpdated}</span>
             </div>
+
+            {replacement && (
+              <div class="availability-notice" role="note">
+                <p class="availability-label">{availabilityLabel}</p>
+                <p>{product.availabilityNote}</p>
+                <p>
+                  Looking for something you can buy today? See our{' '}
+                  <a href={productPath(replacement.slug)}>{replacement.model} review</a>.
+                </p>
+              </div>
+            )}
           </div>
 
           <aside class="head-side">
@@ -310,6 +326,32 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  .availability-notice {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--coral);
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: var(--shadow-card);
+    font-size: 0.92rem;
+  }
+
+  .availability-notice p {
+    margin: 0 0 6px;
+  }
+
+  .availability-notice p:last-child {
+    margin-bottom: 0;
+  }
+
+  .availability-label {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--coral);
+  }
+
   .review-head {
     background: linear-gradient(180deg, var(--blue-050) 0%, #fff 100%);
     padding: 22px 0 32px;

@@ -392,6 +392,22 @@ describe('renamed products', () => {
   });
 });
 
+describe('availability notices', () => {
+  it('tells readers when a reviewed product is hard to find or discontinued, and where to go instead', () => {
+    for (const p of products) {
+      const html = readFileSync(join(dist, 'reviews', p.slug, 'index.html'), 'utf8');
+      const current = (p.availability ?? 'current') === 'current';
+      if (current) {
+        expect(html, p.slug).not.toContain('class="availability-notice');
+        continue;
+      }
+      expect(html, p.slug).toContain('class="availability-notice');
+      expect(html, p.slug).toContain(p.availability === 'discontinued' ? 'Discontinued' : 'Hard to find');
+      expect(html, p.slug).toContain('href="/reviews/' + p.supersededBy + '/"');
+    }
+  });
+});
+
 describe('search engine indexing', () => {
   const isNoindex = (file) => /<meta name="robots" content="noindex/i.test(readFileSync(file, 'utf8'));
   const pageFor = (url) => join(dist, url.replace('https://smartpetindex.com', ''), 'index.html');
